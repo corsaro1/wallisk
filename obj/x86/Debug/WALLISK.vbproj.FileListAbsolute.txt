@@ -1,0 +1,11 @@
+C:\ProgramData\github\wallisk\WALLISK\bin\Debug\WALLISK.exe
+C:\ProgramData\github\wallisk\WALLISK\bin\Debug\WALLISK.pdb
+C:\ProgramData\github\wallisk\WALLISK\bin\Debug\WALLISK.xml
+C:\ProgramData\github\wallisk\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.exe
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.xml
+C:\ProgramData\github\wallisk\WALLISK\obj\x86\Debug\WALLISK.pdb
