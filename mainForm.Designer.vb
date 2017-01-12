@@ -86,6 +86,7 @@ Partial Class Lisk
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
+        Me.Button12 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -631,11 +632,21 @@ Partial Class Lisk
         Me.Label16.TabIndex = 76
         Me.Label16.Text = "the delegate list on the left"
         '
+        'Button12
+        '
+        Me.Button12.Location = New System.Drawing.Point(763, 22)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(75, 23)
+        Me.Button12.TabIndex = 77
+        Me.Button12.Text = "Button12"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(698, 386)
+        Me.ClientSize = New System.Drawing.Size(701, 395)
+        Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Button11)
@@ -761,5 +772,6 @@ Partial Class Lisk
     Friend WithEvents Button11 As System.Windows.Forms.Button
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents Button12 As System.Windows.Forms.Button
 
 End Class

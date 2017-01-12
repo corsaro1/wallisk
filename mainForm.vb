@@ -5,10 +5,12 @@ Imports System.IO
 Imports Newtonsoft.Json.Linq
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Text.RegularExpressions
+Imports Microsoft.Win32
 
 
 Public Class Lisk
     Dim senderId As Object
+    'Dim val As Object
 
     Public Shared Function ValidateRemoteCertificate(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal sslPolicyErrors As Security.SslPolicyErrors) As Boolean
         Return True
@@ -29,7 +31,7 @@ Public Class Lisk
         rawresp = reader.ReadToEnd()
         MsgBox(rawresp)
 
-        
+
 
         Dim jResults As Object = JObject.Parse(rawresp)
         TextBox1.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -42,7 +44,7 @@ Public Class Lisk
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        
+
         RadioButton1.PerformClick()
         Button5.Text = ""
         Label1.Text = ""
@@ -54,6 +56,42 @@ Public Class Lisk
 
         My.Computer.FileSystem.WriteAllBytes("Newtonsoft.Json.dll", My.Resources.Newtonsoft_Json, False)
 
+        Dim pRegKey As RegistryKey = Registry.CurrentUser
+        pRegKey = pRegKey.OpenSubKey("SOFTWARE\wallisk")
+        senderId = pRegKey.GetValue("address")
+        ' MsgBox(val)
+        carica()
+
+    End Sub
+
+    Private Sub carica()
+        Dim defaultResponse As String = String.Empty
+        Dim title As String = String.Empty
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+        On Error Resume Next
+        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+
+        Dim jResults As Object = JObject.Parse(rawresp)
+        Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        Dim jResults2 As Object = JObject.Parse(testo)
+        Dim testo2 As String = If(jResults2("balance") Is Nothing, "", jResults2("balance").ToString())
+
+        Dim testo4 As String
+        testo4 = testo2 / 100000000
+        Label1.Text = "Address " & senderId
+        Label4.Text = testo4 & " LISK"
+
+        Button5.Enabled = True
+        Button5.Text = "update"
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -72,7 +110,7 @@ Public Class Lisk
 
         Dim rawresp As String
         rawresp = reader.ReadToEnd()
-        
+
 
         Dim jResults As Object = JObject.Parse(rawresp)
         TextBox1.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -96,7 +134,7 @@ Public Class Lisk
 
         Dim rawresp As String
         rawresp = reader.ReadToEnd()
-        
+
 
         Dim jResults As Object = JObject.Parse(rawresp)
         TextBox2.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -124,7 +162,7 @@ Public Class Lisk
 
         Dim rawresp3 As String
         rawresp3 = reader3.ReadToEnd()
-        
+
 
         Dim jResults As Object = JObject.Parse(rawresp3)
         TextBox3.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -148,7 +186,7 @@ Public Class Lisk
 
         Dim rawresp4 As String
         rawresp4 = reader4.ReadToEnd()
-     
+
 
         Dim jResults As Object = JObject.Parse(rawresp4)
         TextBox4.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -173,7 +211,7 @@ Public Class Lisk
 
         Dim rawresp5 As String
         rawresp5 = reader5.ReadToEnd()
-        
+
 
         Dim jResults As Object = JObject.Parse(rawresp5)
         TextBox5.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -213,7 +251,7 @@ Public Class Lisk
 
         Dim rawresp6 As String
         rawresp6 = reader6.ReadToEnd()
-        
+
 
         Dim jResults As Object = JObject.Parse(rawresp6)
         TextBox6.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -239,7 +277,7 @@ Public Class Lisk
 
         Dim rawresp7 As String
         rawresp7 = reader7.ReadToEnd()
-       
+
 
         Dim jResults As Object = JObject.Parse(rawresp7)
         TextBox7.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
@@ -325,9 +363,12 @@ Public Class Lisk
         Dim prompt As String = String.Empty
 
 
+        Dim post As String
         Dim original As String
         prompt = "How many LISK to send?"
         original = InputBox(prompt, title, defaultResponse)
+        '  https://www.dotnetperls.com/string-length-vbnet
+        Dim length As Integer
 
         Try
 
@@ -340,6 +381,11 @@ Public Class Lisk
                 Dim string_before = split(0)
                 Dim string_after = split(1)
                 original = string_before
+                post = string_after
+                ' Dim post2 As String = string_after
+                length = post.Length
+                '  MsgBox(length)
+
             Catch
 
             End Try
@@ -353,12 +399,20 @@ Public Class Lisk
                 Dim string_before = split(0)
                 Dim string_after = split(1)
                 original = string_before
+                post = string_after
+                length = post.Length
+                ' post3 = post2
+                ' MsgBox(length)
+
+
+
+
             Catch
 
             End Try
 
             If Regex.IsMatch(original, "^[0-9 ]+$") Then
-                MsgBox(original & " LISK will be sent")
+                MsgBox(original & "," & post & " LISK will be sent")
             Else
                 MsgBox("kindly enter only numbers")
                 GoTo FooError
@@ -367,9 +421,57 @@ Public Class Lisk
             End If
 
 
+
         Catch
 
         End Try
+
+
+
+
+
+
+        Dim decimali As String
+
+        If length = 0 Then
+            decimali = post & "00000000"
+        End If
+
+        If length = 1 Then
+            decimali = post & "0000000"
+        End If
+        If length = 2 Then
+            decimali = post & "000000"
+        End If
+
+        If length = 3 Then
+            decimali = post & "00000"
+        End If
+
+        If length = 4 Then
+            decimali = post & "0000"
+        End If
+
+        If length = 5 Then
+            decimali = post & "000"
+        End If
+
+        If length = 6 Then
+            decimali = post & "00"
+        End If
+
+        If length = 7 Then
+            decimali = post & "0"
+        End If
+
+        If length = 8 Then
+            decimali = post & ""
+        End If
+
+        If length > 8 Then
+            MsgBox("kindly enter correct values")
+            GoTo FooError
+        End If
 
 
 
@@ -385,7 +487,8 @@ Public Class Lisk
 
 
 
-        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
+        ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & decimali & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
 
         MsgBox(xml & " will be sent to " & url)
 
@@ -499,7 +602,7 @@ FooError:
         Dim defaultResponse As String = String.Empty
         Dim title As String = String.Empty
 
-         If senderId IsNot Nothing Then
+        If senderId IsNot Nothing Then
             MsgBox("using your address " & senderId)
         Else
             Dim prompt As String = String.Empty
@@ -508,7 +611,7 @@ FooError:
         End If
 
 
-     
+
 
         Dim request As HttpWebRequest
 
@@ -592,10 +695,12 @@ FooError:
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
 
-
+        Dim post As String
         Dim original As String
         prompt = "How many LISK to send?"
         original = InputBox(prompt, title, defaultResponse)
+        '  https://www.dotnetperls.com/string-length-vbnet
+        Dim length As Integer
 
         Try
 
@@ -608,6 +713,11 @@ FooError:
                 Dim string_before = split(0)
                 Dim string_after = split(1)
                 original = string_before
+                post = string_after
+                ' Dim post2 As String = string_after
+                length = post.Length
+                '  MsgBox(length)
+
             Catch
 
             End Try
@@ -621,12 +731,20 @@ FooError:
                 Dim string_before = split(0)
                 Dim string_after = split(1)
                 original = string_before
+                post = string_after
+                length = post.Length
+                ' post3 = post2
+                ' MsgBox(length)
+
+
+
+
             Catch
 
             End Try
 
             If Regex.IsMatch(original, "^[0-9 ]+$") Then
-                MsgBox(original & " LISK will be sent")
+                MsgBox(original & "," & post & " LISK will be sent")
             Else
                 MsgBox("kindly enter only numbers")
                 GoTo FooError
@@ -644,6 +762,51 @@ FooError:
 
 
 
+
+        Dim decimali As String
+
+        If length = 0 Then
+            decimali = post & "00000000"
+        End If
+
+        If length = 1 Then
+            decimali = post & "0000000"
+        End If
+        If length = 2 Then
+            decimali = post & "000000"
+        End If
+
+        If length = 3 Then
+            decimali = post & "00000"
+        End If
+
+        If length = 4 Then
+            decimali = post & "0000"
+        End If
+
+        If length = 5 Then
+            decimali = post & "000"
+        End If
+
+        If length = 6 Then
+            decimali = post & "00"
+        End If
+
+        If length = 7 Then
+            decimali = post & "0"
+        End If
+
+        If length = 8 Then
+            decimali = post & ""
+        End If
+
+        If length > 8 Then
+            MsgBox("kindly enter correct values")
+            GoTo FooError
+        End If
+
+
+
         Dim recipientId As Object
         prompt = "To which address?"
         recipientId = InputBox(prompt, title, defaultResponse)
@@ -656,7 +819,10 @@ FooError:
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
 
-        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
+
+
+        ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & decimali & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
 
         MsgBox(xml & " will be sent to " & url)
 
@@ -711,6 +877,15 @@ FooError:
         Dim prompt As String = String.Empty
         prompt = "What is your address?"
         senderId = InputBox(prompt, title, defaultResponse)
+
+        'http://www.dotnetheaven.com/article/windows-registry-in-vb.net
+        'https://msdn.microsoft.com/it-it/library/xz88758e.aspx
+        Dim key As RegistryKey = Registry.CurrentUser.OpenSubKey("Software", True)
+        Dim newkey As RegistryKey = key.CreateSubKey("wallisk")
+        newkey.SetValue("address", senderId)
+
+
+
 
         On Error Resume Next
         request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
@@ -798,7 +973,7 @@ FooError:
     End Sub
 
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
-      
+
         Dim defaultResponse As String = String.Empty
         Dim title As String = String.Empty
 
@@ -811,7 +986,7 @@ FooError:
         End If
 
 
-       
+
 
         Dim request As HttpWebRequest
 
@@ -933,11 +1108,11 @@ FooError:
         reader = New StreamReader(response.GetResponseStream())
 
         rawresp = reader.ReadToEnd()
-     
+
 
         Dim jResultsb As Object = JObject.Parse(rawresp)
         Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
-       
+
         Dim myAL As New ArrayList
 
         Dim pubkey1 As String = "ac09bc40c889f688f9158cca1fcfcdf6320f501242e0f7088d52a5077084ccba"
@@ -950,7 +1125,7 @@ FooError:
         Dim pubkey8 As String = "ec151a510d095dc2c19a87a3b54549cfe1c30e703d5216197b4c879ff08bc3ed"
 
 
-       
+
 
 
         If testob.Contains(pubkey1) = False Then
@@ -1327,15 +1502,29 @@ FooError:
     End Sub
 
     Private Sub Button9_Click(sender As System.Object, e As System.EventArgs) Handles Button9.Click
-       
+
 
     End Sub
 
     Private Sub Button10_Click(sender As System.Object, e As System.EventArgs) Handles Button10.Click
-      
+
     End Sub
 
     Private Sub Button11_Click(sender As System.Object, e As System.EventArgs) Handles Button11.Click
+
+    End Sub
+
+    Private Sub Button12_Click(sender As System.Object, e As System.EventArgs) Handles Button12.Click
+
+        
+
+
+        Dim pRegKey As RegistryKey = Registry.CurrentUser
+        pRegKey = pRegKey.OpenSubKey("SOFTWARE\wallisk")
+        Dim val As Object = pRegKey.GetValue("address")
+        MsgBox(val)
+
+
 
     End Sub
 End Class

@@ -9,3 +9,14 @@ C:\ProgramData\github\wallisk\WALLISK\obj\x86\Release\WALLISK.vbproj.GenerateRes
 C:\ProgramData\github\wallisk\WALLISK\obj\x86\Release\WALLISK.exe
 C:\ProgramData\github\wallisk\WALLISK\obj\x86\Release\WALLISK.xml
 C:\ProgramData\github\wallisk\WALLISK\obj\x86\Release\WALLISK.pdb
+C:\Users\All Users\visual studio\WALLISK\bin\Release\WALLISK.exe
+C:\Users\All Users\visual studio\WALLISK\bin\Release\WALLISK.pdb
+C:\Users\All Users\visual studio\WALLISK\bin\Release\WALLISK.xml
+C:\Users\All Users\visual studio\WALLISK\bin\Release\Newtonsoft.Json.dll
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.Lisk.resources
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.Resources.resources
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.vbproj.GenerateResource.Cache
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.exe
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.xml
+C:\Users\All Users\visual studio\WALLISK\obj\x86\Release\WALLISK.pdb

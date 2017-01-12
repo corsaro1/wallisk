@@ -8,7 +8,7 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("WindowsApplication1")> 
+<Assembly: AssemblyTitle("wallisk")> 
 <Assembly: AssemblyDescription("not only a lisk height checker")> 
 <Assembly: AssemblyCompany("corsaro")> 
 <Assembly: AssemblyProduct("WALLISK")> 
