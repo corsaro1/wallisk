@@ -44,6 +44,7 @@ Public Class Lisk
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        On Error Resume Next
 
         RadioButton1.PerformClick()
         Button5.Text = ""
