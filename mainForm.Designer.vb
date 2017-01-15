@@ -87,6 +87,10 @@ Partial Class Lisk
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -472,7 +476,7 @@ Partial Class Lisk
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(479, 226)
+        Me.Button6.Location = New System.Drawing.Point(482, 188)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(134, 23)
         Me.Button6.TabIndex = 59
@@ -484,14 +488,14 @@ Partial Class Lisk
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(346, 102)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(83, 13)
+        Me.Label5.Size = New System.Drawing.Size(103, 13)
         Me.Label5.TabIndex = 60
-        Me.Label5.Text = "wallet manteiner"
+        Me.Label5.Text = "wallet manteined by:"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(346, 134)
+        Me.Label6.Location = New System.Drawing.Point(343, 134)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(45, 13)
         Me.Label6.TabIndex = 61
@@ -527,7 +531,7 @@ Partial Class Lisk
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(343, 236)
+        Me.Label10.Location = New System.Drawing.Point(343, 240)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(52, 13)
         Me.Label10.TabIndex = 65
@@ -536,7 +540,7 @@ Partial Class Lisk
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(343, 263)
+        Me.Label11.Location = New System.Drawing.Point(343, 270)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(33, 13)
         Me.Label11.TabIndex = 66
@@ -545,7 +549,7 @@ Partial Class Lisk
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(340, 289)
+        Me.Label12.Location = New System.Drawing.Point(343, 296)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(67, 13)
         Me.Label12.TabIndex = 67
@@ -554,7 +558,7 @@ Partial Class Lisk
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(340, 321)
+        Me.Label13.Location = New System.Drawing.Point(343, 321)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(28, 13)
         Me.Label13.TabIndex = 68
@@ -563,7 +567,7 @@ Partial Class Lisk
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(340, 352)
+        Me.Label14.Location = New System.Drawing.Point(343, 353)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(45, 13)
         Me.Label14.TabIndex = 69
@@ -589,7 +593,7 @@ Partial Class Lisk
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(704, 318)
+        Me.Button9.Location = New System.Drawing.Point(755, 321)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(134, 23)
         Me.Button9.TabIndex = 72
@@ -617,7 +621,7 @@ Partial Class Lisk
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(473, 171)
+        Me.Label15.Location = New System.Drawing.Point(476, 133)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(210, 13)
         Me.Label15.TabIndex = 75
@@ -626,7 +630,7 @@ Partial Class Lisk
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(473, 188)
+        Me.Label16.Location = New System.Drawing.Point(476, 150)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(131, 13)
         Me.Label16.TabIndex = 76
@@ -641,11 +645,51 @@ Partial Class Lisk
         Me.Button12.Text = "Button12"
         Me.Button12.UseVisualStyleBackColor = True
         '
+        'Button13
+        '
+        Me.Button13.Location = New System.Drawing.Point(482, 300)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(134, 23)
+        Me.Button13.TabIndex = 78
+        Me.Button13.Text = "$ STAKE your lisk $"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(470, 251)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(197, 13)
+        Me.Label17.TabIndex = 79
+        Me.Label17.Text = "or if you prefer you can stake your wallet"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(470, 267)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(94, 13)
+        Me.Label18.TabIndex = 80
+        Me.Label18.Text = "to earn some lisks "
+        '
+        'Button14
+        '
+        Me.Button14.Location = New System.Drawing.Point(772, 86)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(75, 23)
+        Me.Button14.TabIndex = 81
+        Me.Button14.Text = "Button14"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(701, 395)
+        Me.ClientSize = New System.Drawing.Size(751, 389)
+        Me.Controls.Add(Me.Button14)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Label16)
         Me.Controls.Add(Me.Label15)
@@ -773,5 +817,9 @@ Partial Class Lisk
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents Button12 As System.Windows.Forms.Button
+    Friend WithEvents Button13 As System.Windows.Forms.Button
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Button14 As System.Windows.Forms.Button
 
 End Class

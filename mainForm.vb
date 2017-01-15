@@ -9,8 +9,10 @@ Imports Microsoft.Win32
 
 
 Public Class Lisk
-    Dim senderId As Object
+    Dim senderId As Object = Nothing
     'Dim val As Object
+    Dim votepools As String
+
 
     Public Shared Function ValidateRemoteCertificate(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal sslPolicyErrors As Security.SslPolicyErrors) As Boolean
         Return True
@@ -45,7 +47,9 @@ Public Class Lisk
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         On Error Resume Next
+        Label17.Text = "or if you prefer you can both vote for wallet manteniers"
 
+        Label18.Text = "and STAKE your lisk voting too for some lisk pools"
         RadioButton1.PerformClick()
         Button5.Text = ""
         Label1.Text = ""
@@ -92,7 +96,8 @@ Public Class Lisk
         Label4.Text = testo4 & " LISK"
 
         Button5.Enabled = True
-        Button5.Text = "update"
+        Button5.Text = "update balance"
+        Button4.Text = "change address"
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
@@ -368,6 +373,7 @@ Public Class Lisk
         Dim original As String
         prompt = "How many LISK to send?"
         original = InputBox(prompt, title, defaultResponse)
+        If original Is "" Then GoTo fooerror
         '  https://www.dotnetperls.com/string-length-vbnet
         Dim length As Integer
 
@@ -481,17 +487,20 @@ Public Class Lisk
         Dim recipientId As Object
         prompt = "To which address?"
         recipientId = InputBox(prompt, title, defaultResponse)
+        If recipientId Is "" Then GoTo fooerror
 
         Dim seed As Object
         prompt = "Hello there. What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
+
 
 
 
         ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & decimali & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
 
-        MsgBox(xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         Dim request As HttpWebRequest = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -600,16 +609,28 @@ FooError:
     End Sub
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        '    If MsgBox("Prompt", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
         Dim defaultResponse As String = String.Empty
         Dim title As String = String.Empty
 
-        If senderId IsNot Nothing Then
-            MsgBox("using your address " & senderId)
-        Else
+        If senderId Is Nothing Or senderId Is "" Then
             Dim prompt As String = String.Empty
             prompt = "What is your address?"
             senderId = InputBox(prompt, title, defaultResponse)
+            If senderId Is "" Then GoTo fooerror
+        Else
+            MsgBox("using your address " & senderId)
         End If
+
+
+        '  If senderId IsNot "" Or senderId IsNot Nothing Then
+        'MsgBox("using your address " & senderId)
+        '   Else
+        '   Dim prompt As String = String.Empty
+        '   prompt = "What is your address?"
+        '   senderId = InputBox(prompt, title, defaultResponse)
+        '  If senderId Is "" Then GoTo fooerror
+        '  End If
 
 
 
@@ -641,6 +662,7 @@ FooError:
             Me.Button3.PerformClick()
 
         End If
+fooerror:
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
@@ -700,6 +722,7 @@ FooError:
         Dim original As String
         prompt = "How many LISK to send?"
         original = InputBox(prompt, title, defaultResponse)
+        If original Is "" Then GoTo fooerror
         '  https://www.dotnetperls.com/string-length-vbnet
         Dim length As Integer
 
@@ -811,21 +834,23 @@ FooError:
         Dim recipientId As Object
         prompt = "To which address?"
         recipientId = InputBox(prompt, title, defaultResponse)
+        If recipientId Is "" Then GoTo fooerror
 
         Dim seed As Object
         prompt = "What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
 
         Dim seed2 As Object
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
-
+        If seed2 Is "" Then GoTo fooerror
 
 
         ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & decimali & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
 
-        MsgBox(xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         Dim request As HttpWebRequest = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -878,6 +903,8 @@ FooError:
         Dim prompt As String = String.Empty
         prompt = "What is your address?"
         senderId = InputBox(prompt, title, defaultResponse)
+        If senderId Is "" Then GoTo fooerror
+
 
         'http://www.dotnetheaven.com/article/windows-registry-in-vb.net
         'https://msdn.microsoft.com/it-it/library/xz88758e.aspx
@@ -908,6 +935,8 @@ FooError:
 
         Button5.Enabled = True
         Button5.Text = "update"
+
+fooerror:
 
     End Sub
 
@@ -974,46 +1003,54 @@ FooError:
     End Sub
 
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
-
-        Dim defaultResponse As String = String.Empty
-        Dim title As String = String.Empty
-
-        If senderId IsNot Nothing Then
-            MsgBox("using your address " & senderId)
-        Else
-            Dim prompt As String = String.Empty
-            prompt = "What is your address?"
-            senderId = InputBox(prompt, title, defaultResponse)
-        End If
+        votepools = "no"
+        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
 
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
 
-        Dim request As HttpWebRequest
+            Dim defaultResponse As String = String.Empty
+            Dim title As String = String.Empty
 
-        Dim response As HttpWebResponse = Nothing
-
-        Dim reader As StreamReader
-
-        On Error Resume Next
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
-        response = DirectCast(request.GetResponse(), HttpWebResponse)
-        reader = New StreamReader(response.GetResponseStream())
-
-        Dim rawresp As String
-        rawresp = reader.ReadToEnd()
+            If senderId IsNot Nothing Then
+                MsgBox("using your address " & senderId)
+            Else
+                Dim prompt As String = String.Empty
+                prompt = "What is your address?"
+                senderId = InputBox(prompt, title, defaultResponse)
+            End If
 
 
 
-        Dim jResults As Object = JObject.Parse(rawresp)
-        Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
-        Dim jResults2 As Object = JObject.Parse(testo)
-        Dim testo2 As String = If(jResults2("secondSignature") Is Nothing, "", jResults2("secondSignature").ToString())
-        If testo2 = 0 Then
-            Me.Button8.PerformClick()
 
-        Else
-            Me.Button7.PerformClick()
+            Dim request As HttpWebRequest
+
+            Dim response As HttpWebResponse = Nothing
+
+            Dim reader As StreamReader
+
+            On Error Resume Next
+            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            response = DirectCast(request.GetResponse(), HttpWebResponse)
+            reader = New StreamReader(response.GetResponseStream())
+
+            Dim rawresp As String
+            rawresp = reader.ReadToEnd()
+
+
+
+            Dim jResults As Object = JObject.Parse(rawresp)
+            Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+            Dim jResults2 As Object = JObject.Parse(testo)
+            Dim testo2 As String = If(jResults2("secondSignature") Is Nothing, "", jResults2("secondSignature").ToString())
+            If testo2 = 0 Then
+                Me.Button8.PerformClick()
+
+            Else
+                Me.Button7.PerformClick()
+
+            End If
 
         End If
     End Sub
@@ -1116,7 +1153,7 @@ FooError:
 
         Dim myAL As New ArrayList
 
-        Dim pubkey1 As String = "ac09bc40c889f688f9158cca1fcfcdf6320f501242e0f7088d52a5077084ccba"
+        Dim pubkey1 As String = "ac09bc40c889f688f9158cca1fcfcdf6320f501242e0f7088d52a5077084ccba" ' corsaro
         Dim pubkey2 As String = "ab086300d5d1e366d56ff2b4919ee718d3d6b72a862bafec0f1d42c9812af30b"
         Dim pubkey3 As String = "45ab8f54edff6b802335dc3ea5cd5bc5324e4031c0598a2cdcae79402e4941f8"
         Dim pubkey4 As String = "677c79b243ed96a8439e8bd193d6ab966ce43c9aa18830d2b9eb8974455d79f8"
@@ -1125,71 +1162,161 @@ FooError:
         Dim pubkey7 As String = "1681920f9cb83ff2590a8e5c502a7015d4834f5365cf5ed17392c9c78147f94d"
         Dim pubkey8 As String = "ec151a510d095dc2c19a87a3b54549cfe1c30e703d5216197b4c879ff08bc3ed"
 
+        Dim pubkey9 As String = "eddeb37070a19e1277db5ec34ea12225e84ccece9e6b2bb1bb27c3ba3999dac7" 'phinx
+        Dim pubkey10 As String = "253e674789632f72c98d47a650f1ca5ece0dbb82f591080471129d57ed88fb8a" 'shinekami
+        Dim pubkey11 As String = "b002f58531c074c7190714523eec08c48db8c7cfc0c943097db1a2e82ed87f84" 'thepool
+        Dim pubkey12 As String = "ec111c8ad482445cfe83d811a7edd1f1d2765079c99d7d958cca1354740b7614" 'thepool_com_01
+        Dim pubkey13 As String = "32f20bee855238630b0f791560c02cf93014977b4b25c19ef93cd92220390276" 'robinhood
+        Dim pubkey14 As String = "b3953cb16e2457b9be78ad8c8a2985435dedaed5f0dd63443bdfbccc92d09f2d" 'rooney
+        Dim pubkey15 As String = "25e961fa459d202816776c8736560d493a94fdd7381971f63fb9b70479487598" 'badman0316
 
 
 
 
-        If testob.Contains(pubkey1) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey1 & Chr(34))
+
+        If votepools = "no" Then
+
+
+            If testob.Contains(pubkey1) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey1 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey2) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey2 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey3) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey3 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey4) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey4 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey5) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey5 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey6) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey6 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey7) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey7 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey8) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey8 & Chr(34))
+            Else
+
+            End If
+
         Else
+
+            If testob.Contains(pubkey1) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey1 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey2) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey2 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey3) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey3 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey4) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey4 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey5) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey5 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey6) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey6 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey7) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey7 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey8) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey8 & Chr(34))
+            Else
+
+            End If
+
+
+            If testob.Contains(pubkey9) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey9 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey10) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey10 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey11) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey11 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey12) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey12 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey13) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey13 & Chr(34))
+            Else
+            End If
+
+
+            If testob.Contains(pubkey14) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey14 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey15) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey15 & Chr(34))
+            Else
+            End If
+
+         
 
         End If
 
 
-
-
-        If testob.Contains(pubkey2) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey2 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey3) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey3 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey4) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey4 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey5) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey5 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey6) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey6 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey7) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey7 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey8) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey8 & Chr(34))
-        Else
-
-        End If
-
-
-
-        If testo.Contains(pubkey8) Then
-        Else
-        End If
-
-
-        If testo.Contains(pubkey1) Then
-        Else
-        End If
 
 
 
@@ -1211,7 +1338,7 @@ FooError:
 
         '  Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & Chr(34) & "+" & pubkey1 & Chr(34) & "," & Chr(34) & "+" & pubkey2 & Chr(34) & "," & Chr(34) & "+" & pubkey3 & Chr(34) & "," & Chr(34) & "+" & pubkey4 & Chr(34) & "," & Chr(34) & "+" & pubkey5 & Chr(34) & "," & Chr(34) & "+" & pubkey6 & Chr(34) & "," & Chr(34) & "+" & pubkey7 & Chr(34) & "," & Chr(34) & "+" & pubkey8 & Chr(34) & "]" & "}"
 
-        MsgBox(xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1368,7 +1495,7 @@ Fooerror2:
         Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
         Dim myAL As New ArrayList
 
-        Dim pubkey1 As String = "ac09bc40c889f688f9158cca1fcfcdf6320f501242e0f7088d52a5077084ccba"
+        Dim pubkey1 As String = "ac09bc40c889f688f9158cca1fcfcdf6320f501242e0f7088d52a5077084ccba" ' corsaro
         Dim pubkey2 As String = "ab086300d5d1e366d56ff2b4919ee718d3d6b72a862bafec0f1d42c9812af30b"
         Dim pubkey3 As String = "45ab8f54edff6b802335dc3ea5cd5bc5324e4031c0598a2cdcae79402e4941f8"
         Dim pubkey4 As String = "677c79b243ed96a8439e8bd193d6ab966ce43c9aa18830d2b9eb8974455d79f8"
@@ -1377,71 +1504,160 @@ Fooerror2:
         Dim pubkey7 As String = "1681920f9cb83ff2590a8e5c502a7015d4834f5365cf5ed17392c9c78147f94d"
         Dim pubkey8 As String = "ec151a510d095dc2c19a87a3b54549cfe1c30e703d5216197b4c879ff08bc3ed"
 
+        Dim pubkey9 As String = "eddeb37070a19e1277db5ec34ea12225e84ccece9e6b2bb1bb27c3ba3999dac7" 'phinx
+        Dim pubkey10 As String = "253e674789632f72c98d47a650f1ca5ece0dbb82f591080471129d57ed88fb8a" 'shinekami
+        Dim pubkey11 As String = "b002f58531c074c7190714523eec08c48db8c7cfc0c943097db1a2e82ed87f84" 'thepool
+        Dim pubkey12 As String = "ec111c8ad482445cfe83d811a7edd1f1d2765079c99d7d958cca1354740b7614" 'thepool_com_01
+        Dim pubkey13 As String = "32f20bee855238630b0f791560c02cf93014977b4b25c19ef93cd92220390276" 'robinhood
+        Dim pubkey14 As String = "b3953cb16e2457b9be78ad8c8a2985435dedaed5f0dd63443bdfbccc92d09f2d" 'rooney
+        Dim pubkey15 As String = "25e961fa459d202816776c8736560d493a94fdd7381971f63fb9b70479487598" 'badman0316
 
 
 
 
-        If testob.Contains(pubkey1) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey1 & Chr(34))
+        If votepools = "no" Then
+
+
+            If testob.Contains(pubkey1) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey1 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey2) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey2 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey3) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey3 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey4) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey4 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey5) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey5 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey6) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey6 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey7) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey7 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey8) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey8 & Chr(34))
+            Else
+
+            End If
+
         Else
+
+            If testob.Contains(pubkey1) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey1 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey2) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey2 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey3) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey3 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey4) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey4 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey5) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey5 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey6) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey6 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey7) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey7 & Chr(34))
+            Else
+
+            End If
+
+            If testob.Contains(pubkey8) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey8 & Chr(34))
+            Else
+
+            End If
+
+
+            If testob.Contains(pubkey9) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey9 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey10) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey10 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey11) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey11 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey12) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey12 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey13) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey13 & Chr(34))
+            Else
+            End If
+
+
+            If testob.Contains(pubkey14) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey14 & Chr(34))
+            Else
+            End If
+
+            If testob.Contains(pubkey15) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey15 & Chr(34))
+            Else
+            End If
+
+      
 
         End If
 
 
-
-
-        If testob.Contains(pubkey2) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey2 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey3) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey3 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey4) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey4 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey5) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey5 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey6) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey6 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey7) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey7 & Chr(34))
-        Else
-
-        End If
-
-        If testob.Contains(pubkey8) = False Then
-            myAL.Add(Chr(34) & "+" & pubkey8 & Chr(34))
-        Else
-
-        End If
-
-
-
-        If testo.Contains(pubkey8) Then
-        Else
-        End If
-
-
-        If testo.Contains(pubkey1) Then
-        Else
-        End If
 
 
 
@@ -1459,9 +1675,9 @@ Fooerror2:
 
 
 
-        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox(xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1527,5 +1743,68 @@ FooError:
 
 
 
+    End Sub
+
+    Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
+
+        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+
+
+            'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")
+
+            votepools = "yes"
+
+            ' & vbCrLf & "phinx" & vbCrLf "shinekami" & vbCrLf "thepool" & vbCrLf "liskpool_com_01" & vbCrLf "robinhood" & vbCrLf "rooney" & vbCrLf "badman0316" & vbCrLf "lisk.pool.sexy"
+
+
+            Dim defaultResponse As String = String.Empty
+            Dim title As String = String.Empty
+
+            If senderId IsNot Nothing Then
+                MsgBox("using your address " & senderId)
+            Else
+                Dim prompt As String = String.Empty
+                prompt = "What is your address?"
+                senderId = InputBox(prompt, title, defaultResponse)
+            End If
+
+
+
+
+            Dim request As HttpWebRequest
+
+            Dim response As HttpWebResponse = Nothing
+
+            Dim reader As StreamReader
+
+            On Error Resume Next
+            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            response = DirectCast(request.GetResponse(), HttpWebResponse)
+            reader = New StreamReader(response.GetResponseStream())
+
+            Dim rawresp As String
+            rawresp = reader.ReadToEnd()
+
+
+
+            Dim jResults As Object = JObject.Parse(rawresp)
+            Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+            Dim jResults2 As Object = JObject.Parse(testo)
+            Dim testo2 As String = If(jResults2("secondSignature") Is Nothing, "", jResults2("secondSignature").ToString())
+            If testo2 = 0 Then
+                Me.Button8.PerformClick()
+
+            Else
+                Me.Button7.PerformClick()
+
+            End If
+        End If
+
+    End Sub
+
+    Private Sub Button14_Click(sender As System.Object, e As System.EventArgs) Handles Button14.Click
+        If MsgBox("Prompt", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+            ' execute command
+        End If
     End Sub
 End Class
