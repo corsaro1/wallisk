@@ -1141,6 +1141,8 @@ fooerror:
         Dim seed As Object
         prompt = "What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror2
+
         request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
@@ -1468,17 +1470,18 @@ Fooerror2:
         Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
         Dim jResults2 As Object = JObject.Parse(testo)
         Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
-
+        MsgBox("your pubKey is " & testo2) ' mia pubkey
 
 
         Dim seed As Object
         prompt = "What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
 
         Dim seed2 As Object
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
-
+        If seed2 Is "" Then GoTo fooerror
 
         '' inizio
 
