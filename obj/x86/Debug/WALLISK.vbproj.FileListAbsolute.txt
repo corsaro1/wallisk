@@ -20,3 +20,6 @@ C:\Users\All Users\visual studio\WALLISK\bin\Debug\WALLISK.exe
 C:\Users\All Users\visual studio\WALLISK\bin\Debug\WALLISK.pdb
 C:\Users\All Users\visual studio\WALLISK\bin\Debug\WALLISK.xml
 C:\Users\All Users\visual studio\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\All Users\wallisk\wallisk\obj\x86\Debug\WALLISK.exe
+C:\Users\All Users\wallisk\wallisk\obj\x86\Debug\WALLISK.xml
+C:\Users\All Users\wallisk\wallisk\obj\x86\Debug\WALLISK.pdb
