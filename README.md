@@ -9,7 +9,7 @@ visual studio 2010 express source code attached.
 ![Alt text](./image.PNG?raw=true "Optional Title")
 
 Download Windows Binary
-![Alt text](./wallisk.exe?raw=true "Optional Title")
+![Alt text](./WALLISK.exe?raw=true "Optional Title")
 
 
 License
