@@ -9,7 +9,7 @@ visual studio 2010 express source code attached.
 ![Alt text](./image.PNG?raw=true "Optional Title")
 
 Download Windows Binary
-[df1]: <http://daringfireball.net/projects/markdown/>
+[df1]: <./WALLISK.exe>
 [WALLISK.exe] [df1]
 
 
