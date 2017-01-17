@@ -768,7 +768,18 @@ fooerror:
             End Try
 
             If Regex.IsMatch(original, "^[0-9 ]+$") Then
-                MsgBox(original & "," & post & " LISK will be sent")
+                If post = "" Then
+
+                    MsgBox(original & ",00" & " LISK will be sent")
+
+                Else
+
+                    MsgBox(original & "," & post & " LISK will be sent")
+
+                End If
+
+
+
             Else
                 MsgBox("kindly enter only numbers")
                 GoTo FooError
@@ -901,9 +912,15 @@ FooError:
 
         Dim reader As StreamReader
         Dim prompt As String = String.Empty
+        Dim senderidtemp As String
         prompt = "What is your address?"
-        senderId = InputBox(prompt, title, defaultResponse)
-        If senderId Is "" Then GoTo fooerror
+        senderidtemp = InputBox(prompt, title, defaultResponse)
+        If senderidtemp Is "" Then
+            GoTo fooerror
+        Else
+            senderId = senderidtemp
+        End If
+
 
 
         'http://www.dotnetheaven.com/article/windows-registry-in-vb.net
