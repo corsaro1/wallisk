@@ -12,6 +12,10 @@ Public Class Lisk
     Dim senderId As Object = Nothing
     'Dim val As Object
     Dim votepools As String
+    Dim pubkeyx As String
+    Dim seedx As String
+    Dim seed2x As String
+
 
 
     Public Shared Function ValidateRemoteCertificate(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal sslPolicyErrors As Security.SslPolicyErrors) As Boolean
@@ -419,7 +423,18 @@ Public Class Lisk
             End Try
 
             If Regex.IsMatch(original, "^[0-9 ]+$") Then
-                MsgBox(original & "," & post & " LISK will be sent")
+                If post = "" Then
+
+                    MsgBox(original & ",00" & " LISK will be sent")
+
+                Else
+
+                    MsgBox(original & "," & post & " LISK will be sent")
+
+                End If
+
+
+
             Else
                 MsgBox("kindly enter only numbers")
                 GoTo FooError
@@ -986,7 +1001,7 @@ fooerror:
         Label1.Text = "Address " & senderId
         Label4.Text = testo4 & " LISK"
         Button5.Enabled = True
-        Button5.Text = "update"
+        Button5.Text = "update balance"
 
     End Sub
 
@@ -1054,22 +1069,38 @@ fooerror:
 
             Dim rawresp As String
             rawresp = reader.ReadToEnd()
-
+            '    MsgBox(rawresp)
 
 
             Dim jResults As Object = JObject.Parse(rawresp)
-            Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
-            Dim jResults2 As Object = JObject.Parse(testo)
-            Dim testo2 As String = If(jResults2("secondSignature") Is Nothing, "", jResults2("secondSignature").ToString())
+            Dim testoerr As String = If(jResults("error") Is Nothing, "", jResults("error").ToString())
+            '    MsgBox(testoerr)
+            If testoerr = "Account not found" Then
+                '  Me.Button8.PerformClick()
+                MsgBox(rawresp)
+                GoTo fooerror
+            Else
+
+            End If
+
+
+            Dim jResults2 As Object = JObject.Parse(testoerr)
+
+            Dim testo As String = If(jResults2("account") Is Nothing, "", jResults2("account").ToString())
+
+            Dim jResults3 As Object = JObject.Parse(testo)
+            Dim testo2 As String = If(jResults3("secondSignature") Is Nothing, "", jResults3("secondSignature").ToString())
             If testo2 = 0 Then
                 Me.Button8.PerformClick()
 
             Else
                 Me.Button7.PerformClick()
+                ' MsgBox("xxx")
 
             End If
 
         End If
+fooerror:
     End Sub
     Private Sub stopping()
 
@@ -1127,7 +1158,7 @@ fooerror:
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
 
-
+        Dim rawresp As String
 
 
         Dim request As HttpWebRequest
@@ -1140,25 +1171,26 @@ fooerror:
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
-        Dim rawresp As String
+
+
+
         rawresp = reader.ReadToEnd()
-        Dim jResults As Object = JObject.Parse(rawresp)
-        Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
-        Dim jResults2 As Object = JObject.Parse(testo)
-        Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
-        MsgBox("your pubKey is " & testo2) ' mia pubkey
 
 
+        ' Dim jResults As Object = JObject.Parse(rawresp)
+        '   Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        ' Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        '   MsgBox("your pubKey is " & testo2) ' mia pubkey
 
+        ' If jResults2("publicKey") Is Nothing Then MsgBox("xxx")
 
+        pubkey()
 
-
-
-
-        Dim seed As Object
-        prompt = "What's your seed?"
-        seed = InputBox(prompt, title, defaultResponse)
-        If seed Is "" Then GoTo fooerror2
+        '   Dim seed As Object
+        '  prompt = "What's your seed?"
+        '  seed = InputBox(prompt, title, defaultResponse)
+        '  If seed Is "" Then GoTo fooerror2
 
         request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
@@ -1331,7 +1363,7 @@ fooerror:
             Else
             End If
 
-         
+
 
         End If
 
@@ -1353,7 +1385,7 @@ fooerror:
 
         Dim votelist As String = "all delegates here"
 
-        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
         '  Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & Chr(34) & "+" & pubkey1 & Chr(34) & "," & Chr(34) & "+" & pubkey2 & Chr(34) & "," & Chr(34) & "+" & pubkey3 & Chr(34) & "," & Chr(34) & "+" & pubkey4 & Chr(34) & "," & Chr(34) & "+" & pubkey5 & Chr(34) & "," & Chr(34) & "+" & pubkey6 & Chr(34) & "," & Chr(34) & "+" & pubkey7 & Chr(34) & "," & Chr(34) & "+" & pubkey8 & Chr(34) & "]" & "}"
 
@@ -1406,7 +1438,7 @@ fooerror:
         Catch
             MsgBox("tx fallita")
         End Try
-        seed = ""
+        seedx = ""
         '  seed2 = ""
 Fooerror2:
 
@@ -1487,13 +1519,14 @@ Fooerror2:
         Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
         Dim jResults2 As Object = JObject.Parse(testo)
         Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
-        MsgBox("your pubKey is " & testo2) ' mia pubkey
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
 
+        pubkey()
 
-        Dim seed As Object
-        prompt = "What's your seed?"
-        seed = InputBox(prompt, title, defaultResponse)
-        If seed Is "" Then GoTo fooerror
+        '   Dim seed As Object
+        '  prompt = "What's your seed?"
+        '  seed = InputBox(prompt, title, defaultResponse)
+        '  If seed Is "" Then GoTo fooerror
 
         Dim seed2 As Object
         prompt = "What's your second signature?"
@@ -1673,7 +1706,7 @@ Fooerror2:
             Else
             End If
 
-      
+
 
         End If
 
@@ -1695,7 +1728,7 @@ Fooerror2:
 
 
 
-        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
         MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
@@ -1733,7 +1766,7 @@ Fooerror2:
         Catch
             MsgBox("tx fallita")
         End Try
-        seed = ""
+        seedx = ""
         seed2 = ""
 FooError:
     End Sub
@@ -1753,7 +1786,7 @@ FooError:
 
     Private Sub Button12_Click(sender As System.Object, e As System.EventArgs) Handles Button12.Click
 
-        
+
 
 
         Dim pRegKey As RegistryKey = Registry.CurrentUser
@@ -1804,22 +1837,36 @@ FooError:
 
             Dim rawresp As String
             rawresp = reader.ReadToEnd()
-
+            '    MsgBox(rawresp)
 
 
             Dim jResults As Object = JObject.Parse(rawresp)
-            Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
-            Dim jResults2 As Object = JObject.Parse(testo)
-            Dim testo2 As String = If(jResults2("secondSignature") Is Nothing, "", jResults2("secondSignature").ToString())
+            Dim testoerr As String = If(jResults("error") Is Nothing, "", jResults("error").ToString())
+            '    MsgBox(testoerr)
+            If testoerr = "Account not found" Then
+                MsgBox(rawresp)
+                GoTo fooerror
+            Else
+
+            End If
+
+
+            Dim jResults2 As Object = JObject.Parse(testoerr)
+
+            Dim testo As String = If(jResults2("account") Is Nothing, "", jResults2("account").ToString())
+
+            Dim jResults3 As Object = JObject.Parse(testo)
+            Dim testo2 As String = If(jResults3("secondSignature") Is Nothing, "", jResults3("secondSignature").ToString())
             If testo2 = 0 Then
                 Me.Button8.PerformClick()
 
             Else
                 Me.Button7.PerformClick()
+                ' MsgBox("xxx")
 
             End If
         End If
-
+fooerror:
     End Sub
 
     Private Sub Button14_Click(sender As System.Object, e As System.EventArgs) Handles Button14.Click
@@ -1827,4 +1874,164 @@ FooError:
             ' execute command
         End If
     End Sub
+
+    Private Sub Button15_Click(sender As System.Object, e As System.EventArgs) Handles Button15.Click
+
+        Dim title As String = String.Empty
+        Dim defaultResponse As String = String.Empty
+        Dim prompt As String = String.Empty
+
+        Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+
+
+        Dim request As HttpWebRequest
+
+        Dim responsex As HttpWebResponse = Nothing
+
+        ' Dim readerx As StreamReader
+
+        ' request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
+        '  readerx = New StreamReader(responsex.GetResponseStream())
+        '  Try
+        'Dim rawresp As String
+        '  rawresp = readerx.ReadToEnd()
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+        '  Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        '  Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        '  Catch
+
+        Dim seed As Object
+        prompt = "Hello there. What's your seed?"
+        seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
+
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "}"
+
+        '  MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+
+        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+        Try
+
+            '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+
+            Dim reader As StreamReader
+            Dim result As String
+
+            response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+            reader = New StreamReader(response.GetResponseStream())
+
+            result = reader.ReadToEnd()
+
+            Dim jResults2 As Object = JObject.Parse(result)
+            Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+            MsgBox("your pubKey is " & testo2) ' mia pubkey
+            response.Close()
+            '
+        Finally
+            If Not response Is Nothing Then response.Close()
+
+
+            '   MsgBox(result)
+
+        End Try
+
+
+
+fooerror:
+
+    End Sub
+
+
+
+    Private Sub pubkey()
+        Dim title As String = String.Empty
+        Dim defaultResponse As String = String.Empty
+        Dim prompt As String = String.Empty
+
+        Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+
+
+        Dim request As HttpWebRequest
+
+        Dim responsex As HttpWebResponse = Nothing
+
+        '    Dim readerx As StreamReader
+
+        '  request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
+        '  readerx = New StreamReader(responsex.GetResponseStream())
+        '  Try
+        'Dim rawresp As String
+        '  rawresp = readerx.ReadToEnd()
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+        '  Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        '  Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        '  Catch
+
+        Dim seed As Object
+        prompt = "Hello there. What's your seed?"
+        seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
+        seedx = seed
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "}"
+
+        '  MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+
+        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+
+
+        '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+
+        Dim reader As StreamReader
+        Dim result As String
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+        reader = New StreamReader(response.GetResponseStream())
+
+        result = reader.ReadToEnd()
+
+        Dim jResults2 As Object = JObject.Parse(result)
+        Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        MsgBox("your pubKey is " & testo2) ' mia pubkey
+        If Not response Is Nothing Then response.Close()
+        pubkeyx = testo2
+
+        '   MsgBox(result)
+
+        '   End Try
+
+
+
+fooerror:
+
+    End Sub
+
+
 End Class
