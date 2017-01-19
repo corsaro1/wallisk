@@ -92,6 +92,17 @@ Partial Class Lisk
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Button14 = New System.Windows.Forms.Button()
         Me.Button15 = New System.Windows.Forms.Button()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.BackgroundWorker2 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker3 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker4 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker5 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker6 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker7 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker8 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker9 = New System.ComponentModel.BackgroundWorker()
+        Me.BackgroundWorker10 = New System.ComponentModel.BackgroundWorker()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -639,7 +650,7 @@ Partial Class Lisk
         '
         'Button12
         '
-        Me.Button12.Location = New System.Drawing.Point(763, 22)
+        Me.Button12.Location = New System.Drawing.Point(755, 92)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(75, 23)
         Me.Button12.TabIndex = 77
@@ -675,7 +686,7 @@ Partial Class Lisk
         '
         'Button14
         '
-        Me.Button14.Location = New System.Drawing.Point(772, 86)
+        Me.Button14.Location = New System.Drawing.Point(755, 125)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(75, 23)
         Me.Button14.TabIndex = 81
@@ -691,11 +702,51 @@ Partial Class Lisk
         Me.Button15.Text = "get pub key"
         Me.Button15.UseVisualStyleBackColor = True
         '
+        'BackgroundWorker1
+        '
+        '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(755, 63)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(75, 23)
+        Me.Button16.TabIndex = 83
+        Me.Button16.Text = "Button16"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'BackgroundWorker2
+        '
+        '
+        'BackgroundWorker3
+        '
+        '
+        'BackgroundWorker4
+        '
+        '
+        'BackgroundWorker5
+        '
+        '
+        'BackgroundWorker6
+        '
+        '
+        'BackgroundWorker7
+        '
+        '
+        'BackgroundWorker8
+        '
+        '
+        'BackgroundWorker9
+        '
+        '
+        'BackgroundWorker10
+        '
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(753, 390)
+        Me.ClientSize = New System.Drawing.Size(741, 386)
+        Me.Controls.Add(Me.Button16)
         Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Button14)
         Me.Controls.Add(Me.Label18)
@@ -833,5 +884,16 @@ Partial Class Lisk
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Button14 As System.Windows.Forms.Button
     Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents BackgroundWorker2 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker3 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker4 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker5 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker6 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker7 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker8 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker9 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents BackgroundWorker10 As System.ComponentModel.BackgroundWorker
 
 End Class

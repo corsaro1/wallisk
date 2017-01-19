@@ -6,6 +6,7 @@ Imports Newtonsoft.Json.Linq
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Text.RegularExpressions
 Imports Microsoft.Win32
+Imports System.ComponentModel
 
 
 Public Class Lisk
@@ -50,6 +51,7 @@ Public Class Lisk
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Control.CheckForIllegalCrossThreadCalls = False
         On Error Resume Next
         Label17.Text = "or if you prefer you can both vote for wallet manteniers"
 
@@ -69,7 +71,10 @@ Public Class Lisk
         pRegKey = pRegKey.OpenSubKey("SOFTWARE\wallisk")
         senderId = pRegKey.GetValue("address")
         ' MsgBox(val)
-        carica()
+        ' carica()
+        BackgroundWorker10.RunWorkerAsync()
+        
+
 
     End Sub
 
@@ -105,49 +110,13 @@ Public Class Lisk
     End Sub
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
-        Dim request As HttpWebRequest
-
-        Dim response As HttpWebResponse = Nothing
-
-        Dim reader As StreamReader
-
-        On Error Resume Next
-
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/loader/status/sync"), HttpWebRequest)
-
-        response = DirectCast(request.GetResponse(), HttpWebResponse)
-        reader = New StreamReader(response.GetResponseStream())
-
-        Dim rawresp As String
-        rawresp = reader.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp)
-        TextBox1.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
-        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        'Dim worker As BackgroundWorker = CType(sender, BackgroundWorker)
+       BackgroundWorker1.RunWorkerAsync()
         Timer1.Start()
     End Sub
 
     Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
-        Dim request As HttpWebRequest
-
-        Dim response As HttpWebResponse = Nothing
-
-        Dim reader As StreamReader
-
-        On Error Resume Next
-        request = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
-        'request = DirectCast(WebRequest.Create("https://login.lisk.io/api/loader/status/sync"), HttpWebRequest)
-
-        response = DirectCast(request.GetResponse(), HttpWebResponse)
-        reader = New StreamReader(response.GetResponseStream())
-
-        Dim rawresp As String
-        rawresp = reader.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp)
-        TextBox2.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker2.RunWorkerAsync()
 
         Timer2.Start()
     End Sub
@@ -157,75 +126,19 @@ Public Class Lisk
     End Sub
 
     Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer3.Tick
-        Dim request3 As HttpWebRequest
-
-        Dim response3 As HttpWebResponse = Nothing
-
-        Dim reader3 As StreamReader
-
-        On Error Resume Next
-        'request3 = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
-        request3 = DirectCast(WebRequest.Create("https://lisk.liskwallet.io/api/loader/status/sync"), HttpWebRequest)
-
-        response3 = DirectCast(request3.GetResponse(), HttpWebResponse)
-        reader3 = New StreamReader(response3.GetResponseStream())
-
-        Dim rawresp3 As String
-        rawresp3 = reader3.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp3)
-        TextBox3.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker3.RunWorkerAsync()
 
         Timer3.Start()
     End Sub
 
     Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Timer4.Tick
-        Dim request4 As HttpWebRequest
-
-        Dim response4 As HttpWebResponse = Nothing
-
-        Dim reader4 As StreamReader
-        On Error Resume Next
-
-        'request3 = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
-        request4 = DirectCast(WebRequest.Create("https://lisk-login.vipertkd.com/api/loader/status/sync"), HttpWebRequest)
-
-        response4 = DirectCast(request4.GetResponse(), HttpWebResponse)
-        reader4 = New StreamReader(response4.GetResponseStream())
-
-        Dim rawresp4 As String
-        rawresp4 = reader4.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp4)
-        TextBox4.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
-        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        BackgroundWorker4.RunWorkerAsync()
         Timer4.Start()
 
     End Sub
 
     Private Sub Timer5_Tick(sender As System.Object, e As System.EventArgs) Handles Timer5.Tick
-        Dim request5 As HttpWebRequest
-
-        Dim response5 As HttpWebResponse = Nothing
-
-        Dim reader5 As StreamReader
-        On Error Resume Next
-
-
-        request5 = DirectCast(WebRequest.Create("https://liskwallet.punkrock.me/api/loader/status/sync"), HttpWebRequest)
-
-        response5 = DirectCast(request5.GetResponse(), HttpWebResponse)
-        reader5 = New StreamReader(response5.GetResponseStream())
-
-        Dim rawresp5 As String
-        rawresp5 = reader5.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp5)
-        TextBox5.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
-        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        BackgroundWorker5.RunWorkerAsync()
         Timer5.Start()
 
     End Sub
@@ -245,76 +158,22 @@ Public Class Lisk
     End Sub
 
     Private Sub Timer6_Tick(sender As System.Object, e As System.EventArgs) Handles Timer6.Tick
-
-        Dim request6 As HttpWebRequest
-
-        Dim response6 As HttpWebResponse = Nothing
-
-        Dim reader6 As StreamReader
-        On Error Resume Next
-
-
-        request6 = DirectCast(WebRequest.Create("https://lisk.delegates.site/api/loader/status/sync"), HttpWebRequest)
-
-        response6 = DirectCast(request6.GetResponse(), HttpWebResponse)
-        reader6 = New StreamReader(response6.GetResponseStream())
-
-        Dim rawresp6 As String
-        rawresp6 = reader6.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp6)
-        TextBox6.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
-        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        BackgroundWorker6.RunWorkerAsync()
         Timer6.Start()
 
     End Sub
 
     Private Sub Timer7_Tick(sender As System.Object, e As System.EventArgs) Handles Timer7.Tick
 
-        Dim request7 As HttpWebRequest
-
-        Dim response7 As HttpWebResponse = Nothing
-
-        Dim reader7 As StreamReader
-        On Error Resume Next
-
-
-        request7 = DirectCast(WebRequest.Create(" http://wallet.lisknode.io:8000/api/loader/status/sync"), HttpWebRequest)
-
-        response7 = DirectCast(request7.GetResponse(), HttpWebResponse)
-        reader7 = New StreamReader(response7.GetResponseStream())
-
-        Dim rawresp7 As String
-        rawresp7 = reader7.ReadToEnd()
-
-
-        Dim jResults As Object = JObject.Parse(rawresp7)
-        TextBox7.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker7.RunWorkerAsync()
 
         Timer7.Start()
 
     End Sub
 
     Private Sub Timer8_Tick(sender As System.Object, e As System.EventArgs) Handles Timer8.Tick
-
-        Dim request8 As HttpWebRequest
-
-        Dim response8 As HttpWebResponse = Nothing
-
-        Dim reader8 As StreamReader
-        On Error Resume Next
-
-        request8 = DirectCast(WebRequest.Create("https://wallet.mylisk.com/api/loader/status/sync"), HttpWebRequest)
-
-        response8 = DirectCast(request8.GetResponse(), HttpWebResponse)
-        reader8 = New StreamReader(response8.GetResponseStream())
-
-        Dim rawresp8 As String
-        rawresp8 = reader8.ReadToEnd()
-
-        Dim jResults As Object = JObject.Parse(rawresp8)
-        TextBox8.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker8.RunWorkerAsync()
+       
         Timer8.Start()
 
 
@@ -1006,23 +865,7 @@ fooerror:
     End Sub
 
     Private Sub Timer9_Tick(sender As System.Object, e As System.EventArgs) Handles Timer9.Tick
-        Dim request9 As HttpWebRequest
-
-        Dim response9 As HttpWebResponse = Nothing
-
-        Dim reader9 As StreamReader
-        On Error Resume Next
-
-        request9 = DirectCast(WebRequest.Create("https://lisknodes.tech/api/loader/status/sync"), HttpWebRequest)
-
-        response9 = DirectCast(request9.GetResponse(), HttpWebResponse)
-        reader9 = New StreamReader(response9.GetResponseStream())
-
-        Dim rawresp9 As String
-        rawresp9 = reader9.ReadToEnd()
-
-        Dim jResults As Object = JObject.Parse(rawresp9)
-        TextBox9.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker9.RunWorkerAsync()
         Timer9.Start()
     End Sub
 
@@ -2034,4 +1877,242 @@ fooerror:
     End Sub
 
 
+    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs)
+        Timer1.Start()
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork_1(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        '  MsgBox("xxx")
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+
+        On Error Resume Next
+
+        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/loader/status/sync"), HttpWebRequest)
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp)
+
+
+        TextBox1.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+    End Sub
+
+    Private Sub Button16_Click(sender As System.Object, e As System.EventArgs) Handles Button16.Click
+        BackgroundWorker1.RunWorkerAsync()
+    End Sub
+
+    Private Sub BackgroundWorker2_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker2.DoWork
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+
+        On Error Resume Next
+        request = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
+        'request = DirectCast(WebRequest.Create("https://login.lisk.io/api/loader/status/sync"), HttpWebRequest)
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp)
+        TextBox2.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker3_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker3.DoWork
+        Dim request3 As HttpWebRequest
+
+        Dim response3 As HttpWebResponse = Nothing
+
+        Dim reader3 As StreamReader
+
+        On Error Resume Next
+        'request3 = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
+        request3 = DirectCast(WebRequest.Create("https://lisk.liskwallet.io/api/loader/status/sync"), HttpWebRequest)
+
+        response3 = DirectCast(request3.GetResponse(), HttpWebResponse)
+        reader3 = New StreamReader(response3.GetResponseStream())
+
+        Dim rawresp3 As String
+        rawresp3 = reader3.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp3)
+        TextBox3.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker4_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker4.DoWork
+        Dim request4 As HttpWebRequest
+
+        Dim response4 As HttpWebResponse = Nothing
+
+        Dim reader4 As StreamReader
+        On Error Resume Next
+
+        'request3 = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
+        request4 = DirectCast(WebRequest.Create("https://lisk-login.vipertkd.com/api/loader/status/sync"), HttpWebRequest)
+
+        response4 = DirectCast(request4.GetResponse(), HttpWebResponse)
+        reader4 = New StreamReader(response4.GetResponseStream())
+
+        Dim rawresp4 As String
+        rawresp4 = reader4.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp4)
+        TextBox4.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker5_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker5.DoWork
+        Dim request5 As HttpWebRequest
+
+        Dim response5 As HttpWebResponse = Nothing
+
+        Dim reader5 As StreamReader
+        On Error Resume Next
+
+
+        request5 = DirectCast(WebRequest.Create("https://liskwallet.punkrock.me/api/loader/status/sync"), HttpWebRequest)
+
+        response5 = DirectCast(request5.GetResponse(), HttpWebResponse)
+        reader5 = New StreamReader(response5.GetResponseStream())
+
+        Dim rawresp5 As String
+        rawresp5 = reader5.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp5)
+        TextBox5.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker6_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker6.DoWork
+        Dim request6 As HttpWebRequest
+
+        Dim response6 As HttpWebResponse = Nothing
+
+        Dim reader6 As StreamReader
+        On Error Resume Next
+
+
+        request6 = DirectCast(WebRequest.Create("https://lisk.delegates.site/api/loader/status/sync"), HttpWebRequest)
+
+        response6 = DirectCast(request6.GetResponse(), HttpWebResponse)
+        reader6 = New StreamReader(response6.GetResponseStream())
+
+        Dim rawresp6 As String
+        rawresp6 = reader6.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp6)
+        TextBox6.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker7_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker7.DoWork
+        Dim request7 As HttpWebRequest
+
+        Dim response7 As HttpWebResponse = Nothing
+
+        Dim reader7 As StreamReader
+        On Error Resume Next
+
+
+        request7 = DirectCast(WebRequest.Create(" http://wallet.lisknode.io:8000/api/loader/status/sync"), HttpWebRequest)
+
+        response7 = DirectCast(request7.GetResponse(), HttpWebResponse)
+        reader7 = New StreamReader(response7.GetResponseStream())
+
+        Dim rawresp7 As String
+        rawresp7 = reader7.ReadToEnd()
+
+
+        Dim jResults As Object = JObject.Parse(rawresp7)
+        TextBox7.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker8_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker8.DoWork
+        Dim request8 As HttpWebRequest
+
+        Dim response8 As HttpWebResponse = Nothing
+
+        Dim reader8 As StreamReader
+        On Error Resume Next
+
+        request8 = DirectCast(WebRequest.Create("https://wallet.mylisk.com/api/loader/status/sync"), HttpWebRequest)
+
+        response8 = DirectCast(request8.GetResponse(), HttpWebResponse)
+        reader8 = New StreamReader(response8.GetResponseStream())
+
+        Dim rawresp8 As String
+        rawresp8 = reader8.ReadToEnd()
+
+        Dim jResults As Object = JObject.Parse(rawresp8)
+        TextBox8.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker9_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker9.DoWork
+        Dim request9 As HttpWebRequest
+
+        Dim response9 As HttpWebResponse = Nothing
+
+        Dim reader9 As StreamReader
+        On Error Resume Next
+
+        request9 = DirectCast(WebRequest.Create("https://lisknodes.tech/api/loader/status/sync"), HttpWebRequest)
+
+        response9 = DirectCast(request9.GetResponse(), HttpWebResponse)
+        reader9 = New StreamReader(response9.GetResponseStream())
+
+        Dim rawresp9 As String
+        rawresp9 = reader9.ReadToEnd()
+
+        Dim jResults As Object = JObject.Parse(rawresp9)
+        TextBox9.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+    End Sub
+
+    Private Sub BackgroundWorker10_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker10.DoWork
+        Dim defaultResponse As String = String.Empty
+        Dim title As String = String.Empty
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+        On Error Resume Next
+        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+
+        Dim jResults As Object = JObject.Parse(rawresp)
+        Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        Dim jResults2 As Object = JObject.Parse(testo)
+        Dim testo2 As String = If(jResults2("balance") Is Nothing, "", jResults2("balance").ToString())
+
+        Dim testo4 As String
+        testo4 = testo2 / 100000000
+        Label1.Text = "Address " & senderId
+        Label4.Text = testo4 & " LISK"
+
+        Button5.Enabled = True
+        Button5.Text = "update balance"
+        Button4.Text = "change address"
+    End Sub
 End Class

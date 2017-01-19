@@ -20,3 +20,14 @@ C:\Users\All Users\visual studio\WALLISK\bin\Debug\WALLISK.exe
 C:\Users\All Users\visual studio\WALLISK\bin\Debug\WALLISK.pdb
 C:\Users\All Users\visual studio\WALLISK\bin\Debug\WALLISK.xml
 C:\Users\All Users\visual studio\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.exe
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.xml
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.pdb
+C:\Users\All Users\visual studio\lavoro\WALLISK\bin\Debug\WALLISK.exe
+C:\Users\All Users\visual studio\lavoro\WALLISK\bin\Debug\WALLISK.pdb
+C:\Users\All Users\visual studio\lavoro\WALLISK\bin\Debug\WALLISK.xml
+C:\Users\All Users\visual studio\lavoro\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
+C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
