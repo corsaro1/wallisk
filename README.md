@@ -20,6 +20,7 @@ you will find the compiled exe inside the bin/Release folder
 Wallisk requires [Net framework 4](http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe) to run.
 and has included in exe resources the [Json.NET library](https://github.com/JamesNK/Newtonsoft.Json) (as soon as you run the exe a Newtonsoft.Json.dll is created in exe folder)
 
+### Windows Binary
 
 [df1]: <./bin/Release/WALLISK.exe?raw=true>
 [Download already compiled Windows Binary] [df1]
