@@ -21,7 +21,7 @@ Wallisk requires [Net framework 4](http://download.microsoft.com/download/9/5/A/
 and has included in exe resources the [Json.NET library](https://github.com/JamesNK/Newtonsoft.Json) (as soon as you run the exe a Newtonsoft.Json.dll is created in exe folder)
 
 
-[df1]: <./WALLISK.exe?raw=true>
+[df1]: <./bin/Release/WALLISK.exe?raw=true>
 [Download already compiled Windows Binary] [df1]
 
 

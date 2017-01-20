@@ -73,7 +73,17 @@ Public Class Lisk
         ' MsgBox(val)
         ' carica()
         BackgroundWorker10.RunWorkerAsync()
-        
+        BackgroundWorker1.RunWorkerAsync()
+        BackgroundWorker2.RunWorkerAsync()
+        BackgroundWorker3.RunWorkerAsync()
+        BackgroundWorker4.RunWorkerAsync()
+        BackgroundWorker5.RunWorkerAsync()
+        BackgroundWorker6.RunWorkerAsync()
+        BackgroundWorker7.RunWorkerAsync()
+        BackgroundWorker8.RunWorkerAsync()
+        BackgroundWorker9.RunWorkerAsync()
+
+
 
 
     End Sub
@@ -111,12 +121,20 @@ Public Class Lisk
 
     Private Sub Timer1_Tick(sender As System.Object, e As System.EventArgs) Handles Timer1.Tick
         'Dim worker As BackgroundWorker = CType(sender, BackgroundWorker)
-       BackgroundWorker1.RunWorkerAsync()
+
+
+        If Not (BackgroundWorker1.IsBusy) Then
+            BackgroundWorker1.RunWorkerAsync()
+        End If
+
+
         Timer1.Start()
     End Sub
 
     Private Sub Timer2_Tick(sender As System.Object, e As System.EventArgs) Handles Timer2.Tick
-        BackgroundWorker2.RunWorkerAsync()
+        If Not (BackgroundWorker2.IsBusy) Then
+            BackgroundWorker2.RunWorkerAsync()
+        End If
 
         Timer2.Start()
     End Sub
@@ -126,19 +144,26 @@ Public Class Lisk
     End Sub
 
     Private Sub Timer3_Tick(sender As System.Object, e As System.EventArgs) Handles Timer3.Tick
-        BackgroundWorker3.RunWorkerAsync()
+
+        If Not (BackgroundWorker3.IsBusy) Then
+            BackgroundWorker3.RunWorkerAsync()
+        End If
 
         Timer3.Start()
     End Sub
 
     Private Sub Timer4_Tick(sender As System.Object, e As System.EventArgs) Handles Timer4.Tick
-        BackgroundWorker4.RunWorkerAsync()
+        If Not (BackgroundWorker4.IsBusy) Then
+            BackgroundWorker4.RunWorkerAsync()
+        End If
         Timer4.Start()
 
     End Sub
 
     Private Sub Timer5_Tick(sender As System.Object, e As System.EventArgs) Handles Timer5.Tick
-        BackgroundWorker5.RunWorkerAsync()
+        If Not (BackgroundWorker5.IsBusy) Then
+            BackgroundWorker5.RunWorkerAsync()
+        End If
         Timer5.Start()
 
     End Sub
@@ -158,21 +183,27 @@ Public Class Lisk
     End Sub
 
     Private Sub Timer6_Tick(sender As System.Object, e As System.EventArgs) Handles Timer6.Tick
-        BackgroundWorker6.RunWorkerAsync()
+        If Not (BackgroundWorker6.IsBusy) Then
+            BackgroundWorker6.RunWorkerAsync()
+        End If
         Timer6.Start()
 
     End Sub
 
     Private Sub Timer7_Tick(sender As System.Object, e As System.EventArgs) Handles Timer7.Tick
 
-        BackgroundWorker7.RunWorkerAsync()
+        If Not (BackgroundWorker7.IsBusy) Then
+            BackgroundWorker7.RunWorkerAsync()
+        End If
 
         Timer7.Start()
 
     End Sub
 
     Private Sub Timer8_Tick(sender As System.Object, e As System.EventArgs) Handles Timer8.Tick
-        BackgroundWorker8.RunWorkerAsync()
+        If Not (BackgroundWorker8.IsBusy) Then
+            BackgroundWorker8.RunWorkerAsync()
+        End If
        
         Timer8.Start()
 
@@ -865,7 +896,9 @@ fooerror:
     End Sub
 
     Private Sub Timer9_Tick(sender As System.Object, e As System.EventArgs) Handles Timer9.Tick
-        BackgroundWorker9.RunWorkerAsync()
+        If Not (BackgroundWorker9.IsBusy) Then
+            BackgroundWorker9.RunWorkerAsync()
+        End If
         Timer9.Start()
     End Sub
 
@@ -1904,6 +1937,8 @@ fooerror:
 
 
         TextBox1.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker1.CancelAsync()
+        BackgroundWorker1.Dispose()
     End Sub
 
     Private Sub Button16_Click(sender As System.Object, e As System.EventArgs) Handles Button16.Click
@@ -1930,6 +1965,8 @@ fooerror:
 
         Dim jResults As Object = JObject.Parse(rawresp)
         TextBox2.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker2.CancelAsync()
+        BackgroundWorker2.Dispose()
     End Sub
 
     Private Sub BackgroundWorker3_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker3.DoWork
@@ -1952,6 +1989,8 @@ fooerror:
 
         Dim jResults As Object = JObject.Parse(rawresp3)
         TextBox3.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker3.CancelAsync()
+        BackgroundWorker3.Dispose()
     End Sub
 
     Private Sub BackgroundWorker4_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker4.DoWork
@@ -1975,6 +2014,8 @@ fooerror:
         Dim jResults As Object = JObject.Parse(rawresp4)
         TextBox4.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
         '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        BackgroundWorker4.CancelAsync()
+        BackgroundWorker4.Dispose()
     End Sub
 
     Private Sub BackgroundWorker5_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker5.DoWork
@@ -1998,6 +2039,8 @@ fooerror:
         Dim jResults As Object = JObject.Parse(rawresp5)
         TextBox5.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
         '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        BackgroundWorker5.CancelAsync()
+        BackgroundWorker5.Dispose()
     End Sub
 
     Private Sub BackgroundWorker6_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker6.DoWork
@@ -2021,6 +2064,8 @@ fooerror:
         Dim jResults As Object = JObject.Parse(rawresp6)
         TextBox6.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
         '   TextBox2.Text = If(jResults("syncing") Is Nothing, "", jResults("syncing").ToString())
+        BackgroundWorker6.CancelAsync()
+        BackgroundWorker6.Dispose()
     End Sub
 
     Private Sub BackgroundWorker7_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker7.DoWork
@@ -2043,6 +2088,8 @@ fooerror:
 
         Dim jResults As Object = JObject.Parse(rawresp7)
         TextBox7.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker7.CancelAsync()
+        BackgroundWorker7.Dispose()
     End Sub
 
     Private Sub BackgroundWorker8_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker8.DoWork
@@ -2063,6 +2110,8 @@ fooerror:
 
         Dim jResults As Object = JObject.Parse(rawresp8)
         TextBox8.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker8.CancelAsync()
+        BackgroundWorker8.Dispose()
     End Sub
 
     Private Sub BackgroundWorker9_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker9.DoWork
@@ -2083,6 +2132,8 @@ fooerror:
 
         Dim jResults As Object = JObject.Parse(rawresp9)
         TextBox9.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker9.CancelAsync()
+        BackgroundWorker9.Dispose()
     End Sub
 
     Private Sub BackgroundWorker10_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker10.DoWork
@@ -2114,5 +2165,7 @@ fooerror:
         Button5.Enabled = True
         Button5.Text = "update balance"
         Button4.Text = "change address"
+        BackgroundWorker10.CancelAsync()
+        BackgroundWorker10.Dispose()
     End Sub
 End Class
