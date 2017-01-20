@@ -1096,6 +1096,7 @@ fooerror:
         Dim pubkey13 As String = "32f20bee855238630b0f791560c02cf93014977b4b25c19ef93cd92220390276" 'robinhood
         Dim pubkey14 As String = "b3953cb16e2457b9be78ad8c8a2985435dedaed5f0dd63443bdfbccc92d09f2d" 'rooney
         Dim pubkey15 As String = "25e961fa459d202816776c8736560d493a94fdd7381971f63fb9b70479487598" 'badman0316
+        Dim pubkey16 As String = "58babaac1229ed7b48b646a87dbba27c6ad21f1b74865a049e7cef771bd34d6a" 'lisk.pool.sexy
 
 
 
@@ -1239,7 +1240,10 @@ fooerror:
             Else
             End If
 
-
+            If testob.Contains(pubkey16) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey16 & Chr(34))
+            Else
+            End If
 
         End If
 
@@ -1440,6 +1444,7 @@ Fooerror2:
         Dim pubkey13 As String = "32f20bee855238630b0f791560c02cf93014977b4b25c19ef93cd92220390276" 'robinhood
         Dim pubkey14 As String = "b3953cb16e2457b9be78ad8c8a2985435dedaed5f0dd63443bdfbccc92d09f2d" 'rooney
         Dim pubkey15 As String = "25e961fa459d202816776c8736560d493a94fdd7381971f63fb9b70479487598" 'badman0316
+        Dim pubkey16 As String = "58babaac1229ed7b48b646a87dbba27c6ad21f1b74865a049e7cef771bd34d6a" 'lisk.pool.sexy
 
 
 
@@ -1582,7 +1587,10 @@ Fooerror2:
             Else
             End If
 
-
+            If testob.Contains(pubkey16) = False Then
+                myAL.Add(Chr(34) & "+" & pubkey16 & Chr(34))
+            Else
+            End If
 
         End If
 
@@ -1676,7 +1684,7 @@ FooError:
 
     Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
 
-        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
             'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")

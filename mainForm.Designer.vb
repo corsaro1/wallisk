@@ -500,9 +500,9 @@ Partial Class Lisk
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(346, 102)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(103, 13)
+        Me.Label5.Size = New System.Drawing.Size(100, 13)
         Me.Label5.TabIndex = 60
-        Me.Label5.Text = "wallet manteined by:"
+        Me.Label5.Text = "node manteined by:"
         '
         'Label6
         '
@@ -745,7 +745,7 @@ Partial Class Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(745, 385)
+        Me.ClientSize = New System.Drawing.Size(745, 386)
         Me.Controls.Add(Me.Button16)
         Me.Controls.Add(Me.Button15)
         Me.Controls.Add(Me.Button14)
