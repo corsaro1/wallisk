@@ -1,4 +1,4 @@
-not just a lisk blockchain height checker.
+not just a simple lisk blockchain height checker.
 
 Enjoy it
 
