@@ -93,6 +93,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cosignForm.Designer.vb">
+      <DependentUpon>cosignForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="cosignForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="pubkeyForm.Designer.vb">
       <DependentUpon>pubkeyForm.vb</DependentUpon>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="cosignForm.resx">
+      <DependentUpon>cosignForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pubkeyForm.resx">
       <DependentUpon>pubkeyForm.vb</DependentUpon>
     </EmbeddedResource>

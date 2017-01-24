@@ -2356,4 +2356,9 @@ Fooerror2:
     Private Sub Button18_Click(sender As System.Object, e As System.EventArgs) Handles Button18.Click
         pubkeyForm.ShowDialog()
     End Sub
+
+    Private Sub Button19_Click(sender As System.Object, e As System.EventArgs) Handles Button19.Click
+
+        cosignForm.ShowDialog()
+    End Sub
 End Class

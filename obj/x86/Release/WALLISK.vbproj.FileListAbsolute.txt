@@ -43,3 +43,4 @@ C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLIS
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.exe
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.xml
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.pdb
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.cosignForm.resources

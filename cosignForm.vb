@@ -2,81 +2,27 @@
 Imports System.IO
 Imports System.Security.Cryptography.X509Certificates
 
-Public Class pubkeyForm
+
+
+Public Class cosignForm
+
+    Dim senderId As Object = Nothing
+
 
     Public Shared Function ValidateRemoteCertificate(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal sslPolicyErrors As Security.SslPolicyErrors) As Boolean
         Return True
     End Function
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
+        ' Dim url As String = "https://login.lisk.io/api/multisignatures/sign"
 
-        'https://github.com/LiskHQ/lisk/issues/322
-
-        Dim myAL As New ArrayList
-
-        If TextBox1.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox1.Text & Chr(34))
-            ' MsgBox(TextBox1.Text)
-
-        End If
-
-
-
-
-        If TextBox2.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox2.Text & Chr(34))
-
-
-        End If
-
-
-        If TextBox3.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox3.Text & Chr(34))
-
-
-        End If
-
-        If TextBox4.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox4.Text & Chr(34))
-
-
-        End If
-
-        If TextBox5.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox5.Text & Chr(34))
-
-
-        End If
-
-        If TextBox6.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox6.Text & Chr(34))
-
-
-        End If
-
-        If TextBox7.Text IsNot "" Then
-            myAL.Add(Chr(34) & "+" & TextBox7.Text & Chr(34))
-
-
-        End If
-
-       
-
-        Dim LineOfText As String
-
-        LineOfText = String.Join(",", CType(myAL.ToArray(Type.GetType("System.String")), String()))
         Dim url As String
 
         If RadioButton1.Checked = True Then
-            url = "https://login.lisk.io/api/multisignatures/"
+            url = "https://login.lisk.io/api/multisignatures/sign"
         Else
-            url = "https://testnet.lisk.io/api/multisignatures/"
+            url = "https://testnet.lisk.io/api/multisignatures/sign"
         End If
-
-
-
-
-        Dim senderId As Object = Nothing
 
 
 
@@ -98,6 +44,7 @@ Public Class pubkeyForm
         request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
+
 
 
 
@@ -131,27 +78,28 @@ Public Class pubkeyForm
         '
         '
 
-       
-
-        Dim lifetime As Object
-        prompt = "What's the lifetime?"
-        lifetime = InputBox(prompt, title, defaultResponse)
-        If lifetime Is "" Then GoTo fooerror2
-
-
-        Dim min As Object
-        prompt = "What's the min?"
-        min = InputBox(prompt, title, defaultResponse)
-        If min Is "" Then GoTo fooerror2
+        'Dim transactionId As Object
+        ' prompt = "What's the tx id you want to co-sign?"
+        ' transactionId = InputBox(prompt, title, defaultResponse)
+        ' If transactionId Is "" Then GoTo fooerror2
 
 
 
+        Dim transactionId As Object
+        ' prompt = "What's the tx id you want to co-sign?"
+        transactionId = TextBox1.Text
+        If transactionId Is "" Then GoTo fooerror2
+
+
+
+
+        '   Dim LineOfText As String
 
 
 
         Dim votelist As String = "all delegates here"
 
-        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "lifetime" & Chr(34) & ":" & lifetime & "," & Chr(34) & "min" & Chr(34) & ":" & min & "," & Chr(34) & "keysgroup" & Chr(34) & ":[" & LineOfText & "]" & "}"
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "transactionId" & Chr(34) & ":" & Chr(34) & transactionId & Chr(34) & "}"
 
         '  Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & Chr(34) & "+" & pubkey1 & Chr(34) & "," & Chr(34) & "+" & pubkey2 & Chr(34) & "," & Chr(34) & "+" & pubkey3 & Chr(34) & "," & Chr(34) & "+" & pubkey4 & Chr(34) & "," & Chr(34) & "+" & pubkey5 & Chr(34) & "," & Chr(34) & "+" & pubkey6 & Chr(34) & "," & Chr(34) & "+" & pubkey7 & Chr(34) & "," & Chr(34) & "+" & pubkey8 & Chr(34) & "]" & "}"
 
@@ -159,7 +107,7 @@ Public Class pubkeyForm
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
-        request.Method = "PUT"
+        request.Method = "POST"
         request.ContentType = "application/json"
         request.ContentLength = arr.Length
         ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
@@ -198,8 +146,9 @@ Public Class pubkeyForm
             End Try
 
             MsgBox(result)
-            TextBox8.Text = result
-            TextBox8.Enabled = True
+            TextBox2.Text = result
+            TextBox2.Enabled = True
+
 
             '' prova
 
@@ -209,15 +158,10 @@ Public Class pubkeyForm
         seed = ""
         '  seed2 = ""
 Fooerror2:
-
-
     End Sub
 
-
-    Private Sub pubkeyForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        TextBox8.Enabled = False
-        RadioButton1.Checked = True
-
+    Private Sub cosignForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        TextBox2.Enabled = False
     End Sub
 
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click

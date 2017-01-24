@@ -43,3 +43,4 @@ C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.resources
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.cosignForm.resources

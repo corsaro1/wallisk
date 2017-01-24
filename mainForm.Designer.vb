@@ -105,6 +105,7 @@ Partial Class Lisk
         Me.BackgroundWorker10 = New System.ComponentModel.BackgroundWorker()
         Me.Button17 = New System.Windows.Forms.Button()
         Me.Button18 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -745,12 +746,14 @@ Partial Class Lisk
         '
         'Button17
         '
-        Me.Button17.Location = New System.Drawing.Point(470, 102)
+        Me.Button17.Enabled = False
+        Me.Button17.Location = New System.Drawing.Point(611, 102)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(134, 23)
         Me.Button17.TabIndex = 84
         Me.Button17.Text = "Multisign CoSigning"
         Me.Button17.UseVisualStyleBackColor = True
+        Me.Button17.Visible = False
         '
         'Button18
         '
@@ -761,11 +764,21 @@ Partial Class Lisk
         Me.Button18.Text = "Multisign Address Create"
         Me.Button18.UseVisualStyleBackColor = True
         '
+        'Button19
+        '
+        Me.Button19.Location = New System.Drawing.Point(470, 102)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(134, 23)
+        Me.Button19.TabIndex = 86
+        Me.Button19.Text = "Multisign Cosign"
+        Me.Button19.UseVisualStyleBackColor = True
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(747, 392)
+        Me.Controls.Add(Me.Button19)
         Me.Controls.Add(Me.Button18)
         Me.Controls.Add(Me.Button17)
         Me.Controls.Add(Me.Button16)
@@ -919,5 +932,6 @@ Partial Class Lisk
     Friend WithEvents BackgroundWorker10 As System.ComponentModel.BackgroundWorker
     Friend WithEvents Button17 As System.Windows.Forms.Button
     Friend WithEvents Button18 As System.Windows.Forms.Button
+    Friend WithEvents Button19 As System.Windows.Forms.Button
 
 End Class

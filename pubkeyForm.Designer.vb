@@ -34,6 +34,13 @@ Partial Class pubkeyForm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -73,7 +80,7 @@ Partial Class pubkeyForm
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(181, 304)
+        Me.Button1.Location = New System.Drawing.Point(187, 357)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 5
@@ -127,18 +134,86 @@ Partial Class pubkeyForm
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(293, 304)
+        Me.Button2.Location = New System.Drawing.Point(299, 357)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 11
         Me.Button2.Text = "Cancel"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'TextBox6
+        '
+        Me.TextBox6.Location = New System.Drawing.Point(136, 263)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(375, 20)
+        Me.TextBox6.TabIndex = 12
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(52, 266)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(50, 13)
+        Me.Label6.TabIndex = 13
+        Me.Label6.Text = "PubKey6"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(52, 304)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(50, 13)
+        Me.Label7.TabIndex = 15
+        Me.Label7.Text = "PubKey7"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(136, 301)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(375, 20)
+        Me.TextBox7.TabIndex = 14
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(23, 408)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(488, 20)
+        Me.TextBox8.TabIndex = 16
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(77, 24)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(63, 17)
+        Me.RadioButton1.TabIndex = 17
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Mainnet"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(236, 24)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(61, 17)
+        Me.RadioButton2.TabIndex = 18
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "Testnet"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'pubkeyForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 440)
+        Me.Controls.Add(Me.RadioButton2)
+        Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.TextBox6)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -169,4 +244,11 @@ Partial Class pubkeyForm
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
 End Class
