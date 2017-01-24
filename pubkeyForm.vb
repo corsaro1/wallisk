@@ -16,7 +16,7 @@ Public Class pubkeyForm
 
         If TextBox1.Text IsNot "" Then
             myAL.Add(Chr(34) & "+" & TextBox1.Text & Chr(34))
-            MsgBox(TextBox1.Text)
+            ' MsgBox(TextBox1.Text)
 
         End If
 
@@ -141,7 +141,7 @@ Public Class pubkeyForm
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
-        request.Method = "POST"
+        request.Method = "PUT"
         request.ContentType = "application/json"
         request.ContentLength = arr.Length
         ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
