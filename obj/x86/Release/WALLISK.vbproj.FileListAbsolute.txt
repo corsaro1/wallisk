@@ -31,3 +31,15 @@ C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Release\WALLISK.vbproj.G
 C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Release\WALLISK.exe
 C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Release\WALLISK.xml
 C:\Users\All Users\visual studio\lavoro\WALLISK\obj\x86\Release\WALLISK.pdb
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\bin\Release\WALLISK.exe
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\bin\Release\WALLISK.pdb
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\bin\Release\WALLISK.xml
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\bin\Release\Newtonsoft.Json.dll
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.pubkeyForm.resources
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.Lisk.resources
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.Resources.resources
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.vbproj.GenerateResource.Cache
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.exe
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.xml
+C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Release\WALLISK.pdb
