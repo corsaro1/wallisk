@@ -439,6 +439,8 @@ Public Class Lisk
             End Try
 
             MsgBox(result)
+            TextBox10.Visible = True
+            TextBox10.Text = result
 
             '' prova
 
@@ -515,6 +517,11 @@ FooError:
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         '    If MsgBox("Prompt", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+
+       
+
+
+
         Dim defaultResponse As String = String.Empty
         Dim title As String = String.Empty
 
@@ -797,7 +804,8 @@ fooerror:
             End Try
 
             MsgBox(result)
-
+            TextBox10.Visible = True
+            TextBox10.Text = result
 
         Catch
             MsgBox("tx fallita")
@@ -2360,5 +2368,16 @@ Fooerror2:
     Private Sub Button19_Click(sender As System.Object, e As System.EventArgs) Handles Button19.Click
 
         cosignForm.ShowDialog()
+    End Sub
+
+    Private Sub Button20_Click(sender As System.Object, e As System.EventArgs) Handles Button20.Click
+        Dim result As Integer = MessageBox.Show("Choose Yes for Mainnet, No for Testnet", "caption", MessageBoxButtons.YesNoCancel)
+        If result = DialogResult.Cancel Then
+            MessageBox.Show("Cancel pressed")
+        ElseIf result = DialogResult.No Then
+            MessageBox.Show("No pressed")
+        ElseIf result = DialogResult.Yes Then
+            MessageBox.Show("Yes pressed")
+        End If
     End Sub
 End Class
