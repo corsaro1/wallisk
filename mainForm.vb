@@ -346,38 +346,57 @@ Public Class Lisk
         Dim decimali As String
 
         If length = 0 Then
-            decimali = post & "00000000"
+            original = original * 100000000
+            decimali = ""
+            'decimali = post & "00000000"
         End If
 
         If length = 1 Then
-            decimali = post & "0000000"
+            original = (original & post) * 10000000
+            decimali = ""
+            'decimali = post * 10000000
+            'decimali = post & "0000000"
         End If
         If length = 2 Then
-            decimali = post & "000000"
+            original = (original & post) * 1000000
+            decimali = ""
+            ' decimali = post & "000000"
         End If
 
         If length = 3 Then
-            decimali = post & "00000"
+            original = (original & post) * 100000
+            decimali = ""
+            ' decimali = post & "00000"
         End If
 
         If length = 4 Then
-            decimali = post & "0000"
+            original = (original & post) * 10000
+            decimali = ""
+            'decimali = post & "0000"
         End If
 
         If length = 5 Then
-            decimali = post & "000"
+            original = (original & post) * 1000
+            decimali = ""
+            '  decimali = post & "000"
         End If
 
         If length = 6 Then
-            decimali = post & "00"
+            original = (original & post) * 100
+            decimali = ""
+            '  decimali = post & "00"
         End If
 
         If length = 7 Then
-            decimali = post & "0"
+            original = (original & post) * 10
+            decimali = ""
+            ' decimali = post & "0"
         End If
 
         If length = 8 Then
-            decimali = post & ""
+            original = (original & post) * 1
+            decimali = ""
+            ' decimali = post & ""
         End If
 
         If length > 8 Then
@@ -399,7 +418,7 @@ Public Class Lisk
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror
 
-
+        If original = "0" Then original = ""
 
 
         ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
@@ -713,38 +732,57 @@ fooerror:
         Dim decimali As String
 
         If length = 0 Then
-            decimali = post & "00000000"
+            original = original * 100000000
+            decimali = ""
+            'decimali = post & "00000000"
         End If
 
         If length = 1 Then
-            decimali = post & "0000000"
+            original = (original & post) * 10000000
+            decimali = ""
+            'decimali = post * 10000000
+            'decimali = post & "0000000"
         End If
         If length = 2 Then
-            decimali = post & "000000"
+            original = (original & post) * 1000000
+            decimali = ""
+            ' decimali = post & "000000"
         End If
 
         If length = 3 Then
-            decimali = post & "00000"
+            original = (original & post) * 100000
+            decimali = ""
+            ' decimali = post & "00000"
         End If
 
         If length = 4 Then
-            decimali = post & "0000"
+            original = (original & post) * 10000
+            decimali = ""
+            'decimali = post & "0000"
         End If
 
         If length = 5 Then
-            decimali = post & "000"
+            original = (original & post) * 1000
+            decimali = ""
+            '  decimali = post & "000"
         End If
 
         If length = 6 Then
-            decimali = post & "00"
+            original = (original & post) * 100
+            decimali = ""
+            '  decimali = post & "00"
         End If
 
         If length = 7 Then
-            decimali = post & "0"
+            original = (original & post) * 10
+            decimali = ""
+            ' decimali = post & "0"
         End If
 
         If length = 8 Then
-            decimali = post & ""
+            original = (original & post) * 1
+            decimali = ""
+            ' decimali = post & ""
         End If
 
         If length > 8 Then
@@ -768,6 +806,10 @@ fooerror:
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
         If seed2 Is "" Then GoTo fooerror
+
+
+        If original = "0" Then original = ""
+
 
 
         ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
