@@ -10,7 +10,7 @@ visual studio 2015 express source code attached.
 
 
 #### Building from source
-Clone the repo on your hard disk, Open the file WALLISK.vbproj with Visual Studio 2010 or superior, then go to menu "Build" >> Build Wallisk
+Clone the repo on your hard disk, Open the file WALLISK.vbproj with Visual Studio 2015 or superior, then go to menu "Build" >> Build Wallisk
 you will find the compiled exe inside the bin/Release folder
 
 
