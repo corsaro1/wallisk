@@ -44,3 +44,31 @@ C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.resources
 C:\Users\All Users\visual studio\lavoro\multisign\WALLISK\obj\x86\Debug\WALLISK.cosignForm.resources
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.exe
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.xml
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.pdb
+C:\Users\fabrizio\Desktop\vs\WALLISK\bin\Debug\WALLISK.exe.config
+C:\Users\fabrizio\Desktop\vs\WALLISK\bin\Debug\WALLISK.exe
+C:\Users\fabrizio\Desktop\vs\WALLISK\bin\Debug\WALLISK.pdb
+C:\Users\fabrizio\Desktop\vs\WALLISK\bin\Debug\WALLISK.xml
+C:\Users\fabrizio\Desktop\vs\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.cosignForm.resources
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.resources
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
+C:\Users\fabrizio\Desktop\vs\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
+C:\Users\All Users\progetti\WALLISK\bin\Debug\WALLISK.exe.config
+C:\Users\All Users\progetti\WALLISK\bin\Debug\WALLISK.exe
+C:\Users\All Users\progetti\WALLISK\bin\Debug\WALLISK.pdb
+C:\Users\All Users\progetti\WALLISK\bin\Debug\WALLISK.xml
+C:\Users\All Users\progetti\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.cosignForm.resources
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.resources
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.exe
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.xml
+C:\Users\All Users\progetti\WALLISK\obj\x86\Debug\WALLISK.pdb

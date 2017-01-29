@@ -108,6 +108,7 @@ Partial Class Lisk
         Me.Button19 = New System.Windows.Forms.Button()
         Me.Button20 = New System.Windows.Forms.Button()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
+        Me.Button21 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -271,7 +272,6 @@ Partial Class Lisk
         'RadioButton7
         '
         Me.RadioButton7.AutoSize = True
-        Me.RadioButton7.Enabled = False
         Me.RadioButton7.Location = New System.Drawing.Point(11, 292)
         Me.RadioButton7.Name = "RadioButton7"
         Me.RadioButton7.Size = New System.Drawing.Size(14, 13)
@@ -610,7 +610,7 @@ Partial Class Lisk
         '
         'Button9
         '
-        Me.Button9.Location = New System.Drawing.Point(855, 353)
+        Me.Button9.Location = New System.Drawing.Point(857, 403)
         Me.Button9.Name = "Button9"
         Me.Button9.Size = New System.Drawing.Size(134, 23)
         Me.Button9.TabIndex = 72
@@ -619,7 +619,7 @@ Partial Class Lisk
         '
         'Button10
         '
-        Me.Button10.Location = New System.Drawing.Point(855, 281)
+        Me.Button10.Location = New System.Drawing.Point(857, 331)
         Me.Button10.Name = "Button10"
         Me.Button10.Size = New System.Drawing.Size(75, 23)
         Me.Button10.TabIndex = 73
@@ -628,7 +628,7 @@ Partial Class Lisk
         '
         'Button11
         '
-        Me.Button11.Location = New System.Drawing.Point(855, 321)
+        Me.Button11.Location = New System.Drawing.Point(857, 371)
         Me.Button11.Name = "Button11"
         Me.Button11.Size = New System.Drawing.Size(75, 23)
         Me.Button11.TabIndex = 74
@@ -655,7 +655,7 @@ Partial Class Lisk
         '
         'Button12
         '
-        Me.Button12.Location = New System.Drawing.Point(855, 124)
+        Me.Button12.Location = New System.Drawing.Point(857, 174)
         Me.Button12.Name = "Button12"
         Me.Button12.Size = New System.Drawing.Size(75, 23)
         Me.Button12.TabIndex = 77
@@ -691,7 +691,7 @@ Partial Class Lisk
         '
         'Button14
         '
-        Me.Button14.Location = New System.Drawing.Point(855, 157)
+        Me.Button14.Location = New System.Drawing.Point(857, 207)
         Me.Button14.Name = "Button14"
         Me.Button14.Size = New System.Drawing.Size(75, 23)
         Me.Button14.TabIndex = 81
@@ -700,7 +700,7 @@ Partial Class Lisk
         '
         'Button15
         '
-        Me.Button15.Location = New System.Drawing.Point(855, 194)
+        Me.Button15.Location = New System.Drawing.Point(857, 244)
         Me.Button15.Name = "Button15"
         Me.Button15.Size = New System.Drawing.Size(75, 23)
         Me.Button15.TabIndex = 82
@@ -712,7 +712,7 @@ Partial Class Lisk
         '
         'Button16
         '
-        Me.Button16.Location = New System.Drawing.Point(855, 95)
+        Me.Button16.Location = New System.Drawing.Point(857, 145)
         Me.Button16.Name = "Button16"
         Me.Button16.Size = New System.Drawing.Size(75, 23)
         Me.Button16.TabIndex = 83
@@ -749,7 +749,7 @@ Partial Class Lisk
         'Button17
         '
         Me.Button17.Enabled = False
-        Me.Button17.Location = New System.Drawing.Point(855, 50)
+        Me.Button17.Location = New System.Drawing.Point(857, 100)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(134, 23)
         Me.Button17.TabIndex = 84
@@ -777,7 +777,7 @@ Partial Class Lisk
         '
         'Button20
         '
-        Me.Button20.Location = New System.Drawing.Point(855, 21)
+        Me.Button20.Location = New System.Drawing.Point(857, 71)
         Me.Button20.Name = "Button20"
         Me.Button20.Size = New System.Drawing.Size(75, 23)
         Me.Button20.TabIndex = 87
@@ -792,11 +792,21 @@ Partial Class Lisk
         Me.TextBox10.TabIndex = 88
         Me.TextBox10.Visible = False
         '
+        'Button21
+        '
+        Me.Button21.Location = New System.Drawing.Point(857, 42)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(75, 23)
+        Me.Button21.TabIndex = 89
+        Me.Button21.Text = "Button21"
+        Me.Button21.UseVisualStyleBackColor = True
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(795, 384)
+        Me.ClientSize = New System.Drawing.Size(844, 385)
+        Me.Controls.Add(Me.Button21)
         Me.Controls.Add(Me.TextBox10)
         Me.Controls.Add(Me.Button20)
         Me.Controls.Add(Me.Button19)
@@ -956,5 +966,6 @@ Partial Class Lisk
     Friend WithEvents Button19 As System.Windows.Forms.Button
     Friend WithEvents Button20 As System.Windows.Forms.Button
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
+    Friend WithEvents Button21 As System.Windows.Forms.Button
 
 End Class

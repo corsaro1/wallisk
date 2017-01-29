@@ -8,8 +8,8 @@ Imports System.Text.RegularExpressions
 Imports Microsoft.Win32
 Imports System.ComponentModel
 
-
 Public Class Lisk
+
     Dim senderId As Object = Nothing
     'Dim val As Object
     Dim votepools As String
@@ -20,6 +20,7 @@ Public Class Lisk
 
 
     Public Shared Function ValidateRemoteCertificate(ByVal sender As Object, ByVal certificate As X509Certificate, ByVal chain As X509Chain, ByVal sslPolicyErrors As Security.SslPolicyErrors) As Boolean
+
         Return True
     End Function
 
@@ -204,7 +205,7 @@ Public Class Lisk
         If Not (BackgroundWorker8.IsBusy) Then
             BackgroundWorker8.RunWorkerAsync()
         End If
-       
+
         Timer8.Start()
 
 
@@ -216,7 +217,7 @@ Public Class Lisk
 
 
     Private Sub Button2_Click_2(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
 
         Dim url As String = "https://login.lisk.io/api/transactions"
 
@@ -267,7 +268,7 @@ Public Class Lisk
         Dim original As String
         prompt = "How many LISK to send?"
         original = InputBox(prompt, title, defaultResponse)
-        If original Is "" Then GoTo fooerror
+        If original Is "" Then GoTo FooError
         '  https://www.dotnetperls.com/string-length-vbnet
         Dim length As Integer
 
@@ -411,12 +412,12 @@ Public Class Lisk
         Dim recipientId As Object
         prompt = "To which address?"
         recipientId = InputBox(prompt, title, defaultResponse)
-        If recipientId Is "" Then GoTo fooerror
+        If recipientId Is "" Then GoTo FooError
 
         Dim seed As Object
         prompt = "Hello there. What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
-        If seed Is "" Then GoTo fooerror
+        If seed Is "" Then GoTo FooError
 
         If original = "0" Then original = ""
 
@@ -537,7 +538,7 @@ FooError:
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         '    If MsgBox("Prompt", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
-       
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
 
 
 
@@ -597,8 +598,8 @@ fooerror:
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-
-
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        ' System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
         Dim url As String = "https://login.lisk.io/api/transactions"
 
         If RadioButton1.Checked = True Then
@@ -653,7 +654,7 @@ fooerror:
         Dim original As String
         prompt = "How many LISK to send?"
         original = InputBox(prompt, title, defaultResponse)
-        If original Is "" Then GoTo fooerror
+        If original Is "" Then GoTo FooError
         '  https://www.dotnetperls.com/string-length-vbnet
         Dim length As Integer
 
@@ -795,17 +796,17 @@ fooerror:
         Dim recipientId As Object
         prompt = "To which address?"
         recipientId = InputBox(prompt, title, defaultResponse)
-        If recipientId Is "" Then GoTo fooerror
+        If recipientId Is "" Then GoTo FooError
 
         Dim seed As Object
         prompt = "What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
-        If seed Is "" Then GoTo fooerror
+        If seed Is "" Then GoTo FooError
 
         Dim seed2 As Object
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
-        If seed2 Is "" Then GoTo fooerror
+        If seed2 Is "" Then GoTo FooError
 
 
         If original = "0" Then original = ""
@@ -888,6 +889,7 @@ FooError:
 
 
         On Error Resume Next
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
         request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
@@ -913,7 +915,7 @@ fooerror:
     End Sub
 
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
-
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
         Dim defaultResponse As String = String.Empty
         Dim title As String = String.Empty
         Dim request As HttpWebRequest
@@ -961,6 +963,7 @@ fooerror:
     End Sub
 
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
         votepools = "no"
         If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
@@ -1033,7 +1036,7 @@ fooerror:
     End Sub
 
     Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
-
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
         Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
         If RadioButton1.Checked = True Then
@@ -1375,6 +1378,7 @@ Fooerror2:
     End Sub
 
     Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
         '/api/accounts?address=3026381832248350807L
 
         'voto
@@ -1461,7 +1465,7 @@ Fooerror2:
         Dim seed2 As Object
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
-        If seed2 Is "" Then GoTo fooerror
+        If seed2 Is "" Then GoTo FooError
 
         '' inizio
 
@@ -1656,7 +1660,7 @@ Fooerror2:
 
         If LineOfText = "" Then
             MsgBox("you have already voted all selected delegates")
-            GoTo Fooerror
+            GoTo FooError
         End If
         Dim votelist As String = "all delegates here"
 
@@ -1733,7 +1737,7 @@ FooError:
     End Sub
 
     Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
-
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
         If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
@@ -2311,7 +2315,7 @@ fooerror:
         Dim seed As Object
         prompt = "What's your seed?"
         seed = InputBox(prompt, title, defaultResponse)
-        If seed Is "" Then GoTo fooerror2
+        If seed Is "" Then GoTo Fooerror2
 
         '    request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         '  response = DirectCast(request.GetResponse(), HttpWebResponse)
@@ -2323,12 +2327,12 @@ fooerror:
         '   Dim jResultsb As Object = JObject.Parse(rawresp)
         ' Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
         '
-       '
+        '
 
         Dim transactionId As Object
         prompt = "What's the tx id you want to co-sign?"
         transactionId = InputBox(prompt, title, defaultResponse)
-        If transactionId Is "" Then GoTo fooerror2
+        If transactionId Is "" Then GoTo Fooerror2
 
 
 
@@ -2339,7 +2343,7 @@ fooerror:
 
         Dim LineOfText As String
 
-       
+
 
         Dim votelist As String = "all delegates here"
 
@@ -2421,5 +2425,132 @@ Fooerror2:
         ElseIf result = DialogResult.Yes Then
             MessageBox.Show("Yes pressed")
         End If
+    End Sub
+
+    Private Sub Button21_Click(sender As System.Object, e As System.EventArgs) Handles Button21.Click
+        '  System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+
+        Dim defaultResponse As String = String.Empty
+        Dim title As String = String.Empty
+
+
+
+
+        '  If senderId IsNot "" Or senderId IsNot Nothing Then
+        'MsgBox("using your address " & senderId)
+        '   Else
+        '   Dim prompt As String = String.Empty
+        '   prompt = "What is your address?"
+        '   senderId = InputBox(prompt, title, defaultResponse)
+        '  If senderId Is "" Then GoTo fooerror
+        '  End If
+
+
+        Dim pubkey2 As String
+        pubkey2 = "0608b297e75bacdfb2a8d95876a48d8bdd728cb3875c13c2fb866387cca8e802"
+
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+
+        On Error Resume Next
+        ' System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        ' ServicePointManager.SecurityProtocol = SecurityProtocolType.
+        ' request = DirectCast(WebRequest.Create("https://testnet.lisk.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+        ' request = DirectCast(WebRequest.Create("https://wallet.lisknode.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+        request = DirectCast(WebRequest.Create("https://testnet-wallet.lisknode.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+
+
+
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+        '   MsgBox(rawresp)
+
+
+        '[0]
+
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+
+        Dim jResults As JObject = JObject.Parse(rawresp)
+        Dim results As List(Of JToken) = jResults.Children().ToList()
+
+        For Each item As JProperty In results
+            item.CreateReader()
+            '   MsgBox(item.Name) ' because my tag in json is img
+        Next
+
+        Dim testo4 As String
+        testo4 = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+        MsgBox(testo4)
+
+
+        For Each item As JProperty In testo4
+            item.CreateReader()
+            '    item.CreateReader()
+            '  MsgBox(item.Value("transactions")) ' because my tag in json is img
+            '  MsgBox(item.Name)
+            '  MsgBox(item)
+            ' Dim testo4 As String
+            '  testo4 = If(jResults("transactions")(0) Is Nothing, "", jResults("transactions")(0).ToString())
+            ' MsgBox(testo4)
+
+        Next
+
+        Dim testoa As String = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+
+        Dim testo As String = If(jResults("transactions")(0)("transaction")("id") Is Nothing, "", jResults("transactions")(0)("transaction")("id").ToString())
+        Dim testox As String = If(jResults("transactions")(1)("transaction")("id") Is Nothing, "", jResults("transactions")(1)("transaction")("id").ToString())
+        Dim testoy As String = If(jResults("transactions")(2)("transaction")("id") Is Nothing, "", jResults("transactions")(2)("transaction")("id").ToString())
+
+
+        '  Dim testo4 As String = If(jResults("transactions")(2)("transaction")("id") Is Nothing, "", jResults("transactions")(2)("transaction")("id").ToString())
+        ' Dim testo As String = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+
+        '   MsgBox(testoa)
+        If testo IsNot Nothing Then MsgBox(testo)
+
+        If testox IsNot Nothing Then MsgBox(testox)
+        If testoy IsNot Nothing Then MsgBox(testoy)
+
+        Dim jResults2 As Object = JObject.Parse(testo)
+
+        Dim results2 As List(Of JToken) = jResults2.Children().ToList()
+
+        For Each item As JProperty In results2
+            item.CreateReader()
+            MsgBox(item.Value) ' because my tag in json is img
+        Next
+
+
+        Dim testo2 As String = If(jResults2("transaction")(0) Is Nothing, "", jResults2("transaction")(0).ToString())
+
+        '  MsgBox(testo2)
+
+
+        Dim jResults3 As Object = JObject.Parse(testo2)
+        Dim testo3 As String = If(jResults3("id") Is Nothing, "", jResults3("id").ToString())
+
+        ' MsgBox(testo3)
+
+
+
+        '   For Each item As JProperty In jResults
+        '   item.CreateReader()
+        '  MsgBox(item.Name)
+        '   MsgBox(item)
+        '   Next
+
+
+
+
+
+fooerror:
     End Sub
 End Class

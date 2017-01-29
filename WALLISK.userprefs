@@ -1,0 +1,9 @@
+﻿<Properties StartupConfiguration="{EC4DE5B1-7FA2-4930-B45B-40864D930FE2}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.ItemProperties.WALLISK PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

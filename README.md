@@ -4,7 +4,7 @@ Enjoy it
 
 note: this is just an alpha version. Use it at your own risk
 
-visual studio 2010 express source code attached.
+visual studio 2015 express source code attached.
 
 ![Alt text](./image.PNG?raw=true "Optional Title")
 
@@ -17,7 +17,7 @@ you will find the compiled exe inside the bin/Release folder
 
 ### Installation
 
-Wallisk requires [Net framework 4](http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe) to run.
+Wallisk requires [Net framework 4.5](https://www.microsoft.com/it-it/download/details.aspx?id=30653) to run.
 and has included in exe resources the [Json.NET library](https://github.com/JamesNK/Newtonsoft.Json) (as soon as you run the exe a Newtonsoft.Json.dll is created in exe folder)
 
 ### Windows Binary
@@ -25,7 +25,9 @@ and has included in exe resources the [Json.NET library](https://github.com/Jame
 [df1]: <./bin/Release/WALLISK.exe?raw=true>
 [Download already compiled Windows Binary] [df1]
 
-
+###  Credits
+A special thank to gr33ndrag0n for his help in solving a TLS 1.2 issue when communicating with his node
+https://github.com/Gr33nDrag0n69
 
 License
 MIT
