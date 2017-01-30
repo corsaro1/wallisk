@@ -1,3 +1,5 @@
+Walliks, a Windows Multi-Functions software relying on API calls on remote Lisk nodes for commands
+
 not just a simple lisk blockchain height checker.
 
 Enjoy it
