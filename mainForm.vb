@@ -2573,6 +2573,16 @@ Fooerror2:
 
         Dim testo4 As String
         testo4 = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+
+
+        ' Dim withParts As String = "Books and Chapters and Pages"
+        testo4 = Replace(testo4, "[", "{")
+        testo4 = Replace(testo4, "]", "")
+        testo4 = Replace(testo4, "},", ",")
+        '  testo4 = testo4.Remove(testo4.Length - 1)
+
+
+
         MsgBox(testo4)
 
 
@@ -2580,7 +2590,7 @@ Fooerror2:
             item.CreateReader()
             '    item.CreateReader()
             '  MsgBox(item.Value("transactions")) ' because my tag in json is img
-            '  MsgBox(item.Name)
+            ' MsgBox(item.Value("id"))
             '  MsgBox(item)
             ' Dim testo4 As String
             '  testo4 = If(jResults("transactions")(0) Is Nothing, "", jResults("transactions")(0).ToString())
@@ -2630,34 +2640,34 @@ Fooerror2:
 
         If testod1 IsNot Nothing Then
             ' MsgBox(testoz)
-            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & testod1
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1
 
         End If
 
 
         If testoe1 IsNot Nothing Then
             ' MsgBox(testoz1)
-            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & testod1 & testoe1
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1
 
         End If
 
 
         If testof1 IsNot Nothing Then
             ' MsgBox(testoz1)
-            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & testod1 & testoe1 & testof1
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1 & vbCrLf & testof1
 
         End If
 
         If testog1 IsNot Nothing Then
             ' MsgBox(testoz1)
-            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & testod1 & testoe1 & testof1 & testog1
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1 & vbCrLf & testof1 & vbCrLf & testog1
 
         End If
 
 
         If testoh1 IsNot Nothing Then
             ' MsgBox(testoz1)
-            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & testod1 & testoe1 & testof1 & testog1 & testoh1
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1 & vbCrLf & testof1 & vbCrLf & testog1 & vbCrLf & testoh1
 
         End If
 
