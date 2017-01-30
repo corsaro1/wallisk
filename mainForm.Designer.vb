@@ -109,6 +109,7 @@ Partial Class Lisk
         Me.Button20 = New System.Windows.Forms.Button()
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Button21 = New System.Windows.Forms.Button()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -367,11 +368,11 @@ Partial Class Lisk
         Me.LinkLabel7.AutoSize = True
         Me.LinkLabel7.Location = New System.Drawing.Point(31, 291)
         Me.LinkLabel7.Name = "LinkLabel7"
-        Me.LinkLabel7.Size = New System.Drawing.Size(118, 13)
+        Me.LinkLabel7.Size = New System.Drawing.Size(123, 13)
         Me.LinkLabel7.TabIndex = 46
         Me.LinkLabel7.TabStop = True
         Me.LinkLabel7.Tag = ""
-        Me.LinkLabel7.Text = "http://wallet.lisknode.io"
+        Me.LinkLabel7.Text = "https://wallet.lisknode.io"
         '
         'LinkLabel8
         '
@@ -493,7 +494,7 @@ Partial Class Lisk
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(526, 231)
+        Me.Button6.Location = New System.Drawing.Point(526, 252)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(134, 23)
         Me.Button6.TabIndex = 59
@@ -638,7 +639,7 @@ Partial Class Lisk
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(520, 176)
+        Me.Label15.Location = New System.Drawing.Point(523, 211)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(210, 13)
         Me.Label15.TabIndex = 75
@@ -647,7 +648,7 @@ Partial Class Lisk
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(520, 193)
+        Me.Label16.Location = New System.Drawing.Point(523, 228)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(131, 13)
         Me.Label16.TabIndex = 76
@@ -674,7 +675,7 @@ Partial Class Lisk
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(514, 294)
+        Me.Label17.Location = New System.Drawing.Point(523, 298)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(197, 13)
         Me.Label17.TabIndex = 79
@@ -683,7 +684,7 @@ Partial Class Lisk
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(514, 310)
+        Me.Label18.Location = New System.Drawing.Point(523, 314)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(94, 13)
         Me.Label18.TabIndex = 80
@@ -794,18 +795,28 @@ Partial Class Lisk
         '
         'Button21
         '
-        Me.Button21.Location = New System.Drawing.Point(857, 42)
+        Me.Button21.Location = New System.Drawing.Point(526, 134)
         Me.Button21.Name = "Button21"
-        Me.Button21.Size = New System.Drawing.Size(75, 23)
+        Me.Button21.Size = New System.Drawing.Size(134, 23)
         Me.Button21.TabIndex = 89
-        Me.Button21.Text = "Button21"
+        Me.Button21.Text = "Pending Multisign tx"
         Me.Button21.UseVisualStyleBackColor = True
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(695, 67)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(146, 96)
+        Me.RichTextBox1.TabIndex = 90
+        Me.RichTextBox1.Text = ""
+        Me.RichTextBox1.Visible = False
         '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(844, 385)
+        Me.ClientSize = New System.Drawing.Size(842, 384)
+        Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button21)
         Me.Controls.Add(Me.TextBox10)
         Me.Controls.Add(Me.Button20)
@@ -967,5 +978,5 @@ Partial Class Lisk
     Friend WithEvents Button20 As System.Windows.Forms.Button
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
     Friend WithEvents Button21 As System.Windows.Forms.Button
-
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class
