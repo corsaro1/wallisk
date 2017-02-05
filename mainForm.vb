@@ -7,15 +7,7 @@ Imports System.Security.Cryptography.X509Certificates
 Imports System.Text.RegularExpressions
 Imports Microsoft.Win32
 Imports System.ComponentModel
-
-
-
-
-
-
-
-
-
+Imports Newtonsoft.Json
 
 Public Class Lisk
 
@@ -2437,6 +2429,8 @@ Fooerror2:
     End Sub
 
     Private Sub Button21_Click(sender As System.Object, e As System.EventArgs) Handles Button21.Click
+        On Error GoTo fooerror
+
         '  System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
 
@@ -2576,14 +2570,54 @@ Fooerror2:
 
 
         ' Dim withParts As String = "Books and Chapters and Pages"
-        testo4 = Replace(testo4, "[", "{")
-        testo4 = Replace(testo4, "]", "")
-        testo4 = Replace(testo4, "},", ",")
+        ' testo4 = Replace(testo4, "[", "{")
+        'testo4 = Replace(testo4, "]", "")
+        ' testo4 = Replace(testo4, "},", ",")
         '  testo4 = testo4.Remove(testo4.Length - 1)
 
 
 
         MsgBox(testo4)
+
+
+
+
+        Dim startNumber As Integer
+        Dim endNumber As Integer
+        Dim i As Integer
+
+        startNumber = 0
+        endNumber = 10
+
+        Dim testofinale As String
+
+
+        For i = startNumber To endNumber
+
+            '   MessageBox.Show(i)
+            Dim testoa As String = If(jResults("transactions")(i)("transaction")("id") Is Nothing, "", jResults("transactions")(i)("transaction")("id").ToString())
+            If testoa IsNot Nothing Then
+                '  MessageBox.Show(testoa)
+                testofinale += testoa & vbCrLf
+                testoa = Nothing
+
+            Else
+
+            End If
+
+        Next i
+
+        ' MsgBox(testofinale)
+        RichTextBox1.Text = testofinale
+        RichTextBox1.Visible = True
+        Label19.Text = "tx to be co-signed"
+        Label19.Visible = True
+
+
+        GoTo fooerror
+
+
+
 
 
         For Each item As JProperty In testo4
@@ -2706,5 +2740,329 @@ Fooerror2:
 
 
 fooerror:
+    End Sub
+
+    Private Sub Button22_Click(sender As Object, e As EventArgs) Handles Button22.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+
+
+
+        Dim senderid2 As String
+        Dim prompt As String = String.Empty
+        Dim title As String = String.Empty
+
+        Dim defaultResponse As String = String.Empty
+
+
+        prompt = "What is Multisign address?"
+        senderid2 = InputBox(prompt, title, defaultResponse)
+        If senderid2 Is "" Then GoTo fooerror
+
+        Dim result As Integer = MessageBox.Show("press Yes for Mainnet or No for testnet", "caption", MessageBoxButtons.YesNoCancel)
+
+        Dim request As HttpWebRequest
+
+        Dim url As String
+
+
+        If result = DialogResult.Cancel Then
+            GoTo fooerror
+        ElseIf result = DialogResult.No Then
+            url = "testnet-wallet.lisknode.io"
+            ' request = DirectCast(WebRequest.Create("https://testnet-wallet.lisknode.io/api/accounts?address=" & senderid2), HttpWebRequest)
+        ElseIf result = DialogResult.Yes Then
+            url = "login.lisk.io"
+
+            'request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderid2), HttpWebRequest)
+        End If
+
+
+
+
+
+        request = DirectCast(WebRequest.Create("https://" & url & "/api/accounts?address=" & senderid2), HttpWebRequest)
+
+
+
+
+
+        '   Dim title As String = String.Empty
+        ' Dim defaultResponse As String = String.Empty
+        '  Dim prompt As String = String.Empty
+
+        Dim rawresp As String
+
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+
+        ' request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderid2), HttpWebRequest)
+
+        '  request = DirectCast(WebRequest.Create("https://testnet-wallet.lisknode.io/api/accounts?address=" & senderid2), HttpWebRequest)
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+
+        rawresp = reader.ReadToEnd()
+
+        ' Dim jResults As Object = JObject.Parse(rawresp)
+        '   Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        ' Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        '   MsgBox("your pubKey Is " & testo2) ' mia pubkey
+
+        ' If jResults2("publicKey") Is Nothing Then MsgBox("xxx")
+
+        ' pubkey()
+
+        '   Dim seed As Object
+        '  prompt = "What's your seed?"
+        '  seed = InputBox(prompt, title, defaultResponse)
+        '  If seed Is "" Then GoTo fooerror2
+
+
+        Dim jResultsb As Object = JObject.Parse(rawresp)
+        Dim testob As String = If(jResultsb("account")("publicKey") Is Nothing, "", jResultsb("account")("publicKey").ToString())
+        'MsgBox(testob)
+
+
+
+
+
+        '  If senderId IsNot "" Or senderId IsNot Nothing Then
+        'MsgBox("using your address " & senderId)
+        '   Else
+        '   Dim prompt As String = String.Empty
+        '   prompt = "What is your address?"
+        '   senderId = InputBox(prompt, title, defaultResponse)
+        '  If senderId Is "" Then GoTo fooerror
+        '  End If
+
+
+        Dim pubkey2 As String
+        ' pubkey2 = "0608b297e75bacdfb2a8d95876a48d8bdd728cb3875c13c2fb866387cca8e802"
+        pubkey2 = testob
+        'Dim request As HttpWebRequest
+
+        ' Dim response As HttpWebResponse = Nothing
+
+        ' Dim reader As StreamReader
+
+        On Error Resume Next
+        ' System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        ' ServicePointManager.SecurityProtocol = SecurityProtocolType.
+        ' request = DirectCast(WebRequest.Create("https://testnet.lisk.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+        ' request = DirectCast(WebRequest.Create("https://wallet.lisknode.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+        request = DirectCast(WebRequest.Create("https://" & url & "/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        '  Dim rawresp As String
+        rawresp = reader.ReadToEnd()
+        '   MsgBox(rawresp)
+
+
+        '[0]
+
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+
+        Dim jResults As JObject = JObject.Parse(rawresp)
+        Dim results As List(Of JToken) = jResults.Children().ToList()
+
+        For Each item As JProperty In results
+            '  MsgBox(item.Count)
+            item.CreateReader()
+            '  MsgBox(item.Name) ' because my tag in json is img
+            ' MsgBox(item.Name("transactions"))
+        Next
+
+        Dim testo4 As String
+        testo4 = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+
+        MsgBox(rawresp)
+        Dim json As JObject = JObject.Parse(rawresp)
+        Dim abcd As String = json.SelectToken("transactions")(0)("transaction")("id")
+        Dim efgh As String = json.SelectToken("transactions")(0)("transaction")("recipientId")
+
+        MsgBox(abcd & " " & efgh)
+        MsgBox(json.SelectToken("transactions")(1)("transaction")("id"))
+
+
+        Dim array As JArray = JArray.Parse(testo4)
+        For Each content As JObject In array.Children(Of JObject)
+            For Each prop As JProperty In content.Properties
+                '  MsgBox(prop.Name)
+                '   MsgBox(prop.Parent)
+
+            Next
+        Next
+
+
+
+        '  Dim obj As JObject = JObject.Parse(testo4)
+        '   For Each pair In obj
+        '  MsgBox(pair.Key)
+        '  Next
+
+
+
+
+
+        ' Dim withParts As String = "Books and Chapters and Pages"
+        ' testo4 = Replace(testo4, "[", "{")
+        '  testo4 = Replace(testo4, "]", "")
+        ' testo4 = Replace(testo4, "},", ",")
+        '  testo4 = testo4.Remove(testo4.Length - 1)
+
+
+
+        MsgBox(testo4)
+
+
+
+
+
+        '   Dim dataSet As DataSet = JsonConvert.DeserializeObject(Of DataSet)(testo4)
+        '   Dim dataTable As DataTable = dataSet.Tables("transaction")
+        '  MsgBox(dataTable.Rows.Count)
+        '  For Each row As DataRow In dataTable.Rows
+        '  MsgBox((row("id") + (" - " + row("item"))))
+        '  Next
+
+
+        Dim startNumber As Integer
+        Dim endNumber As Integer
+        Dim i As Integer
+
+        startNumber = 1
+        endNumber = 4
+
+        For i = startNumber To endNumber
+
+            '   MessageBox.Show(i)
+
+        Next i
+
+
+
+
+        '   Dim testoa As String = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+        ' MsgBox(testoa)
+
+        Dim testoa1 As String = If(jResults("transactions")(0)("transaction")("id") Is Nothing, "", jResults("transactions")(0)("transaction")("id").ToString())
+        Dim testob1 As String = If(jResults("transactions")(1)("transaction")("id") Is Nothing, "", jResults("transactions")(1)("transaction")("id").ToString())
+        Dim testoc1 As String = If(jResults("transactions")(2)("transaction")("id") Is Nothing, "", jResults("transactions")(2)("transaction")("id").ToString())
+        Dim testod1 As String = If(jResults("transactions")(3)("transaction")("id") Is Nothing, "", jResults("transactions")(3)("transaction")("id").ToString())
+        Dim testoe1 As String = If(jResults("transactions")(4)("transaction")("id") Is Nothing, "", jResults("transactions")(4)("transaction")("id").ToString())
+        Dim testof1 As String = If(jResults("transactions")(5)("transaction")("id") Is Nothing, "", jResults("transactions")(5)("transaction")("id").ToString())
+        Dim testog1 As String = If(jResults("transactions")(6)("transaction")("id") Is Nothing, "", jResults("transactions")(6)("transaction")("id").ToString())
+        Dim testoh1 As String = If(jResults("transactions")(7)("transaction")("id") Is Nothing, "", jResults("transactions")(7)("transaction")("id").ToString())
+
+
+
+
+        '  Dim testo4 As String = If(jResults("transactions")(2)("transaction")("id") Is Nothing, "", jResults("transactions")(2)("transaction")("id").ToString())
+        ' Dim testo As String = If(jResults("transactions") Is Nothing, "", jResults("transactions").ToString())
+
+        '   MsgBox(testoa)
+        If testoa1 IsNot Nothing Then
+            '  MsgBox(testo)
+            RichTextBox1.Text = testoa1
+            RichTextBox1.Visible = True
+
+
+        End If
+
+
+        If testob1 IsNot Nothing Then
+            '   MsgBox(testox)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1
+        End If
+
+        If testoc1 IsNot Nothing Then
+            ' MsgBox(testoy)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1
+
+        End If
+
+
+        If testod1 IsNot Nothing Then
+            ' MsgBox(testoz)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1
+
+        End If
+
+
+        If testoe1 IsNot Nothing Then
+            ' MsgBox(testoz1)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1
+
+        End If
+
+
+        If testof1 IsNot Nothing Then
+            ' MsgBox(testoz1)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1 & vbCrLf & testof1
+
+        End If
+
+        If testog1 IsNot Nothing Then
+            ' MsgBox(testoz1)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1 & vbCrLf & testof1 & vbCrLf & testog1
+
+        End If
+
+
+        If testoh1 IsNot Nothing Then
+            ' MsgBox(testoz1)
+            RichTextBox1.Text = testoa1 & vbCrLf & testob1 & vbCrLf & testoc1 & vbCrLf & testod1 & vbCrLf & testoe1 & vbCrLf & testof1 & vbCrLf & testog1 & vbCrLf & testoh1
+
+        End If
+
+
+
+        '  Dim jResults2 As Object = JObject.Parse(testoa)
+
+        '   Dim results2 As List(Of JToken) = jResults2.Children().ToList()
+
+        '  For Each item As JProperty In results2
+        '  item.CreateReader()
+        ' MsgBox(item.Value) ' because my tag in json is img
+        '  Next
+
+
+        '  Dim testo2 As String = If(jResults2("transaction")(0) Is Nothing, "", jResults2("transaction")(0).ToString())
+
+        '  MsgBox(testo2)
+
+
+        '  Dim jResults3 As Object = JObject.Parse(testo2)
+        '  Dim testo3 As String = If(jResults3("id") Is Nothing, "", jResults3("id").ToString())
+
+        ' MsgBox(testo3)
+
+
+
+        '   For Each item As JProperty In jResults
+        '   item.CreateReader()
+        '  MsgBox(item.Name)
+        '   MsgBox(item)
+        '   Next
+
+
+
+
+
+fooerror:
+    End Sub
+
+    Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
+        'http://stackoverflow.com/questions/22096694/vb-net-multiple-nested-json-listed-by-lowest-first
+        ' Dim deserialized = JsonConvert.DeserializeObject(Of RootObject)(jsonData.ToString())
+
     End Sub
 End Class

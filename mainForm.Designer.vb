@@ -110,6 +110,9 @@ Partial Class Lisk
         Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Button21 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.Button23 = New System.Windows.Forms.Button()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -811,11 +814,42 @@ Partial Class Lisk
         Me.RichTextBox1.Text = ""
         Me.RichTextBox1.Visible = False
         '
+        'Button22
+        '
+        Me.Button22.Location = New System.Drawing.Point(857, 42)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(75, 23)
+        Me.Button22.TabIndex = 91
+        Me.Button22.Text = "Button22"
+        Me.Button22.UseVisualStyleBackColor = True
+        '
+        'Button23
+        '
+        Me.Button23.Location = New System.Drawing.Point(952, 9)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(75, 23)
+        Me.Button23.TabIndex = 92
+        Me.Button23.Text = "Button23"
+        Me.Button23.UseVisualStyleBackColor = True
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(692, 47)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(45, 13)
+        Me.Label19.TabIndex = 93
+        Me.Label19.Text = "Label19"
+        Me.Label19.Visible = False
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(842, 384)
+        Me.ClientSize = New System.Drawing.Size(850, 384)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Button23)
+        Me.Controls.Add(Me.Button22)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button21)
         Me.Controls.Add(Me.TextBox10)
@@ -979,4 +1013,7 @@ Partial Class Lisk
     Friend WithEvents TextBox10 As System.Windows.Forms.TextBox
     Friend WithEvents Button21 As System.Windows.Forms.Button
     Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents Button22 As Button
+    Friend WithEvents Button23 As Button
+    Friend WithEvents Label19 As Label
 End Class
