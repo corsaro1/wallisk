@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("wallisk")> 
+<Assembly: AssemblyTitle("wallisk temp")>
 <Assembly: AssemblyDescription("not only a lisk height checker")> 
-<Assembly: AssemblyCompany("corsaro")> 
-<Assembly: AssemblyProduct("WALLISK")> 
+<Assembly: AssemblyCompany("corsaro")>
+<Assembly: AssemblyProduct("WALLISK temp")>
 <Assembly: AssemblyCopyright("Copyright ©  2016")> 
 <Assembly: AssemblyTrademark("")> 
 

@@ -497,7 +497,7 @@ Partial Class Lisk
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(526, 252)
+        Me.Button6.Location = New System.Drawing.Point(520, 281)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(134, 23)
         Me.Button6.TabIndex = 59
@@ -642,7 +642,7 @@ Partial Class Lisk
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(523, 211)
+        Me.Label15.Location = New System.Drawing.Point(517, 248)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(210, 13)
         Me.Label15.TabIndex = 75
@@ -651,7 +651,7 @@ Partial Class Lisk
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(523, 228)
+        Me.Label16.Location = New System.Drawing.Point(517, 265)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(131, 13)
         Me.Label16.TabIndex = 76
@@ -668,7 +668,7 @@ Partial Class Lisk
         '
         'Button13
         '
-        Me.Button13.Location = New System.Drawing.Point(526, 343)
+        Me.Button13.Location = New System.Drawing.Point(520, 348)
         Me.Button13.Name = "Button13"
         Me.Button13.Size = New System.Drawing.Size(134, 23)
         Me.Button13.TabIndex = 78
@@ -678,7 +678,7 @@ Partial Class Lisk
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(523, 298)
+        Me.Label17.Location = New System.Drawing.Point(517, 316)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(197, 13)
         Me.Label17.TabIndex = 79
@@ -687,7 +687,7 @@ Partial Class Lisk
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(523, 314)
+        Me.Label18.Location = New System.Drawing.Point(517, 332)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(94, 13)
         Me.Label18.TabIndex = 80
@@ -825,11 +825,11 @@ Partial Class Lisk
         '
         'Button23
         '
-        Me.Button23.Location = New System.Drawing.Point(952, 9)
+        Me.Button23.Location = New System.Drawing.Point(520, 200)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(75, 23)
         Me.Button23.TabIndex = 92
-        Me.Button23.Text = "Button23"
+        Me.Button23.Text = "Vote"
         Me.Button23.UseVisualStyleBackColor = True
         '
         'Label19
@@ -846,7 +846,7 @@ Partial Class Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(850, 384)
+        Me.ClientSize = New System.Drawing.Size(856, 382)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Button23)
         Me.Controls.Add(Me.Button22)

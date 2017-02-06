@@ -86,3 +86,18 @@ C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.
 C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources
 C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
 C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\Newtonsoft.Json.dll
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.vbproj.GenerateResource.Cache
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\WALLISK_temp.exe.config
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\WALLISK_temp.exe
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\WALLISK_temp.pdb
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\WALLISK_temp.xml
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.cosignForm.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.pubkeyForm.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.Lisk.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.Resources.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.exe
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.xml
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.pdb
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK_temp.vote.resources

@@ -11,7 +11,8 @@ Imports Newtonsoft.Json
 
 Public Class Lisk
 
-    Dim senderId As Object = Nothing
+
+    Public Property senderId As Object = Nothing
     'Dim val As Object
     Dim votepools As String
     Dim pubkeyx As String
@@ -1014,7 +1015,7 @@ fooerror:
             End If
 
 
-            Dim jResults2 As Object = JObject.Parse(testoerr)
+            Dim jResults2 As Object = JObject.Parse(rawresp)
 
             Dim testo As String = If(jResults2("account") Is Nothing, "", jResults2("account").ToString())
 
@@ -1790,7 +1791,7 @@ FooError:
             End If
 
 
-            Dim jResults2 As Object = JObject.Parse(testoerr)
+            Dim jResults2 As Object = JObject.Parse(rawresp)
 
             Dim testo As String = If(jResults2("account") Is Nothing, "", jResults2("account").ToString())
 
@@ -3063,6 +3064,7 @@ fooerror:
     Private Sub Button23_Click(sender As Object, e As EventArgs) Handles Button23.Click
         'http://stackoverflow.com/questions/22096694/vb-net-multiple-nested-json-listed-by-lowest-first
         ' Dim deserialized = JsonConvert.DeserializeObject(Of RootObject)(jsonData.ToString())
+        vote.ShowDialog()
 
     End Sub
 End Class

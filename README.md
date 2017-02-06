@@ -2,19 +2,17 @@ Walliks, a Windows Multi-Functions software relying on API calls on remote Lisk 
 
 not just a simple lisk blockchain height checker.
 
-Using TLS v1.1/1.2 to communicate with nodes
-
 Enjoy it
 
 note: this is just an alpha version. Use it at your own risk
 
-visual studio 2015 express source code attached.
+visual studio 2010 express source code attached.
 
 ![Alt text](./image.PNG?raw=true "Optional Title")
 
 
 #### Building from source
-Clone the repo on your hard disk, Open the file WALLISK.vbproj with Visual Studio 2015 or superior, then go to menu "Build" >> Build Wallisk
+Clone the repo on your hard disk, Open the file WALLISK.vbproj with Visual Studio 2010 or superior, then go to menu "Build" >> Build Wallisk
 you will find the compiled exe inside the bin/Release folder
 
 

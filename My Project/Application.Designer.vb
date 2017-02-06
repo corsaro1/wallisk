@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.WALLISK.Lisk
+            Me.MainForm = Global.WALLISK_temp.Lisk
         End Sub
     End Class
 End Namespace
