@@ -8,9 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EC4DE5B1-7FA2-4930-B45B-40864D930FE2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WALLISK_temp.My.MyApplication</StartupObject>
-    <RootNamespace>WALLISK_temp</RootNamespace>
-    <AssemblyName>WALLISK_temp</AssemblyName>
+    <StartupObject>WALLISK.My.MyApplication</StartupObject>
+    <RootNamespace>WALLISK</RootNamespace>
+    <AssemblyName>WALLISK</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -39,7 +39,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>WALLISK_temp.xml</DocumentationFile>
+    <DocumentationFile>WALLISK.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -50,7 +50,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>WALLISK_temp.xml</DocumentationFile>
+    <DocumentationFile>WALLISK.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>

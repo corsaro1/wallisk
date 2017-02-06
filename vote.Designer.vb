@@ -34,6 +34,7 @@ Partial Class vote
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
@@ -142,11 +143,21 @@ Partial Class vote
         Me.Button8.Text = "1 seed"
         Me.Button8.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 29)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(155, 13)
+        Me.Label2.TabIndex = 15
+        Me.Label2.Text = "Check your preferred delegates"
+        '
         'vote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(911, 479)
+        Me.ClientSize = New System.Drawing.Size(768, 479)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
@@ -159,6 +170,8 @@ Partial Class vote
         Me.Controls.Add(Me.CheckedListBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "vote"
         Me.Text = "vote"
         Me.ResumeLayout(False)
@@ -177,4 +190,5 @@ Partial Class vote
     Friend WithEvents Button6 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
+    Friend WithEvents Label2 As Label
 End Class

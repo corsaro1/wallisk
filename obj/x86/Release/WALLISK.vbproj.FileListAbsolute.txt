@@ -73,15 +73,15 @@ C:\Users\All Users\progetti\WALLISK\obj\x86\Release\WALLISK.xml
 C:\Users\All Users\progetti\WALLISK\obj\x86\Release\WALLISK.pdb
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\Newtonsoft.Json.dll
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.vbproj.GenerateResource.Cache
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK_temp.exe.config
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK_temp.exe
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK_temp.pdb
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK_temp.xml
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.cosignForm.resources
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.pubkeyForm.resources
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.Lisk.resources
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.Resources.resources
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.vote.resources
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.exe
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.xml
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK_temp.pdb
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK.exe.config
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK.exe
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK.pdb
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Release\WALLISK.xml
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.cosignForm.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.pubkeyForm.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.Lisk.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.Resources.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.vote.resources
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.exe
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.xml
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Release\WALLISK.pdb

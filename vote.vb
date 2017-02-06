@@ -907,7 +907,7 @@ fooerror:
             Dim testo2 As String = If(jResults3("secondSignature") Is Nothing, "", jResults3("secondSignature").ToString())
             MsgBox(testo2)
             If testo2 = 0 Then
-                ' Me.Button4.PerformClick()
+                Me.Button8.PerformClick()
 
             Else
                 Me.Button1.PerformClick()
