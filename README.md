@@ -6,13 +6,15 @@ Enjoy it
 
 note: this is just an alpha version. Use it at your own risk
 
-visual studio 2010 express source code attached.
+Uses only tls 1.2 to communicate to Secure Site
+
+visual studio 2015 express source code attached.
 
 ![Alt text](./image.PNG?raw=true "Optional Title")
 
 
 #### Building from source
-Clone the repo on your hard disk, Open the file WALLISK.vbproj with Visual Studio 2010 or superior, then go to menu "Build" >> Build Wallisk
+Clone the repo on your hard disk, Open the file WALLISK.vbproj with Visual Studio 2015 or superior, then go to menu "Build" >> Build Wallisk
 you will find the compiled exe inside the bin/Release folder
 
 
@@ -30,6 +32,8 @@ and has included in exe resources the [Json.NET library](https://github.com/Jame
 ###  Credits
 A special thank to gr33ndrag0n for his help in solving a TLS 1.2 issue when communicating with his node
 https://github.com/Gr33nDrag0n69
+
+
 
 License
 MIT
