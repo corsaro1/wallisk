@@ -41,6 +41,9 @@ Partial Class vote
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button12 = New System.Windows.Forms.Button()
+        Me.Button13 = New System.Windows.Forms.Button()
+        Me.Button14 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -97,7 +100,7 @@ Partial Class vote
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(371, 497)
+        Me.Button4.Location = New System.Drawing.Point(363, 492)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 9
@@ -115,7 +118,7 @@ Partial Class vote
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(417, 455)
+        Me.Button5.Location = New System.Drawing.Point(383, 455)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 11
@@ -124,7 +127,7 @@ Partial Class vote
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(483, 497)
+        Me.Button6.Location = New System.Drawing.Point(475, 492)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 12
@@ -211,11 +214,41 @@ Partial Class vote
         Me.Label4.TabIndex = 22
         Me.Label4.Text = "Your actually voted delegates"
         '
+        'Button12
+        '
+        Me.Button12.Location = New System.Drawing.Point(475, 521)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(75, 23)
+        Me.Button12.TabIndex = 24
+        Me.Button12.Text = "1 seed unv"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
+        'Button13
+        '
+        Me.Button13.Location = New System.Drawing.Point(363, 521)
+        Me.Button13.Name = "Button13"
+        Me.Button13.Size = New System.Drawing.Size(75, 23)
+        Me.Button13.TabIndex = 23
+        Me.Button13.Text = "2 seed unv"
+        Me.Button13.UseVisualStyleBackColor = True
+        '
+        'Button14
+        '
+        Me.Button14.Location = New System.Drawing.Point(475, 455)
+        Me.Button14.Name = "Button14"
+        Me.Button14.Size = New System.Drawing.Size(75, 23)
+        Me.Button14.TabIndex = 25
+        Me.Button14.Text = "Unvote"
+        Me.Button14.UseVisualStyleBackColor = True
+        '
         'vote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(938, 486)
+        Me.Controls.Add(Me.Button14)
+        Me.Controls.Add(Me.Button12)
+        Me.Controls.Add(Me.Button13)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.Button11)
@@ -262,4 +295,7 @@ Partial Class vote
     Friend WithEvents Button10 As Button
     Friend WithEvents Button11 As Button
     Friend WithEvents Label4 As Label
+    Friend WithEvents Button12 As Button
+    Friend WithEvents Button13 As Button
+    Friend WithEvents Button14 As Button
 End Class
