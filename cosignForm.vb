@@ -14,7 +14,7 @@ Public Class cosignForm
     End Function
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ' Dim url As String = "https://login.lisk.io/api/multisignatures/sign"
 
         Dim url As String

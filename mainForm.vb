@@ -219,7 +219,7 @@ Public Class Lisk
 
 
     Private Sub Button2_Click_2(sender As System.Object, e As System.EventArgs) Handles Button2.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
         Dim url As String = "https://login.lisk.io/api/transactions"
 
@@ -600,7 +600,7 @@ fooerror:
     End Sub
 
     Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles Button3.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ' System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
         Dim url As String = "https://login.lisk.io/api/transactions"
 
@@ -965,7 +965,7 @@ fooerror:
     End Sub
 
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         votepools = "no"
         If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
@@ -1038,7 +1038,7 @@ fooerror:
     End Sub
 
     Private Sub Button8_Click(sender As System.Object, e As System.EventArgs) Handles Button8.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
         If RadioButton1.Checked = True Then
@@ -1380,7 +1380,7 @@ Fooerror2:
     End Sub
 
     Private Sub Button7_Click(sender As System.Object, e As System.EventArgs) Handles Button7.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         '/api/accounts?address=3026381832248350807L
 
         'voto
@@ -1739,7 +1739,7 @@ FooError:
     End Sub
 
     Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
@@ -2433,7 +2433,7 @@ Fooerror2:
         On Error GoTo fooerror
 
         '  System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
         Dim senderid2 As String
         Dim prompt As String = String.Empty

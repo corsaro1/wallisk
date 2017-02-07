@@ -8,6 +8,7 @@ Public Class vote
     Private Sub vote_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = "Insert delegate list, one per line"
         Me.Button2.PerformClick()
+        Me.Button3.PerformClick()
     End Sub
 
     Dim seedx As String
@@ -24,7 +25,7 @@ Public Class vote
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
         Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
@@ -105,7 +106,7 @@ Public Class vote
         Dim LineOfText As String
 
         LineOfText = String.Join(",", CType(myAL.ToArray(Type.GetType("System.String")), String()))
-        MsgBox(LineOfText)
+        '   MsgBox(LineOfText)
 
         If LineOfText = "" Then
             MsgBox("you have already voted all selected delegates")
@@ -294,47 +295,75 @@ fooerror:
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim defaultResponse As String = String.Empty
-        Dim title As String = String.Empty
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+
+        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim myAL As New ArrayList
+        Dim senderId As String = Lisk.senderId
 
 
-
-        '  If senderId IsNot "" Or senderId IsNot Nothing Then
-        'MsgBox("using your address " & senderId)
-        '   Else
-        '   Dim prompt As String = String.Empty
-        '   prompt = "What is your address?"
-        '   senderId = InputBox(prompt, title, defaultResponse)
-        '  If senderId Is "" Then GoTo fooerror
-        '  End If
-
-
-
+        '  MsgBox(senderId)
 
         Dim request As HttpWebRequest
 
         Dim response As HttpWebResponse = Nothing
 
         Dim reader As StreamReader
+        Dim rawresp As String
 
-        On Error Resume Next
-        request = DirectCast(WebRequest.Create("https://liskworld.info/api/delegates/get?username=phinx"), HttpWebRequest)
+
+        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
-        Dim rawresp As String
         rawresp = reader.ReadToEnd()
-        MsgBox(rawresp)
+
+        ' serve a vedere chi si è già votato
+        Dim jResultsb As Object = JObject.Parse(rawresp)
+        Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
+        ' MsgBox(testob)
+
+        Dim startNumber As Integer
+        Dim endNumber As Integer
+        Dim i As Integer
+
+        startNumber = 0
+        endNumber = 100
+
+        Dim testofinale As String
+
+        On Error GoTo fooerror
+
+        For i = startNumber To endNumber
+
+            '   MessageBox.Show(i)
+            Dim jResultsb1 As Object = JObject.Parse(rawresp)
+            Dim testob1 As String = If(jResultsb1("delegates")(i)("username") Is Nothing, "", jResultsb1("delegates")(i)("username").ToString())
+            Dim testoa1 As String = If(jResultsb1("delegates")(i)("publicKey") Is Nothing, "", jResultsb1("delegates")(i)("publicKey").ToString())
+            If testob1 IsNot Nothing Then
+                '  MessageBox.Show(testoa)
+                ' testofinale += testob1 & vbCrLf
+                CheckedListBox3.Items.Add(testob1)
+                CheckedListBox4.Items.Add(testoa1)
+
+                '                CheckedListBox1.DisplayMember = "Text"
+                '                CheckedListBox1.ValueMember = "Value"
+                '                CheckedListBox1.Items.Insert(0, New With {
+                '                Key .Text = testoa,
+                '                Key .Value = testoa1
+                '})
 
 
-        Dim jResults As Object = JObject.Parse(rawresp)
-        Dim testo As String = If(jResults("delegate")("publicKey") Is Nothing, "", jResults("delegate")("publicKey").ToString())
-        ' Dim jResults2 As Object = JObject.Parse(testo)
-        ' Dim testo2 As String = If(jResults2("secondSignature") Is Nothing, "", jResults2("secondSignature").ToString())
-        MsgBox(testo)
+                testob1 = Nothing
+                testoa1 = Nothing
 
 
+            Else
 
+            End If
+
+        Next i
 
 
 
@@ -346,7 +375,7 @@ fooerror:
     Public RotateCount = 0
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
         Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
@@ -526,7 +555,7 @@ fooerror:
 
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ' votepools = "no"
         If MsgBox("Completing this procedure will cost you 1 LISK and you will vote ", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
@@ -596,7 +625,7 @@ fooerror:
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
         Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
@@ -623,7 +652,7 @@ fooerror:
         ' serve a vedere chi si è già votato
         Dim jResultsb As Object = JObject.Parse(rawresp)
         Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
-        'MsgBox(testob)
+        ' MsgBox(testob)
 
 
 
@@ -849,7 +878,7 @@ fooerror:
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         ' votepools = "no"
         If MsgBox("Completing this procedure will cost you 1 LISK and you will vote ", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
@@ -905,7 +934,7 @@ fooerror:
 
             Dim jResults3 As Object = JObject.Parse(testo)
             Dim testo2 As String = If(jResults3("secondSignature") Is Nothing, "", jResults3("secondSignature").ToString())
-            MsgBox(testo2)
+            ' MsgBox(testo2)
             If testo2 = 0 Then
                 Me.Button8.PerformClick()
 
@@ -920,7 +949,7 @@ fooerror:
     End Sub
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
         Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
@@ -994,7 +1023,337 @@ fooerror:
         Dim LineOfText As String
 
         LineOfText = String.Join(",", CType(myAL.ToArray(Type.GetType("System.String")), String()))
-        MsgBox(LineOfText)
+        '  MsgBox(LineOfText)
+
+        If LineOfText = "" Then
+            MsgBox("you have already voted all selected delegates")
+            GoTo fooerror
+        End If
+
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
+
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "PUT"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+        Try
+            Dim returnString As String = response.StatusCode.ToString()
+            Dim returnString2 As String = response.ToString()
+            MsgBox(returnString)
+
+
+            '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+            Dim result As String
+
+            Try
+                response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+                reader = New StreamReader(response.GetResponseStream())
+
+                result = reader.ReadToEnd()
+            Finally
+                If Not response Is Nothing Then response.Close()
+            End Try
+
+            MsgBox(result)
+
+
+        Catch
+            MsgBox("tx fallita")
+        End Try
+        seedx = ""
+        '  seed2 = ""
+
+
+
+
+fooerror:
+    End Sub
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        ' votepools = "no"
+        If MsgBox("Completing this procedure will cost you 1 LISK and you will unvote ", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+
+            Dim senderId As String = Lisk.senderId
+
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
+
+            Dim defaultResponse As String = String.Empty
+            Dim title As String = String.Empty
+
+            If senderId IsNot Nothing Then
+                MsgBox("using your address " & senderId)
+            Else
+                Dim prompt As String = String.Empty
+                prompt = "What is your address?"
+                senderId = InputBox(prompt, title, defaultResponse)
+            End If
+
+
+
+
+            Dim request As HttpWebRequest
+
+            Dim response As HttpWebResponse = Nothing
+
+            Dim reader As StreamReader
+
+            On Error Resume Next
+            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            response = DirectCast(request.GetResponse(), HttpWebResponse)
+            reader = New StreamReader(response.GetResponseStream())
+
+            Dim rawresp As String
+            rawresp = reader.ReadToEnd()
+            MsgBox(rawresp)
+
+
+            Dim jResults As Object = JObject.Parse(rawresp)
+            Dim testoerr As String = If(jResults("error") Is Nothing, "", jResults("error").ToString())
+            '    MsgBox(testoerr)
+            If testoerr = "Account not found" Then
+                '  Me.Button8.PerformClick()
+                MsgBox(rawresp)
+                GoTo fooerror
+            Else
+
+            End If
+
+
+            Dim jResults2 As Object = JObject.Parse(rawresp)
+
+            Dim testo As String = If(jResults2("account") Is Nothing, "", jResults2("account").ToString())
+
+            Dim jResults3 As Object = JObject.Parse(testo)
+            Dim testo2 As String = If(jResults3("secondSignature") Is Nothing, "", jResults3("secondSignature").ToString())
+            ' MsgBox(testo2)
+            If testo2 = 0 Then
+                Me.Button10.PerformClick()
+
+            Else
+                Me.Button11.PerformClick()
+                ' MsgBox("xxx")
+
+            End If
+
+        End If
+fooerror:
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        Dim senderId As String = Lisk.senderId
+        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        ' MsgBox(senderId)
+
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+        Dim rawresp As String
+
+
+        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        rawresp = reader.ReadToEnd()
+
+        ' serve a vedere chi si è già votato
+        Dim jResultsb As Object = JObject.Parse(rawresp)
+        Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
+        'MsgBox(testob)
+
+
+
+
+        pubkey()
+
+
+        Dim title As String = String.Empty
+        Dim defaultResponse As String = String.Empty
+        Dim prompt As String = String.Empty
+
+        Dim seed2 As Object
+        prompt = "What's your second signature?"
+        seed2 = InputBox(prompt, title, defaultResponse)
+        If seed2 Is "" Then GoTo fooerror
+
+
+
+
+
+
+        Const quote As String = """"
+
+        For Each indexChecked In CheckedListBox3.CheckedIndices
+            'The indexChecked variable contains the index of the item.
+            '  MessageBox.Show("Index#: " + indexChecked.ToString() + ", is checked. Checked state is:" +
+            '  CheckedListBox1.GetItemCheckState(indexChecked).ToString() + ".")
+            CheckedListBox4.SetItemChecked(indexChecked.ToString(), True)
+        Next
+
+
+        Dim myAL As New ArrayList
+
+        ' Dim a As Integer = 0
+        For Each itemChecked In CheckedListBox4.CheckedItems
+            '  Do While (a < CheckedListBox1.Items.Count)
+
+            ' a = (a + 1)
+            ' Loop
+            ' Use the IndexOf method to get the index of an item.
+            '  MessageBox.Show("Item with title: " + quote + itemChecked.ToString() + quote +
+            '      ", is checked. Checked state is: " +
+            '       CheckedListBox1.GetItemCheckState(CheckedListBox1.Items.IndexOf(itemChecked)).ToString() + ".")
+            ' MessageBox.Show(itemChecked.ToString())
+
+
+
+            myAL.Add(Chr(34) & "-" & itemChecked.ToString() & Chr(34))
+
+
+
+        Next
+
+        Dim LineOfText As String
+
+        LineOfText = String.Join(",", CType(myAL.ToArray(Type.GetType("System.String")), String()))
+        ' MsgBox(LineOfText)
+
+        If LineOfText = "" Then
+            MsgBox("you have already voted all selected delegates")
+            GoTo fooerror
+        End If
+
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
+
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "PUT"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+        Try
+            Dim returnString As String = response.StatusCode.ToString()
+            Dim returnString2 As String = response.ToString()
+            MsgBox(returnString)
+
+
+            '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+            Dim result As String
+
+            Try
+                response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+                reader = New StreamReader(response.GetResponseStream())
+
+                result = reader.ReadToEnd()
+            Finally
+                If Not response Is Nothing Then response.Close()
+            End Try
+
+            MsgBox(result)
+
+
+        Catch
+            MsgBox("tx fallita")
+        End Try
+        seedx = ""
+        seed2 = ""
+
+
+
+
+fooerror:
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        Dim senderId As String = Lisk.senderId
+        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        ' MsgBox(senderId)
+
+        Dim request As HttpWebRequest
+
+        Dim response As HttpWebResponse = Nothing
+
+        Dim reader As StreamReader
+        Dim rawresp As String
+
+
+        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+        reader = New StreamReader(response.GetResponseStream())
+
+        rawresp = reader.ReadToEnd()
+
+        ' serve a vedere chi si è già votato
+        Dim jResultsb As Object = JObject.Parse(rawresp)
+        Dim testob As String = If(jResultsb("delegates") Is Nothing, "", jResultsb("delegates").ToString())
+        'MsgBox(testob)
+
+
+
+
+        pubkey()
+
+
+
+
+        Const quote As String = """"
+
+        For Each indexChecked In CheckedListBox3.CheckedIndices
+            'The indexChecked variable contains the index of the item.
+            '  MessageBox.Show("Index#: " + indexChecked.ToString() + ", is checked. Checked state is:" +
+            '  CheckedListBox1.GetItemCheckState(indexChecked).ToString() + ".")
+            CheckedListBox4.SetItemChecked(indexChecked.ToString(), True)
+        Next
+
+
+        Dim myAL As New ArrayList
+
+        ' Dim a As Integer = 0
+        For Each itemChecked In CheckedListBox4.CheckedItems
+            '  Do While (a < CheckedListBox1.Items.Count)
+
+            ' a = (a + 1)
+            ' Loop
+            ' Use the IndexOf method to get the index of an item.
+            '  MessageBox.Show("Item with title: " + quote + itemChecked.ToString() + quote +
+            '      ", is checked. Checked state is: " +
+            '       CheckedListBox1.GetItemCheckState(CheckedListBox1.Items.IndexOf(itemChecked)).ToString() + ".")
+            ' MessageBox.Show(itemChecked.ToString())
+
+
+
+            myAL.Add(Chr(34) & "-" & itemChecked.ToString() & Chr(34))
+
+
+
+
+        Next
+
+        Dim LineOfText As String
+
+        LineOfText = String.Join(",", CType(myAL.ToArray(Type.GetType("System.String")), String()))
+        '   MsgBox(LineOfText)
 
         If LineOfText = "" Then
             MsgBox("you have already voted all selected delegates")

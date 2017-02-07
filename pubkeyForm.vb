@@ -9,7 +9,7 @@ Public Class pubkeyForm
     End Function
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
-        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         'https://github.com/LiskHQ/lisk/issues/322
 
         Dim myAL As New ArrayList

@@ -35,11 +35,17 @@ Partial Class vote
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.CheckedListBox3 = New System.Windows.Forms.CheckedListBox()
+        Me.CheckedListBox4 = New System.Windows.Forms.CheckedListBox()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(12, 485)
+        Me.Button1.Location = New System.Drawing.Point(12, 491)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 2
@@ -48,7 +54,7 @@ Partial Class vote
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(955, 125)
+        Me.Button2.Location = New System.Drawing.Point(1212, 488)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 4
@@ -58,14 +64,14 @@ Partial Class vote
         'CheckedListBox1
         '
         Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Location = New System.Drawing.Point(12, 45)
+        Me.CheckedListBox1.Location = New System.Drawing.Point(9, 25)
         Me.CheckedListBox1.Name = "CheckedListBox1"
         Me.CheckedListBox1.Size = New System.Drawing.Size(210, 424)
         Me.CheckedListBox1.TabIndex = 5
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(955, 251)
+        Me.Button3.Location = New System.Drawing.Point(1079, 488)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
         Me.Button3.TabIndex = 6
@@ -75,7 +81,7 @@ Partial Class vote
         'CheckedListBox2
         '
         Me.CheckedListBox2.FormattingEnabled = True
-        Me.CheckedListBox2.Location = New System.Drawing.Point(1069, 12)
+        Me.CheckedListBox2.Location = New System.Drawing.Point(1234, 29)
         Me.CheckedListBox2.Name = "CheckedListBox2"
         Me.CheckedListBox2.Size = New System.Drawing.Size(210, 424)
         Me.CheckedListBox2.TabIndex = 7
@@ -83,7 +89,7 @@ Partial Class vote
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(450, 45)
+        Me.RichTextBox1.Location = New System.Drawing.Point(368, 25)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(197, 424)
         Me.RichTextBox1.TabIndex = 8
@@ -91,7 +97,7 @@ Partial Class vote
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(450, 497)
+        Me.Button4.Location = New System.Drawing.Point(371, 497)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 9
@@ -101,7 +107,7 @@ Partial Class vote
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(447, 29)
+        Me.Label1.Location = New System.Drawing.Point(365, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 10
@@ -109,7 +115,7 @@ Partial Class vote
         '
         'Button5
         '
-        Me.Button5.Location = New System.Drawing.Point(667, 239)
+        Me.Button5.Location = New System.Drawing.Point(417, 455)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
         Me.Button5.TabIndex = 11
@@ -118,7 +124,7 @@ Partial Class vote
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(562, 497)
+        Me.Button6.Location = New System.Drawing.Point(483, 497)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(75, 23)
         Me.Button6.TabIndex = 12
@@ -127,7 +133,7 @@ Partial Class vote
         '
         'Button7
         '
-        Me.Button7.Location = New System.Drawing.Point(239, 227)
+        Me.Button7.Location = New System.Drawing.Point(66, 455)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(75, 23)
         Me.Button7.TabIndex = 13
@@ -136,7 +142,7 @@ Partial Class vote
         '
         'Button8
         '
-        Me.Button8.Location = New System.Drawing.Point(123, 485)
+        Me.Button8.Location = New System.Drawing.Point(121, 491)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(75, 23)
         Me.Button8.TabIndex = 14
@@ -146,17 +152,76 @@ Partial Class vote
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 29)
+        Me.Label2.Location = New System.Drawing.Point(9, 9)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(155, 13)
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Check your preferred delegates"
         '
+        'CheckedListBox3
+        '
+        Me.CheckedListBox3.FormattingEnabled = True
+        Me.CheckedListBox3.Location = New System.Drawing.Point(711, 25)
+        Me.CheckedListBox3.Name = "CheckedListBox3"
+        Me.CheckedListBox3.Size = New System.Drawing.Size(215, 424)
+        Me.CheckedListBox3.TabIndex = 16
+        '
+        'CheckedListBox4
+        '
+        Me.CheckedListBox4.FormattingEnabled = True
+        Me.CheckedListBox4.Location = New System.Drawing.Point(1057, 29)
+        Me.CheckedListBox4.Name = "CheckedListBox4"
+        Me.CheckedListBox4.Size = New System.Drawing.Size(171, 424)
+        Me.CheckedListBox4.TabIndex = 17
+        Me.CheckedListBox4.Visible = False
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(783, 455)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(75, 23)
+        Me.Button9.TabIndex = 18
+        Me.Button9.Text = "Unvote"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(854, 497)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(75, 23)
+        Me.Button10.TabIndex = 20
+        Me.Button10.Text = "1 seed"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(741, 497)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(75, 23)
+        Me.Button11.TabIndex = 19
+        Me.Button11.Text = "2 seed"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(711, 8)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(147, 13)
+        Me.Label4.TabIndex = 22
+        Me.Label4.Text = "Your actually voted delegates"
+        '
         'vote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(768, 479)
+        Me.ClientSize = New System.Drawing.Size(938, 486)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Button10)
+        Me.Controls.Add(Me.Button11)
+        Me.Controls.Add(Me.Button9)
+        Me.Controls.Add(Me.CheckedListBox4)
+        Me.Controls.Add(Me.CheckedListBox3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Button7)
@@ -191,4 +256,10 @@ Partial Class vote
     Friend WithEvents Button7 As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents CheckedListBox3 As CheckedListBox
+    Friend WithEvents CheckedListBox4 As CheckedListBox
+    Friend WithEvents Button9 As Button
+    Friend WithEvents Button10 As Button
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Label4 As Label
 End Class
