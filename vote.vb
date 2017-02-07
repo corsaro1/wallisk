@@ -803,6 +803,7 @@ fooerror:
     End Sub
 
     Private Sub pubkey()
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim title As String = String.Empty
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
