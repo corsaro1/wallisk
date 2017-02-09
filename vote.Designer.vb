@@ -245,7 +245,7 @@ Partial Class vote
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(938, 486)
+        Me.ClientSize = New System.Drawing.Size(934, 483)
         Me.Controls.Add(Me.Button14)
         Me.Controls.Add(Me.Button12)
         Me.Controls.Add(Me.Button13)
@@ -270,6 +270,7 @@ Partial Class vote
         Me.Controls.Add(Me.Button1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "vote"
         Me.Text = "vote"
         Me.ResumeLayout(False)

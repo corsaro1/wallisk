@@ -95,9 +95,9 @@ C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\WALLISK.pdb
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\bin\Debug\WALLISK.xml
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.cosignForm.resources
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.resources
-C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.Resources.resources
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.vote.resources
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.exe
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.xml
 C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.pdb
+C:\Users\All Users\progetti\lavoro temporaneo\002\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources

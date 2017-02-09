@@ -9,8 +9,12 @@ Imports Microsoft.Win32
 Imports System.ComponentModel
 Imports Newtonsoft.Json
 
+
+
+
 Public Class Lisk
 
+    Dim url1 As String
 
     Public Property senderId As Object = Nothing
     'Dim val As Object
@@ -85,6 +89,45 @@ Public Class Lisk
         BackgroundWorker7.RunWorkerAsync()
         BackgroundWorker8.RunWorkerAsync()
         BackgroundWorker9.RunWorkerAsync()
+
+
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+
+
+        If RadioButton1.Checked = True Then
+            url1 = "https://login.lisk.io/"
+
+        End If
+        If RadioButton2.Checked = True Then
+            url1 = "https://liskworld.info/"
+
+        End If
+        If RadioButton3.Checked = True Then
+            url1 = "https://lisk.liskwallet.io/"
+
+        End If
+        If RadioButton4.Checked = True Then
+            url1 = "https://liskwallet.punkrock.me/"
+
+        End If
+        If RadioButton5.Checked = True Then
+            url1 = "https://lisk-login.vipertkd.com/"
+
+        End If
+        If RadioButton6.Checked = True Then
+            url1 = "https://lisk.delegates.site/"
+
+        End If
+        If RadioButton7.Checked = True Then
+            url1 = "https://wallet.lisknode.io/"
+
+        End If
+        If RadioButton8.Checked = True Then
+            url1 = "https://wallet.mylisk.com/"
+
+        End If
+
 
 
 
@@ -994,7 +1037,7 @@ fooerror:
             Dim reader As StreamReader
 
             On Error Resume Next
-            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -1771,7 +1814,7 @@ FooError:
             Dim reader As StreamReader
 
             On Error Resume Next
-            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 

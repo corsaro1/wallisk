@@ -846,7 +846,7 @@ Partial Class Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(854, 380)
+        Me.ClientSize = New System.Drawing.Size(854, 383)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.Button23)
         Me.Controls.Add(Me.Button22)

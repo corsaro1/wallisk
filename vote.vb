@@ -4,8 +4,54 @@ Imports System.Security.Cryptography.X509Certificates
 Imports System.Text
 Imports Newtonsoft.Json.Linq
 
+
 Public Class vote
+
+    Dim url1 As String
+
+
+
     Private Sub vote_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+
+
+        If Lisk.RadioButton1.Checked = True Then
+            url1 = "https://login.lisk.io/"
+
+        End If
+        If Lisk.RadioButton2.Checked = True Then
+            url1 = "https://liskworld.info/"
+
+        End If
+        If Lisk.RadioButton3.Checked = True Then
+            url1 = "https://lisk.liskwallet.io/"
+
+        End If
+        If Lisk.RadioButton4.Checked = True Then
+            url1 = "https://liskwallet.punkrock.me/"
+
+        End If
+        If Lisk.RadioButton5.Checked = True Then
+            url1 = "https://lisk-login.vipertkd.com/"
+
+        End If
+        If Lisk.RadioButton6.Checked = True Then
+            url1 = "https://lisk.delegates.site/"
+
+        End If
+        If Lisk.RadioButton7.Checked = True Then
+            url1 = "https://wallet.lisknode.io/"
+
+        End If
+        If Lisk.RadioButton8.Checked = True Then
+            url1 = "https://wallet.mylisk.com/"
+
+        End If
+
+
+
         Label1.Text = "Insert delegate list, one per line"
         Me.Button2.PerformClick()
         Me.Button3.PerformClick()
@@ -13,6 +59,7 @@ Public Class vote
 
     Dim seedx As String
     Dim seed2x As String
+
 
     Dim pubkeyx As String
 
@@ -26,9 +73,16 @@ Public Class vote
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-        Dim senderId As String = Lisk.senderId
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
 
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
+
+
+
+        Dim senderId As String = Lisk.senderId
         ' MsgBox(senderId)
 
         Dim request As HttpWebRequest
@@ -39,7 +93,7 @@ Public Class vote
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -63,7 +117,7 @@ Public Class vote
         Dim seed2 As Object
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
-        If seed2 Is "" Then GoTo FooError
+        If seed2 Is "" Then GoTo fooerror
 
 
 
@@ -189,7 +243,7 @@ fooerror:
         Dim reader As StreamReader
 
         On Error Resume Next
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/delegates?limit=101&offset=0"), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/delegates?limit=101&offset=0"), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
         Dim rawresp As String
@@ -262,7 +316,7 @@ fooerror:
         Dim request2 As HttpWebRequest
         Dim response2 As HttpWebResponse = Nothing
         Dim reader2 As StreamReader
-        request2 = DirectCast(WebRequest.Create("https://login.lisk.io/api/delegates?limit=101&offset=101"), HttpWebRequest)
+        request2 = DirectCast(WebRequest.Create(url1 + "api/delegates?limit=101&offset=101"), HttpWebRequest)
         response2 = DirectCast(request2.GetResponse(), HttpWebResponse)
         reader2 = New StreamReader(response2.GetResponseStream())
         Dim rawresp2 As String
@@ -297,7 +351,13 @@ fooerror:
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
 
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
 
         Dim myAL As New ArrayList
         Dim senderId As String = Lisk.senderId
@@ -313,7 +373,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -377,7 +437,13 @@ fooerror:
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
 
         Dim myAL As New ArrayList
         Dim senderId As String = Lisk.senderId
@@ -393,7 +459,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -412,7 +478,7 @@ fooerror:
 
         'inutile
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -439,7 +505,7 @@ fooerror:
         Dim seed2 As Object
         prompt = "What's your second signature?"
         seed2 = InputBox(prompt, title, defaultResponse)
-        If seed2 Is "" Then GoTo FooError
+        If seed2 Is "" Then GoTo fooerror
 
 
 
@@ -452,7 +518,7 @@ fooerror:
 
 
 
-            request = DirectCast(WebRequest.Create("https://liskworld.info/api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -584,7 +650,7 @@ fooerror:
             Dim reader As StreamReader
 
             On Error Resume Next
-            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -627,7 +693,13 @@ fooerror:
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
 
         Dim myAL As New ArrayList
         Dim senderId As String = Lisk.senderId
@@ -643,7 +715,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -662,7 +734,7 @@ fooerror:
 
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -702,7 +774,7 @@ fooerror:
 
 
 
-            request = DirectCast(WebRequest.Create("https://liskworld.info/api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -908,7 +980,7 @@ fooerror:
             Dim reader As StreamReader
 
             On Error Resume Next
-            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -952,7 +1024,13 @@ fooerror:
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
 
         ' MsgBox(senderId)
 
@@ -1108,7 +1186,7 @@ fooerror:
             Dim reader As StreamReader
 
             On Error Resume Next
-            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -1152,7 +1230,12 @@ fooerror:
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
 
         ' MsgBox(senderId)
 
@@ -1164,7 +1247,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1287,7 +1370,13 @@ fooerror:
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
 
         ' MsgBox(senderId)
 
@@ -1299,7 +1388,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1411,7 +1500,13 @@ fooerror:
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        '   Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
 
         Dim myAL As New ArrayList
         Dim senderId As String = Lisk.senderId
@@ -1427,7 +1522,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1446,7 +1541,7 @@ fooerror:
 
         'inutile
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1486,7 +1581,7 @@ fooerror:
 
 
 
-            request = DirectCast(WebRequest.Create("https://liskworld.info/api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -1588,7 +1683,14 @@ fooerror:
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+
+        Dim posturl As String = "api/accounts/delegates"
+
+        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        Dim url As String = url1 + posturl
+
+
 
         Dim myAL As New ArrayList
         Dim senderId As String = Lisk.senderId
@@ -1604,7 +1706,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1623,7 +1725,7 @@ fooerror:
 
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1663,7 +1765,7 @@ fooerror:
 
 
 
-            request = DirectCast(WebRequest.Create("https://liskworld.info/api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/delegates/get?username=" & RichTextBox1.Lines(RotateCount)), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
@@ -1791,8 +1893,10 @@ fooerror:
 
             Dim reader As StreamReader
 
+
+
             On Error Resume Next
-            request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
             response = DirectCast(request.GetResponse(), HttpWebResponse)
             reader = New StreamReader(response.GetResponseStream())
 
