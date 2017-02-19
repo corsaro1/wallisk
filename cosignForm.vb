@@ -63,7 +63,7 @@ Public Class cosignForm
         '   pubkey()
 
         Dim seed As Object
-        prompt = "What's your seed?"
+        prompt = "What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror2
 
@@ -104,7 +104,7 @@ Public Class cosignForm
 
         '  Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & Chr(34) & "+" & pubkey1 & Chr(34) & "," & Chr(34) & "+" & pubkey2 & Chr(34) & "," & Chr(34) & "+" & pubkey3 & Chr(34) & "," & Chr(34) & "+" & pubkey4 & Chr(34) & "," & Chr(34) & "+" & pubkey5 & Chr(34) & "," & Chr(34) & "+" & pubkey6 & Chr(34) & "," & Chr(34) & "+" & pubkey7 & Chr(34) & "," & Chr(34) & "+" & pubkey8 & Chr(34) & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)

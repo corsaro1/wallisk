@@ -115,7 +115,7 @@ Public Class vote
         Dim prompt As String = String.Empty
 
         Dim seed2 As Object
-        prompt = "What's your second signature?"
+        prompt = "What's your second secret?"
         seed2 = InputBox(prompt, title, defaultResponse)
         If seed2 Is "" Then GoTo fooerror
 
@@ -169,7 +169,7 @@ Public Class vote
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -345,6 +345,83 @@ fooerror:
 
 
 
+
+
+
+        '  Dim request2 As HttpWebRequest
+        ' Dim response2 As HttpWebResponse = Nothing
+        '  Dim reader2 As StreamReader
+        request2 = DirectCast(WebRequest.Create(url1 + "api/delegates?limit=101&offset=202"), HttpWebRequest)
+        response2 = DirectCast(request2.GetResponse(), HttpWebResponse)
+        reader2 = New StreamReader(response2.GetResponseStream())
+        '    Dim rawresp2 As String
+        rawresp2 = reader2.ReadToEnd()
+        jResults = JObject.Parse(rawresp2)
+        startNumber = 0
+        endNumber = 100
+        For i = startNumber To endNumber
+
+            '   MessageBox.Show(i)
+            Dim testoa As String = If(jResults("delegates")(i)("username") Is Nothing, "", jResults("delegates")(i)("username").ToString())
+            Dim testoa1 As String = If(jResults("delegates")(i)("publicKey") Is Nothing, "", jResults("delegates")(i)("publicKey").ToString())
+            If testoa IsNot Nothing Then
+                '  MessageBox.Show(testoa)
+                testofinale += testoa & vbCrLf
+                CheckedListBox1.Items.Add(testoa)
+                CheckedListBox2.Items.Add(testoa1)
+                testoa = Nothing
+                testoa1 = Nothing
+
+            Else
+
+            End If
+
+        Next i
+
+
+
+
+
+
+
+
+        request2 = DirectCast(WebRequest.Create(url1 + "api/delegates?limit=101&offset=303"), HttpWebRequest)
+        response2 = DirectCast(request2.GetResponse(), HttpWebResponse)
+        reader2 = New StreamReader(response2.GetResponseStream())
+        '    Dim rawresp2 As String
+        rawresp2 = reader2.ReadToEnd()
+        jResults = JObject.Parse(rawresp2)
+        startNumber = 0
+        endNumber = 100
+        For i = startNumber To endNumber
+
+            '   MessageBox.Show(i)
+            Dim testoa As String = If(jResults("delegates")(i)("username") Is Nothing, "", jResults("delegates")(i)("username").ToString())
+            Dim testoa1 As String = If(jResults("delegates")(i)("publicKey") Is Nothing, "", jResults("delegates")(i)("publicKey").ToString())
+            If testoa IsNot Nothing Then
+                '  MessageBox.Show(testoa)
+                testofinale += testoa & vbCrLf
+                CheckedListBox1.Items.Add(testoa)
+                CheckedListBox2.Items.Add(testoa1)
+                testoa = Nothing
+                testoa1 = Nothing
+
+            Else
+
+            End If
+
+        Next i
+
+
+
+
+
+
+
+
+
+
+
 fooerror:
     End Sub
 
@@ -503,7 +580,7 @@ fooerror:
         Dim prompt As String = String.Empty
 
         Dim seed2 As Object
-        prompt = "What's your second signature?"
+        prompt = "What's your second secret?"
         seed2 = InputBox(prompt, title, defaultResponse)
         If seed2 Is "" Then GoTo fooerror
 
@@ -572,7 +649,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -828,7 +905,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -880,7 +957,8 @@ fooerror:
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
 
-        Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        Dim url As String = url1 + "api/accounts/generatePublicKey"
 
 
         Dim request As HttpWebRequest
@@ -903,7 +981,7 @@ fooerror:
         '  Catch
 
         Dim seed As Object
-        prompt = "Hello there. What's your seed?"
+        prompt = "Hello there. What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror
         seedx = seed
@@ -1111,7 +1189,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1269,7 +1347,7 @@ fooerror:
         Dim prompt As String = String.Empty
 
         Dim seed2 As Object
-        prompt = "What's your second signature?"
+        prompt = "What's your second secret?"
         seed2 = InputBox(prompt, title, defaultResponse)
         If seed2 Is "" Then GoTo fooerror
 
@@ -1322,7 +1400,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1452,7 +1530,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1566,7 +1644,7 @@ fooerror:
         Dim prompt As String = String.Empty
 
         Dim seed2 As Object
-        prompt = "What's your second signature?"
+        prompt = "What's your second secret?"
         seed2 = InputBox(prompt, title, defaultResponse)
         If seed2 Is "" Then GoTo fooerror
 
@@ -1635,7 +1713,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1819,7 +1897,7 @@ fooerror:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & pubkeyx & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)

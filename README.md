@@ -22,7 +22,8 @@ you will find the compiled exe inside the bin/Release folder
 ### Installation
 
 Wallisk requires [Net framework 4.5](https://www.microsoft.com/it-it/download/details.aspx?id=30653) to run.
-and has included in exe resources the [Json.NET library](https://github.com/JamesNK/Newtonsoft.Json) (as soon as you run the exe a Newtonsoft.Json.dll is created in exe folder)
+and has included in exe resources the [Json.NET library](https://github.com/JamesNK/Newtonsoft.Json) and [nuGet NBitcoin library](http://www.nuget.org/packages/NBitcoin/)
+(as soon as you run the exe a Newtonsoft.Json.dll and NBitcoin.dll are automatically created in exe folder)
 
 ### Windows Binary
 

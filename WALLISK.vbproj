@@ -73,8 +73,13 @@
     <ApplicationIcon>Lisk-small.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="NBitcoin, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NBitcoin.3.0.2.4\lib\net45\NBitcoin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -104,6 +109,12 @@
       <DependentUpon>cosignForm.vb</DependentUpon>
     </Compile>
     <Compile Include="cosignForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newAddress.Designer.vb">
+      <DependentUpon>newAddress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="newAddress.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="pubkeyForm.Designer.vb">
@@ -145,6 +156,9 @@
     <EmbeddedResource Include="cosignForm.resx">
       <DependentUpon>cosignForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="newAddress.resx">
+      <DependentUpon>newAddress.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="pubkeyForm.resx">
       <DependentUpon>pubkeyForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -177,6 +191,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\Newtonsoft.Json.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -206,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lisk-small.ico" />
+    <None Include="Resources\NBitcoin.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,9 +8,8 @@ Imports System.Text.RegularExpressions
 Imports Microsoft.Win32
 Imports System.ComponentModel
 Imports Newtonsoft.Json
-
-
-
+Imports NBitcoin
+Imports System.Windows.Forms
 
 Public Class Lisk
 
@@ -60,7 +59,7 @@ Public Class Lisk
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Control.CheckForIllegalCrossThreadCalls = False
         On Error Resume Next
-        Label17.Text = "or if you prefer you can both vote for wallet manteniers"
+        Label17.Text = "If you prefer you can both vote for public wallet manteniers"
 
         Label18.Text = "and STAKE your lisk voting too for some lisk pools"
         RadioButton1.PerformClick()
@@ -73,6 +72,7 @@ Public Class Lisk
 
 
         My.Computer.FileSystem.WriteAllBytes("Newtonsoft.Json.dll", My.Resources.Newtonsoft_Json, False)
+        My.Computer.FileSystem.WriteAllBytes("NBitcoin.dll", My.Resources.NBitcoin, False)
 
         Dim pRegKey As RegistryKey = Registry.CurrentUser
         pRegKey = pRegKey.OpenSubKey("SOFTWARE\wallisk")
@@ -460,7 +460,7 @@ Public Class Lisk
         If recipientId Is "" Then GoTo FooError
 
         Dim seed As Object
-        prompt = "Hello there. What's your seed?"
+        prompt = "Hello there. What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo FooError
 
@@ -470,7 +470,7 @@ Public Class Lisk
         ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & decimali & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         Dim request As HttpWebRequest = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -844,12 +844,12 @@ fooerror:
         If recipientId Is "" Then GoTo FooError
 
         Dim seed As Object
-        prompt = "What's your seed?"
+        prompt = "What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo FooError
 
         Dim seed2 As Object
-        prompt = "What's your second signature?"
+        prompt = "What's your second secret?"
         seed2 = InputBox(prompt, title, defaultResponse)
         If seed2 Is "" Then GoTo FooError
 
@@ -861,7 +861,7 @@ fooerror:
         ' Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & "00000000" & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "amount" & Chr(34) & ":" & original & decimali & "," & Chr(34) & "recipientId" & Chr(34) & ":" & Chr(34) & recipientId & Chr(34) & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         Dim request As HttpWebRequest = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1367,7 +1367,7 @@ fooerror:
 
         '  Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & Chr(34) & "+" & pubkey1 & Chr(34) & "," & Chr(34) & "+" & pubkey2 & Chr(34) & "," & Chr(34) & "+" & pubkey3 & Chr(34) & "," & Chr(34) & "+" & pubkey4 & Chr(34) & "," & Chr(34) & "+" & pubkey5 & Chr(34) & "," & Chr(34) & "+" & pubkey6 & Chr(34) & "," & Chr(34) & "+" & pubkey7 & Chr(34) & "," & Chr(34) & "+" & pubkey8 & Chr(34) & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1713,7 +1713,7 @@ Fooerror2:
 
         Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seedx & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & LineOfText & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -1887,7 +1887,7 @@ fooerror:
         '  Catch
 
         Dim seed As Object
-        prompt = "Hello there. What's your seed?"
+        prompt = "Hello there. What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror
 
@@ -1946,7 +1946,8 @@ fooerror:
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
 
-        Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        Dim url As String = url1 + "api/accounts/generatePublicKey"
 
 
         Dim request As HttpWebRequest
@@ -1969,7 +1970,7 @@ fooerror:
         '  Catch
 
         Dim seed As Object
-        prompt = "Hello there. What's your seed?"
+        prompt = "Hello there. What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror
         seedx = seed
@@ -2359,7 +2360,7 @@ fooerror:
         '   pubkey()
 
         Dim seed As Object
-        prompt = "What's your seed?"
+        prompt = "What's your secret?"
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo Fooerror2
 
@@ -2397,7 +2398,7 @@ fooerror:
 
         '  Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "publicKey" & Chr(34) & ":" & Chr(34) & testo2 & Chr(34) & "," & Chr(34) & "delegates" & Chr(34) & ":[" & Chr(34) & "+" & pubkey1 & Chr(34) & "," & Chr(34) & "+" & pubkey2 & Chr(34) & "," & Chr(34) & "+" & pubkey3 & Chr(34) & "," & Chr(34) & "+" & pubkey4 & Chr(34) & "," & Chr(34) & "+" & pubkey5 & Chr(34) & "," & Chr(34) & "+" & pubkey6 & Chr(34) & "," & Chr(34) & "+" & pubkey7 & Chr(34) & "," & Chr(34) & "+" & pubkey8 & Chr(34) & "]" & "}"
 
-        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
 
         Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
         request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
@@ -3109,6 +3110,638 @@ fooerror:
         'http://stackoverflow.com/questions/22096694/vb-net-multiple-nested-json-listed-by-lowest-first
         ' Dim deserialized = JsonConvert.DeserializeObject(Of RootObject)(jsonData.ToString())
         vote.ShowDialog()
+
+    End Sub
+
+    Private Sub Button24_Click(sender As Object, e As EventArgs) Handles Button24.Click
+
+        Dim mnemo As New Mnemonic(Wordlist.English, WordCount.Twelve)
+        ' Dim hdRoot As ExtKey = mnemo.DeriveExtKey("my password")
+        'Console.WriteLine(mnemo)
+        ' MsgBox(mnemo.ToString)
+        TextBox11.Text = mnemo.ToString
+        '  Console.WriteLine(hdRoot)
+
+        'hdRoot = mnemo.DeriveExtKey("my password")
+
+        '  MsgBox(hdRoot.ToString)
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        Dim title As String = String.Empty
+        Dim defaultResponse As String = String.Empty
+        Dim prompt As String = String.Empty
+
+        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/open"
+        '  Dim url As String = url1 + "api/accounts/open"
+
+
+        Dim url As String = "https://login.lisk.io/api/delegates"
+
+        If RadioButton1.Checked = True Then
+            url = "https://login.lisk.io/api/accounts/open"
+
+
+        End If
+        If RadioButton2.Checked = True Then
+            url = "https://liskworld.info/api/accounts/open"
+
+        End If
+        If RadioButton3.Checked = True Then
+            url = "https://lisk.liskwallet.io/api/accounts/open"
+
+        End If
+        If RadioButton4.Checked = True Then
+            url = "https://liskwallet.punkrock.me/api/accounts/open"
+
+        End If
+        If RadioButton5.Checked = True Then
+            url = "https://lisk-login.vipertkd.com/api/accounts/open"
+
+        End If
+        If RadioButton6.Checked = True Then
+            url = "https://lisk.delegates.site/api/accounts/open"
+
+        End If
+        If RadioButton7.Checked = True Then
+            url = "https://wallet.lisknode.io/api/accounts/open"
+
+        End If
+        If RadioButton8.Checked = True Then
+            url = "https://wallet.mylisk.com/api/accounts/open"
+
+        End If
+
+        If RadioButton8.Checked = True Then
+            url = "https://lisknodes.tech/api/accounts/open"
+
+        End If
+
+
+
+        '/api/accounts/open
+        ' MsgBox(url)
+
+        Dim request As HttpWebRequest
+
+        Dim responsex As HttpWebResponse = Nothing
+
+        '    Dim readerx As StreamReader
+
+        '  request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
+        '  readerx = New StreamReader(responsex.GetResponseStream())
+        '  Try
+        'Dim rawresp As String
+        '  rawresp = readerx.ReadToEnd()
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+        '  Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        '  Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        '  Catch
+
+        Dim seed As Object
+        ' prompt = "Hello there. What's your seed?"
+        ' seed = InputBox(prompt, title, defaultResponse)
+        ' If seed Is "" Then GoTo fooerror
+        seed = mnemo.ToString
+        seedx = seed
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "}"
+
+        '  MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SEED" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "POST"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+
+        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+
+
+        '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+
+        Dim reader As StreamReader
+        Dim result As String
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+        reader = New StreamReader(response.GetResponseStream())
+
+        result = reader.ReadToEnd()
+        ' MsgBox(result)
+        Dim jResults2 As Object = JObject.Parse(result)
+        Dim testo2 As String = If(jResults2("account")("publicKey") Is Nothing, "", jResults2("account")("publicKey").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        TextBox12.Text = testo2
+
+        Dim jResults3 As Object = JObject.Parse(result)
+        Dim testo3 As String = If(jResults3("account")("address") Is Nothing, "", jResults3("account")("address").ToString())
+
+        TextBox13.Text = testo3
+        MsgBox("your address is " & testo3) ' mia pubkey
+
+
+        If Not response Is Nothing Then response.Close()
+        pubkeyx = testo2
+
+        Label20.Visible = True
+        TextBox11.Visible = False
+        Label25.Visible = True
+        Label25.Text = "***************************************"
+
+        Label21.Visible = True
+        TextBox12.Visible = True
+
+        Label22.Visible = True
+        TextBox13.Visible = True
+
+        Label23.Visible = True
+        Label24.Visible = False
+
+        Button25.Visible = True
+
+        '   MsgBox(result)
+
+        '   End Try
+        Dim Save As New SaveFileDialog()
+
+        Dim myStreamWriter As System.IO.StreamWriter
+
+        Save.Filter = "Text [*.txt*]|*.txt|All Files [*.*]|*.*"
+
+        Save.CheckPathExists = True
+        Save.Title = "Save File"
+        Save.FileName = testo3
+        ' Save.ShowDialog(Me)
+        Try
+            myStreamWriter = System.IO.File.AppendText(Save.FileName)
+            myStreamWriter.Write("Secret:")
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write(TextBox11.Text)
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write("publicKey:")
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write(TextBox12.Text)
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write("address:")
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write(TextBox13.Text)
+            myStreamWriter.Flush()
+            myStreamWriter.Dispose()
+
+            ' If Windows.Forms.DialogResult.Yes Is True Then
+
+
+        Catch ex As Exception
+        End Try
+
+        ' If Save.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+        If Save.ShowDialog = Windows.Forms.DialogResult.Cancel Then
+            MsgBox("You have not saved the secret of this newly generated address" + vbCrLf + "Remember to Save carefully the Secret before using this new generated address ")
+            Button25.Text = "IMPORTANT! - Save Secret"
+        Else
+            MsgBox("Secret has been saved on your PC. Kindly make different copies of this file to not lost your LISK in case of hdd failure")
+        End If
+
+
+
+        Button25.Enabled = True
+
+
+
+
+fooerror:
+
+
+
+
+    End Sub
+
+    Private Sub Button25_Click(sender As Object, e As EventArgs) Handles Button25.Click
+        Dim Save As New SaveFileDialog()
+
+        Dim myStreamWriter As System.IO.StreamWriter
+
+        Save.Filter = "Text [*.txt*]|*.txt|All Files [*.*]|*.*"
+
+        Save.CheckPathExists = True
+        Save.Title = "Save File"
+        Save.FileName = TextBox13.Text
+        Save.ShowDialog(Me)
+        Try
+            myStreamWriter = System.IO.File.AppendText(Save.FileName)
+            myStreamWriter.Write("Secret:")
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write(TextBox11.Text)
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write("publicKey:")
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write(TextBox12.Text)
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write("address:")
+            myStreamWriter.Write(vbCrLf)
+            myStreamWriter.Write(TextBox13.Text)
+            myStreamWriter.Flush()
+            myStreamWriter.Dispose()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub Label24_Click(sender As Object, e As EventArgs) Handles Label24.Click
+        TextBox11.Visible = False
+        Label25.Visible = True
+        Label23.Visible = True
+        Label24.Visible = False
+
+    End Sub
+
+    Private Sub Label23_Click(sender As Object, e As EventArgs) Handles Label23.Click
+        TextBox11.Visible = True
+        Label25.Visible = False
+        TextBox11.ReadOnly = True
+        Label24.Visible = True
+        Label23.Visible = False
+    End Sub
+
+    Private Sub Button26_Click(sender As Object, e As EventArgs) Handles Button26.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        If MsgBox("With this procedure you will associate a delegate name to your address and will cost 25 LISK", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+
+
+            'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")
+
+            'votepools = "yes"
+
+            ' & vbCrLf & "phinx" & vbCrLf "shinekami" & vbCrLf "thepool" & vbCrLf "liskpool_com_01" & vbCrLf "robinhood" & vbCrLf "rooney" & vbCrLf "badman0316" & vbCrLf "lisk.pool.sexy"
+
+
+            Dim defaultResponse As String = String.Empty
+            Dim title As String = String.Empty
+
+            If senderId IsNot Nothing Then
+                MsgBox("using your address " & senderId)
+            Else
+                Dim prompt As String = String.Empty
+                prompt = "What is your address?"
+                senderId = InputBox(prompt, title, defaultResponse)
+            End If
+
+
+
+
+            Dim request As HttpWebRequest
+
+            Dim response As HttpWebResponse = Nothing
+
+            Dim reader As StreamReader
+
+            On Error Resume Next
+            request = DirectCast(WebRequest.Create(url1 + "api/accounts?address=" & senderId), HttpWebRequest)
+            response = DirectCast(request.GetResponse(), HttpWebResponse)
+            reader = New StreamReader(response.GetResponseStream())
+
+            Dim rawresp As String
+            rawresp = reader.ReadToEnd()
+            '    MsgBox(rawresp)
+
+
+            Dim jResults As Object = JObject.Parse(rawresp)
+            Dim testoerr As String = If(jResults("error") Is Nothing, "", jResults("error").ToString())
+            '    MsgBox(testoerr)
+            If testoerr = "Account not found" Then
+                MsgBox(rawresp)
+                GoTo fooerror
+            Else
+
+            End If
+
+
+            Dim jResults2 As Object = JObject.Parse(rawresp)
+
+            Dim testo As String = If(jResults2("account") Is Nothing, "", jResults2("account").ToString())
+
+            Dim jResults3 As Object = JObject.Parse(testo)
+            Dim testo2 As String = If(jResults3("secondSignature") Is Nothing, "", jResults3("secondSignature").ToString())
+            If testo2 = 0 Then
+                Me.Button28.PerformClick()
+                ' no sedond secret
+
+            Else
+                Me.Button27.PerformClick()
+                ' MsgBox("xxx")
+                'second secret
+
+            End If
+        End If
+fooerror:
+    End Sub
+
+    Private Sub Button27_Click(sender As Object, e As EventArgs) Handles Button27.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+
+
+        Dim url As String = "https://login.lisk.io/api/delegates"
+
+        If RadioButton1.Checked = True Then
+            url = "https://login.lisk.io/api/delegates"
+
+
+        End If
+        If RadioButton2.Checked = True Then
+            url = "https://liskworld.info/api/delegates"
+
+        End If
+        If RadioButton3.Checked = True Then
+            url = "https://lisk.liskwallet.io/api/delegates"
+
+        End If
+        If RadioButton4.Checked = True Then
+            url = "https://liskwallet.punkrock.me/api/delegates"
+
+        End If
+        If RadioButton5.Checked = True Then
+            url = "https://lisk-login.vipertkd.com/api/delegates"
+
+        End If
+        If RadioButton6.Checked = True Then
+            url = "https://lisk.delegates.site/api/delegates"
+
+        End If
+        If RadioButton7.Checked = True Then
+            url = "https://wallet.lisknode.io/api/delegates"
+
+        End If
+        If RadioButton8.Checked = True Then
+            url = "https://wallet.mylisk.com/api/delegates"
+
+        End If
+
+        If RadioButton8.Checked = True Then
+            url = "https://lisknodes.tech/api/delegates"
+
+        End If
+        ' MsgBox(url)
+
+        Dim title As String = String.Empty
+        Dim defaultResponse As String = String.Empty
+        Dim prompt As String = String.Empty
+
+        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/open"
+        ' Dim url As String = url1 + "api/delegates"
+        '/api/accounts/open
+
+
+        Dim request As HttpWebRequest
+
+        Dim responsex As HttpWebResponse = Nothing
+
+        '    Dim readerx As StreamReader
+
+        '  request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
+        '  readerx = New StreamReader(responsex.GetResponseStream())
+        '  Try
+        'Dim rawresp As String
+        '  rawresp = readerx.ReadToEnd()
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+        '  Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        '  Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        '  Catch
+
+        Dim username As Object
+        prompt = "Hello there. What's your choosed username?"
+        username = InputBox(prompt, title, defaultResponse)
+        If username Is "" Then GoTo fooerror
+
+
+        Dim seed As Object
+        prompt = "Hello there. What's your secret?"
+        seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
+
+
+
+        Dim seed2 As Object
+        prompt = "Hello there. What's your second secret?"
+        seed2 = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
+
+
+
+        'seedx = seed
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "secondSecret" & Chr(34) & ":" & Chr(34) & seed2 & Chr(34) & "," & Chr(34) & "username" & Chr(34) & ":" & Chr(34) & username & Chr(34) & "}"
+
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "PUT"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+
+        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+
+
+        '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+
+        Dim reader As StreamReader
+        Dim result As String
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+        reader = New StreamReader(response.GetResponseStream())
+
+        result = reader.ReadToEnd()
+        MsgBox(result)
+        Dim jResults2 As Object = JObject.Parse(result)
+        Dim testo2 As String = If(jResults2("success") Is Nothing, "", jResults2("success").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        ' TextBox12.Text = testo2
+
+        '  Dim jResults3 As Object = JObject.Parse(result)
+        ' Dim testo3 As String = If(jResults3("account")("address") Is Nothing, "", jResults3("account")("address").ToString())
+
+        ' TextBox13.Text = testo3
+        '  MsgBox("your address is " & testo3) ' mia pubkey
+
+
+        If Not response Is Nothing Then response.Close()
+        ' pubkeyx = testo2
+
+
+
+        '   MsgBox(result)
+
+        '   End Try
+
+
+        seed = ""
+        seed2 = ""
+
+
+fooerror:
+
+
+
+    End Sub
+
+    Private Sub Button28_Click(sender As Object, e As EventArgs) Handles Button28.Click
+        System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
+        Dim title As String = String.Empty
+        Dim defaultResponse As String = String.Empty
+        Dim prompt As String = String.Empty
+
+        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://login.lisk.io/api/accounts/open"
+        Dim url As String = "https://login.lisk.io/api/delegates"
+
+        If RadioButton1.Checked = True Then
+            url = "https://login.lisk.io/api/delegates"
+
+
+        End If
+        If RadioButton2.Checked = True Then
+            url = "https://liskworld.info/api/delegates"
+
+        End If
+        If RadioButton3.Checked = True Then
+            url = "https://lisk.liskwallet.io/api/delegates"
+
+        End If
+        If RadioButton4.Checked = True Then
+            url = "https://liskwallet.punkrock.me/api/delegates"
+
+        End If
+        If RadioButton5.Checked = True Then
+            url = "https://lisk-login.vipertkd.com/api/delegates"
+
+        End If
+        If RadioButton6.Checked = True Then
+            url = "https://lisk.delegates.site/api/delegates"
+
+        End If
+        If RadioButton7.Checked = True Then
+            url = "https://wallet.lisknode.io/api/delegates"
+
+        End If
+        If RadioButton8.Checked = True Then
+            url = "https://wallet.mylisk.com/api/delegates"
+
+        End If
+
+        If RadioButton8.Checked = True Then
+            url = "https://lisknodes.tech/api/delegates"
+
+        End If
+        '/api/accounts/open
+
+        ' MsgBox(url)
+        Dim request As HttpWebRequest
+
+        Dim responsex As HttpWebResponse = Nothing
+
+        '    Dim readerx As StreamReader
+
+        '  request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
+        '  readerx = New StreamReader(responsex.GetResponseStream())
+        '  Try
+        'Dim rawresp As String
+        '  rawresp = readerx.ReadToEnd()
+        '  Dim jResults As Object = JObject.Parse(rawresp)
+        '  Dim testo As String = If(jResults("account") Is Nothing, "", jResults("account").ToString())
+        '  Dim jResults2 As Object = JObject.Parse(testo)
+        '  Dim testo2 As String = If(jResults2("publicKey") Is Nothing, "", jResults2("publicKey").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        '  Catch
+
+        Dim username As Object
+        prompt = "Hello there. What's your choosen username?"
+        username = InputBox(prompt, title, defaultResponse)
+        If username Is "" Then GoTo fooerror
+
+
+
+        Dim seed As Object
+        prompt = "Hello there. What's your secret?"
+        seed = InputBox(prompt, title, defaultResponse)
+        If seed Is "" Then GoTo fooerror
+
+
+
+
+        'seedx = seed
+        Dim xml As String = "{" & Chr(34) & "secret" & Chr(34) & ":" & Chr(34) & seed & Chr(34) & "," & Chr(34) & "username" & Chr(34) & ":" & Chr(34) & username & Chr(34) & "}"
+
+        MsgBox("DO NOT SHARE THIS SCREEN. IT CONTAINS YOUR SECRET" & vbCrLf & vbCrLf & xml & " will be sent to " & url)
+
+        Dim arr As Byte() = System.Text.Encoding.UTF8.GetBytes(xml)
+        request = DirectCast(HttpWebRequest.Create(url), HttpWebRequest)
+        request.Method = "PUT"
+        request.ContentType = "application/json"
+        request.ContentLength = arr.Length
+        ServicePointManager.ServerCertificateValidationCallback = AddressOf ValidateRemoteCertificate
+        Dim dataStream As Stream = request.GetRequestStream()
+        dataStream.Write(arr, 0, arr.Length)
+        dataStream.Close()
+
+        Dim response As HttpWebResponse = DirectCast(request.GetResponse(), HttpWebResponse)
+
+
+        '' https://developer.yahoo.com/dotnet/howto-xml_vb.html
+
+        Dim reader As StreamReader
+        Dim result As String
+
+        response = DirectCast(request.GetResponse(), HttpWebResponse)
+
+        reader = New StreamReader(response.GetResponseStream())
+
+        result = reader.ReadToEnd()
+        MsgBox(result)
+        Dim jResults2 As Object = JObject.Parse(result)
+        Dim testo2 As String = If(jResults2("success") Is Nothing, "", jResults2("success").ToString())
+        ' MsgBox("your pubKey is " & testo2) ' mia pubkey
+        ' TextBox12.Text = testo2
+
+        '  Dim jResults3 As Object = JObject.Parse(result)
+        ' Dim testo3 As String = If(jResults3("account")("address") Is Nothing, "", jResults3("account")("address").ToString())
+
+        ' TextBox13.Text = testo3
+        '  MsgBox("your address is " & testo3) ' mia pubkey
+
+
+        If Not response Is Nothing Then response.Close()
+        'pubkeyx = testo2
+
+
+
+        '   MsgBox(result)
+
+        '   End Try
+
+
+        seed = ""
+
+fooerror:
+
+
+    End Sub
+
+    Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
+        newAddress.ShowDialog()
 
     End Sub
 End Class
