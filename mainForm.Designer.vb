@@ -687,7 +687,7 @@ Partial Class Lisk
         Me.Button13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button13.Location = New System.Drawing.Point(554, 424)
         Me.Button13.Name = "Button13"
-        Me.Button13.Size = New System.Drawing.Size(134, 23)
+        Me.Button13.Size = New System.Drawing.Size(146, 23)
         Me.Button13.TabIndex = 78
         Me.Button13.Text = "$ STAKE your lisk $"
         Me.Button13.UseVisualStyleBackColor = True
@@ -780,7 +780,7 @@ Partial Class Lisk
         '
         'Button18
         '
-        Me.Button18.Location = New System.Drawing.Point(553, 67)
+        Me.Button18.Location = New System.Drawing.Point(554, 199)
         Me.Button18.Name = "Button18"
         Me.Button18.Size = New System.Drawing.Size(147, 23)
         Me.Button18.TabIndex = 85
@@ -789,7 +789,7 @@ Partial Class Lisk
         '
         'Button19
         '
-        Me.Button19.Location = New System.Drawing.Point(553, 102)
+        Me.Button19.Location = New System.Drawing.Point(554, 234)
         Me.Button19.Name = "Button19"
         Me.Button19.Size = New System.Drawing.Size(147, 23)
         Me.Button19.TabIndex = 86
@@ -815,7 +815,7 @@ Partial Class Lisk
         '
         'Button21
         '
-        Me.Button21.Location = New System.Drawing.Point(553, 134)
+        Me.Button21.Location = New System.Drawing.Point(554, 266)
         Me.Button21.Name = "Button21"
         Me.Button21.Size = New System.Drawing.Size(147, 23)
         Me.Button21.TabIndex = 89
@@ -824,7 +824,7 @@ Partial Class Lisk
         '
         'RichTextBox1
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(722, 67)
+        Me.RichTextBox1.Location = New System.Drawing.Point(723, 199)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(146, 96)
         Me.RichTextBox1.TabIndex = 90
@@ -842,7 +842,7 @@ Partial Class Lisk
         '
         'Button23
         '
-        Me.Button23.Location = New System.Drawing.Point(554, 229)
+        Me.Button23.Location = New System.Drawing.Point(554, 89)
         Me.Button23.Name = "Button23"
         Me.Button23.Size = New System.Drawing.Size(146, 23)
         Me.Button23.TabIndex = 92
@@ -852,7 +852,7 @@ Partial Class Lisk
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(719, 51)
+        Me.Label19.Location = New System.Drawing.Point(720, 183)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(45, 13)
         Me.Label19.TabIndex = 93
@@ -960,7 +960,7 @@ Partial Class Lisk
         '
         'Button26
         '
-        Me.Button26.Location = New System.Drawing.Point(554, 181)
+        Me.Button26.Location = New System.Drawing.Point(554, 129)
         Me.Button26.Name = "Button26"
         Me.Button26.Size = New System.Drawing.Size(146, 23)
         Me.Button26.TabIndex = 105
@@ -997,7 +997,7 @@ Partial Class Lisk
         '
         'Button29
         '
-        Me.Button29.Location = New System.Drawing.Point(554, 273)
+        Me.Button29.Location = New System.Drawing.Point(554, 51)
         Me.Button29.Name = "Button29"
         Me.Button29.Size = New System.Drawing.Size(147, 23)
         Me.Button29.TabIndex = 109
