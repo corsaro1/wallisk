@@ -160,49 +160,50 @@ Public Class newAddress
         '   MsgBox(result)
 
         '   End Try
-        Dim Save As New SaveFileDialog()
+        '   Dim Save As New SaveFileDialog()
 
-        Dim myStreamWriter As System.IO.StreamWriter
+        '   Dim myStreamWriter As System.IO.StreamWriter
 
-        Save.Filter = "Text [*.txt*]|*.txt|All Files [*.*]|*.*"
+        '   Save.Filter = "Text [*.txt*]|*.txt|All Files [*.*]|*.*"
 
-        Save.CheckPathExists = True
-        Save.Title = "Save File"
-        Save.FileName = testo3
-        ' Save.ShowDialog(Me)
-        Try
-            myStreamWriter = System.IO.File.AppendText(Save.FileName)
-            myStreamWriter.Write("Secret:")
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write(TextBox11.Text)
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write("publicKey:")
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write(TextBox12.Text)
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write("address:")
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write(TextBox13.Text)
-            myStreamWriter.Flush()
-            myStreamWriter.Dispose()
+        '    Save.CheckPathExists = True
+        '   Save.Title = "Save File"
+        '  Save.FileName = testo3
+        '' Save.ShowDialog(Me)
+        '   Try
+        'myStreamWriter = System.IO.File.AppendText(Save.FileName)
+        ' myStreamWriter.Write("Secret:")
+        'myStreamWriter.Write(vbCrLf)
+        'myStreamWriter.Write(TextBox11.Text)
+        'myStreamWriter.Write(vbCrLf)
+        'myStreamWriter.Write("publicKey:")
+        'myStreamWriter.Write(vbCrLf)
+        'myStreamWriter.Write(TextBox12.Text)
+        'myStreamWriter.Write(vbCrLf)
+        '  myStreamWriter.Write("address:")
+        '    myStreamWriter.Write(vbCrLf)
+        '   myStreamWriter.Write(TextBox13.Text)
+        ' myStreamWriter.Flush()
+        ' myStreamWriter.Dispose()
 
-            ' If Windows.Forms.DialogResult.Yes Is True Then
+        '' If Windows.Forms.DialogResult.Yes Is True Then
 
 
-        Catch ex As Exception
-        End Try
+        '  Catch ex As Exception
+        '  End Try
 
         ' If Save.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
-        If Save.ShowDialog = Windows.Forms.DialogResult.Cancel Then
-            MsgBox("You have not saved the secret of this newly generated address" + vbCrLf + "Remember to Save carefully the Secret before using this new generated address ")
-            Button25.Text = "IMPORTANT! - Save Secret"
-        Else
-            MsgBox("Secret has been saved on your PC. Kindly make different copies of this file to not lost your LISK in case of hdd failure")
-        End If
+        ' If Save.ShowDialog = Windows.Forms.DialogResult.Cancel Then
+        'MsgBox("You have not saved the secret of this newly generated address" + vbCrLf + "Remember to Save carefully the Secret before using this new generated address ")
+        ' Button25.Text = "IMPORTANT! - Save Secret"
+        '   Else
+        '  MsgBox("Secret has been saved on your PC. Kindly make different copies of this file to not lost your LISK in case of hdd failure")
+        '   End If
 
 
 
         Button25.Enabled = True
+        Button25.PerformClick()
 
 
 
