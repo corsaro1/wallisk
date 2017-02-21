@@ -270,7 +270,13 @@ fooerror:
             myStreamWriter.Write(TextBox13.Text)
             myStreamWriter.Flush()
             myStreamWriter.Dispose()
+
         Catch ex As Exception
         End Try
+        '  If Windows.Forms.DialogResult.Cancel = True Then
+        'MsgBox("You have not saved the secret of this newly generated address" + vbCrLf + "Remember to Save carefully the Secret before using this new generated address ")
+        'Button25.Text = "IMPORTANT! - Save Secret"
+        '  End If
+
     End Sub
 End Class

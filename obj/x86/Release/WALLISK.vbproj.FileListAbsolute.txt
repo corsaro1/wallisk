@@ -101,3 +101,4 @@ C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Release\WALLIS
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Release\WALLISK.vote.resources
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Release\WALLISK.vbproj.GenerateResource.Cache
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Release\WALLISK.newAddress.resources
+C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Release\WALLISK.vbprojResolveAssemblyReference.cache
