@@ -254,29 +254,32 @@ fooerror:
         Save.CheckPathExists = True
         Save.Title = "Save File"
         Save.FileName = TextBox13.Text
-        Save.ShowDialog(Me)
-        Try
-            myStreamWriter = System.IO.File.AppendText(Save.FileName)
-            myStreamWriter.Write("Secret:")
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write(TextBox11.Text)
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write("publicKey:")
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write(TextBox12.Text)
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write("address:")
-            myStreamWriter.Write(vbCrLf)
-            myStreamWriter.Write(TextBox13.Text)
-            myStreamWriter.Flush()
-            myStreamWriter.Dispose()
+        '  Save.ShowDialog(Me)
 
-        Catch ex As Exception
-        End Try
-        '  If Windows.Forms.DialogResult.Cancel = True Then
-        'MsgBox("You have not saved the secret of this newly generated address" + vbCrLf + "Remember to Save carefully the Secret before using this new generated address ")
-        'Button25.Text = "IMPORTANT! - Save Secret"
-        '  End If
+        If Save.ShowDialog = Windows.Forms.DialogResult.Cancel = True Then
+            MsgBox("You have not saved the secret of this newly generated address" + vbCrLf + "Remember to Save carefully the Secret before using this new generated address ")
+            Button25.Text = "IMPORTANT! - Save Secret"
+        Else
+            'Save.ShowDialog(Me)
+            Try
+                myStreamWriter = System.IO.File.AppendText(Save.FileName)
+                myStreamWriter.Write("Secret:")
+                myStreamWriter.Write(vbCrLf)
+                myStreamWriter.Write(TextBox11.Text)
+                myStreamWriter.Write(vbCrLf)
+                myStreamWriter.Write("publicKey:")
+                myStreamWriter.Write(vbCrLf)
+                myStreamWriter.Write(TextBox12.Text)
+                myStreamWriter.Write(vbCrLf)
+                myStreamWriter.Write("address:")
+                myStreamWriter.Write(vbCrLf)
+                myStreamWriter.Write(TextBox13.Text)
+                myStreamWriter.Flush()
+                myStreamWriter.Dispose()
+
+            Catch ex As Exception
+            End Try
+        End If
 
     End Sub
 End Class
