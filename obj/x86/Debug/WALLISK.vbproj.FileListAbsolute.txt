@@ -106,7 +106,6 @@ C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\bin\Debug\WALLISK.exe
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\bin\Debug\WALLISK.pdb
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\bin\Debug\WALLISK.xml
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\bin\Debug\Newtonsoft.Json.dll
-C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.cosignForm.resources
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.pubkeyForm.resources
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.Lisk.resources

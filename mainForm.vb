@@ -2504,7 +2504,47 @@ Fooerror2:
             url = "testnet-wallet.lisknode.io"
             ' request = DirectCast(WebRequest.Create("https://testnet-wallet.lisknode.io/api/accounts?address=" & senderid2), HttpWebRequest)
         ElseIf result = DialogResult.Yes Then
-            url = "login.lisk.io"
+            '   url = "login.lisk.io"
+
+
+
+            If RadioButton1.Checked = True Then
+                url = "login.lisk.io"
+
+            End If
+            If RadioButton2.Checked = True Then
+                url = "liskworld.info"
+
+            End If
+            If RadioButton3.Checked = True Then
+                url = "lisk.liskwallet.io"
+
+            End If
+            If RadioButton4.Checked = True Then
+                url = "liskwallet.punkrock.me"
+
+            End If
+            If RadioButton5.Checked = True Then
+                url = "lisk-login.vipertkd.com"
+
+            End If
+            If RadioButton6.Checked = True Then
+                url = "lisk.delegates.site"
+
+            End If
+            If RadioButton7.Checked = True Then
+                url = "wallet.lisknode.io"
+
+            End If
+            If RadioButton8.Checked = True Then
+                url = "wallet.mylisk.com"
+
+            End If
+
+
+
+
+
 
             'request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderid2), HttpWebRequest)
         End If

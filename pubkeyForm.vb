@@ -68,7 +68,43 @@ Public Class pubkeyForm
         Dim url As String
 
         If RadioButton1.Checked = True Then
-            url = "https://login.lisk.io/api/multisignatures/"
+            ' url = "https://login.lisk.io/api/multisignatures/"
+
+
+            If Lisk.RadioButton1.Checked = True Then
+                url = "https://login.lisk.io/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton2.Checked = True Then
+                url = "https://liskworld.info/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton3.Checked = True Then
+                url = "https://lisk.liskwallet.io/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton4.Checked = True Then
+                url = "https://liskwallet.punkrock.me/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton5.Checked = True Then
+                url = "https://lisk-login.vipertkd.com/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton6.Checked = True Then
+                url = "https://lisk.delegates.site/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton7.Checked = True Then
+                url = "https://wallet.lisknode.io/api/multisignatures/"
+
+            End If
+            If Lisk.RadioButton8.Checked = True Then
+                url = "https://wallet.mylisk.com/api/multisignatures/"
+
+            End If
+
+
         Else
             url = "https://testnet.lisk.io/api/multisignatures/"
         End If
