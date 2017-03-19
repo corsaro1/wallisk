@@ -39,7 +39,7 @@ Public Class newAddress
 
         End If
         If Lisk.RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/accounts/open"
+            url = "https://lisk.liskwallet.tech/api/accounts/open"
 
         End If
         If Lisk.RadioButton4.Checked = True Then
@@ -64,7 +64,7 @@ Public Class newAddress
         End If
 
         If Lisk.RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/accounts/open"
+            url = "https://login.liskwallet.net/api/accounts/open"
 
         End If
 

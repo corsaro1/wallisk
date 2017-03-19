@@ -26,7 +26,7 @@ Public Class vote
 
         End If
         If Lisk.RadioButton3.Checked = True Then
-            url1 = "https://lisk.liskwallet.io/"
+            url1 = "https://lisk.liskwallet.tech/"
 
         End If
         If Lisk.RadioButton4.Checked = True Then
@@ -704,7 +704,7 @@ fooerror:
 
             Dim senderId As String = Lisk.senderId
 
-            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software")
 
             Dim defaultResponse As String = String.Empty
             Dim title As String = String.Empty
@@ -1035,7 +1035,7 @@ fooerror:
 
             Dim senderId As String = Lisk.senderId
 
-            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software")
 
             Dim defaultResponse As String = String.Empty
             Dim title As String = String.Empty
@@ -1241,7 +1241,7 @@ fooerror:
 
             Dim senderId As String = Lisk.senderId
 
-            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software")
 
             Dim defaultResponse As String = String.Empty
             Dim title As String = String.Empty
@@ -1949,7 +1949,7 @@ fooerror:
 
             Dim senderId As String = Lisk.senderId
 
-            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software")
 
             Dim defaultResponse As String = String.Empty
             Dim title As String = String.Empty

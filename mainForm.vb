@@ -104,7 +104,7 @@ Public Class Lisk
 
         End If
         If RadioButton3.Checked = True Then
-            url1 = "https://lisk.liskwallet.io/"
+            url1 = "https://lisk.liskwallet.tech/"
 
         End If
         If RadioButton4.Checked = True Then
@@ -128,6 +128,10 @@ Public Class Lisk
 
         End If
 
+        If RadioButton9.Checked = True Then
+            url1 = "https://login.liskwallet.net"
+
+        End If
 
 
 
@@ -276,7 +280,7 @@ Public Class Lisk
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/transactions"
+            url = "https://lisk.liskwallet.tech/api/transactions"
 
         End If
         If RadioButton4.Checked = True Then
@@ -299,6 +303,12 @@ Public Class Lisk
             url = "https://wallet.mylisk.com/api/transactions"
 
         End If
+
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/transactions"
+
+        End If
+
 
 
 
@@ -657,7 +667,7 @@ fooerror:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/transactions"
+            url = "https://lisk.liskwallet.tech/api/transactions"
 
         End If
         If RadioButton4.Checked = True Then
@@ -681,8 +691,8 @@ fooerror:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/transactions"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/transactions"
 
         End If
 
@@ -1010,11 +1020,11 @@ fooerror:
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         votepools = "no"
-        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
 
-            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software")
+            ' MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software")
 
             Dim defaultResponse As String = String.Empty
             Dim title As String = String.Empty
@@ -1094,7 +1104,7 @@ fooerror:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/accounts/delegates"
+            url = "https://lisk.liskwallet.tech/api/accounts/delegates"
 
         End If
         If RadioButton4.Checked = True Then
@@ -1118,8 +1128,8 @@ fooerror:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/accounts/delegates"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/accounts/delegates"
 
         End If
 
@@ -1185,7 +1195,7 @@ fooerror:
         Dim pubkey5 As String = "27f7950c552f9ffa8c871940167e92257cf90625443a0183aa3f7e05e1f6cb21"
         Dim pubkey6 As String = "ad936990fb57f7e686763c293e9ca773d1d921888f5235189945a10029cd95b0"
         Dim pubkey7 As String = "1681920f9cb83ff2590a8e5c502a7015d4834f5365cf5ed17392c9c78147f94d"
-        Dim pubkey8 As String = "ec151a510d095dc2c19a87a3b54549cfe1c30e703d5216197b4c879ff08bc3ed"
+        Dim pubkey8 As String = "968ba2fa993ea9dc27ed740da0daf49eddd740dbd7cb1cb4fc5db3a20baf341b"
 
         Dim pubkey9 As String = "eddeb37070a19e1277db5ec34ea12225e84ccece9e6b2bb1bb27c3ba3999dac7" 'phinx
         Dim pubkey10 As String = "253e674789632f72c98d47a650f1ca5ece0dbb82f591080471129d57ed88fb8a" 'shinekami
@@ -1440,7 +1450,7 @@ Fooerror2:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/accounts/delegates"
+            url = "https://lisk.liskwallet.tech/api/accounts/delegates"
 
         End If
         If RadioButton4.Checked = True Then
@@ -1464,8 +1474,8 @@ Fooerror2:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/accounts/delegates"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/accounts/delegates"
 
         End If
 
@@ -1534,7 +1544,7 @@ Fooerror2:
         Dim pubkey5 As String = "27f7950c552f9ffa8c871940167e92257cf90625443a0183aa3f7e05e1f6cb21"
         Dim pubkey6 As String = "ad936990fb57f7e686763c293e9ca773d1d921888f5235189945a10029cd95b0"
         Dim pubkey7 As String = "1681920f9cb83ff2590a8e5c502a7015d4834f5365cf5ed17392c9c78147f94d"
-        Dim pubkey8 As String = "ec151a510d095dc2c19a87a3b54549cfe1c30e703d5216197b4c879ff08bc3ed"
+        Dim pubkey8 As String = "968ba2fa993ea9dc27ed740da0daf49eddd740dbd7cb1cb4fc5db3a20baf341b"
 
         Dim pubkey9 As String = "eddeb37070a19e1277db5ec34ea12225e84ccece9e6b2bb1bb27c3ba3999dac7" 'phinx
         Dim pubkey10 As String = "253e674789632f72c98d47a650f1ca5ece0dbb82f591080471129d57ed88fb8a" 'shinekami
@@ -1783,10 +1793,10 @@ FooError:
 
     Private Sub Button13_Click(sender As System.Object, e As System.EventArgs) Handles Button13.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
+        If MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
-            'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")
+            'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")
 
             votepools = "yes"
 
@@ -2087,7 +2097,7 @@ fooerror:
 
         On Error Resume Next
         'request3 = DirectCast(WebRequest.Create("http://liskworld.info:8000/api/loader/status/sync"), HttpWebRequest)
-        request3 = DirectCast(WebRequest.Create("https://lisk.liskwallet.io/api/loader/status/sync"), HttpWebRequest)
+        request3 = DirectCast(WebRequest.Create("https://lisk.liskwallet.tech/api/loader/status/sync"), HttpWebRequest)
 
         response3 = DirectCast(request3.GetResponse(), HttpWebResponse)
         reader3 = New StreamReader(response3.GetResponseStream())
@@ -2231,7 +2241,7 @@ fooerror:
         Dim reader9 As StreamReader
         On Error Resume Next
 
-        request9 = DirectCast(WebRequest.Create("https://lisknodes.tech/api/loader/status/sync"), HttpWebRequest)
+        request9 = DirectCast(WebRequest.Create("https://login.liskwallet.net/api/loader/status/sync"), HttpWebRequest)
 
         response9 = DirectCast(request9.GetResponse(), HttpWebResponse)
         reader9 = New StreamReader(response9.GetResponseStream())
@@ -2292,7 +2302,7 @@ fooerror:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/multisignatures/sign"
+            url = "https://lisk.liskwallet.tech/api/multisignatures/sign"
 
         End If
         If RadioButton4.Checked = True Then
@@ -2316,8 +2326,8 @@ fooerror:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/multisignatures/sign"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/multisignatures/sign"
 
         End If
 
@@ -2517,7 +2527,7 @@ Fooerror2:
 
             End If
             If RadioButton3.Checked = True Then
-                url = "lisk.liskwallet.io"
+                url = "lisk.liskwallet.tech"
 
             End If
             If RadioButton4.Checked = True Then
@@ -2538,6 +2548,11 @@ Fooerror2:
             End If
             If RadioButton8.Checked = True Then
                 url = "wallet.mylisk.com"
+
+            End If
+
+            If RadioButton9.Checked = True Then
+                url = "login.liskwallet.net"
 
             End If
 
@@ -3187,7 +3202,7 @@ fooerror:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/accounts/open"
+            url = "https://lisk.liskwallet.tech/api/accounts/open"
 
         End If
         If RadioButton4.Checked = True Then
@@ -3211,8 +3226,8 @@ fooerror:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/accounts/open"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/accounts/open"
 
         End If
 
@@ -3413,7 +3428,7 @@ fooerror:
         If MsgBox("With this procedure you will associate a delegate name to your address and will cost 25 LISK", MsgBoxStyle.OkCancel, "Title") = MsgBoxResult.Ok Then
 
 
-            'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and gregorst, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")
+            'MsgBox("Completing this procedure will cost you 1 LISK and you will vote all public wallet delegates: corsaro, phoenix1969, vipertdk, punkrock, hagie, gr33ndragon, bioly and isabella, so to support this software and besides you will stake your lisk on some of the main Lisk pools:" & vbCrLf & vbCrLf & "phinx" & vbCrLf & "shinekami" & vbCrLf & "thepool" & vbCrLf & "liskpool_com_01" & vbCrLf & "robinhood" & vbCrLf & "rooney" & vbCrLf & "badman0316" & vbCrLf & "lisk.pool.sexy")
 
             'votepools = "yes"
 
@@ -3497,7 +3512,7 @@ fooerror:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/delegates"
+            url = "https://lisk.liskwallet.tech/api/delegates"
 
         End If
         If RadioButton4.Checked = True Then
@@ -3521,8 +3536,8 @@ fooerror:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/delegates"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/delegates"
 
         End If
         ' MsgBox(url)
@@ -3657,7 +3672,7 @@ fooerror:
 
         End If
         If RadioButton3.Checked = True Then
-            url = "https://lisk.liskwallet.io/api/delegates"
+            url = "https://lisk.liskwallet.tech/api/delegates"
 
         End If
         If RadioButton4.Checked = True Then
@@ -3681,8 +3696,8 @@ fooerror:
 
         End If
 
-        If RadioButton8.Checked = True Then
-            url = "https://lisknodes.tech/api/delegates"
+        If RadioButton9.Checked = True Then
+            url = "https://login.liskwallet.net/api/delegates"
 
         End If
         '/api/accounts/open
@@ -3783,5 +3798,9 @@ fooerror:
     Private Sub Button29_Click(sender As Object, e As EventArgs) Handles Button29.Click
         newAddress.ShowDialog()
 
+    End Sub
+
+    Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
+        secondSecret.ShowDialog()
     End Sub
 End Class

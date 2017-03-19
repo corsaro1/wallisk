@@ -117,3 +117,9 @@ C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.pdb
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\bin\Debug\NBitcoin.dll
 C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.newAddress.resources
+C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.vbprojResolveAssemblyReference.cache
+C:\Users\All Users\progetti\lavoro temporaneo\003\WALLISK\obj\x86\Debug\WALLISK.secondSecret.resources
+C:\Users\All Users\progetti\definitivo\WALLISK\bin\Debug\NBitcoin.dll
+C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.newAddress.resources
+C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.secondSecret.resources
+C:\Users\All Users\progetti\definitivo\WALLISK\obj\x86\Debug\WALLISK.vote.resources
