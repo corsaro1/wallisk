@@ -129,6 +129,12 @@ Partial Class Lisk
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Button29 = New System.Windows.Forms.Button()
         Me.Button30 = New System.Windows.Forms.Button()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.TextBox14 = New System.Windows.Forms.TextBox()
+        Me.RadioButton10 = New System.Windows.Forms.RadioButton()
+        Me.LinkLabel10 = New System.Windows.Forms.LinkLabel()
+        Me.BackgroundWorker11 = New System.ComponentModel.BackgroundWorker()
+        Me.Timer10 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'TextBox1
@@ -526,9 +532,9 @@ Partial Class Lisk
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(350, 139)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(100, 13)
+        Me.Label5.Size = New System.Drawing.Size(102, 13)
         Me.Label5.TabIndex = 60
-        Me.Label5.Text = "node manteined by:"
+        Me.Label5.Text = "node maintained by:"
         '
         'Label6
         '
@@ -1014,11 +1020,59 @@ Partial Class Lisk
         Me.Button30.Text = "Second Signature Creation"
         Me.Button30.UseVisualStyleBackColor = True
         '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(347, 429)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(24, 13)
+        Me.Label26.TabIndex = 115
+        Me.Label26.Text = "you"
+        '
+        'TextBox14
+        '
+        Me.TextBox14.Location = New System.Drawing.Point(203, 421)
+        Me.TextBox14.Name = "TextBox14"
+        Me.TextBox14.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox14.TabIndex = 114
+        '
+        'RadioButton10
+        '
+        Me.RadioButton10.AutoSize = True
+        Me.RadioButton10.Location = New System.Drawing.Point(15, 421)
+        Me.RadioButton10.Name = "RadioButton10"
+        Me.RadioButton10.Size = New System.Drawing.Size(14, 13)
+        Me.RadioButton10.TabIndex = 113
+        Me.RadioButton10.TabStop = True
+        Me.RadioButton10.UseVisualStyleBackColor = True
+        '
+        'LinkLabel10
+        '
+        Me.LinkLabel10.AutoSize = True
+        Me.LinkLabel10.Location = New System.Drawing.Point(35, 421)
+        Me.LinkLabel10.Name = "LinkLabel10"
+        Me.LinkLabel10.Size = New System.Drawing.Size(110, 13)
+        Me.LinkLabel10.TabIndex = 112
+        Me.LinkLabel10.TabStop = True
+        Me.LinkLabel10.Text = "http://127.0.0.1:8000"
+        '
+        'BackgroundWorker11
+        '
+        '
+        'Timer10
+        '
+        Me.Timer10.Enabled = True
+        Me.Timer10.Interval = 10000
+        '
         'Lisk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(881, 460)
+        Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.TextBox14)
+        Me.Controls.Add(Me.RadioButton10)
+        Me.Controls.Add(Me.LinkLabel10)
         Me.Controls.Add(Me.Button30)
         Me.Controls.Add(Me.Button29)
         Me.Controls.Add(Me.Label25)
@@ -1220,4 +1274,10 @@ Partial Class Lisk
     Friend WithEvents Label25 As Label
     Friend WithEvents Button29 As Button
     Friend WithEvents Button30 As Button
+    Friend WithEvents Label26 As Label
+    Friend WithEvents TextBox14 As TextBox
+    Friend WithEvents RadioButton10 As RadioButton
+    Friend WithEvents LinkLabel10 As LinkLabel
+    Friend WithEvents BackgroundWorker11 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Timer10 As Timer
 End Class

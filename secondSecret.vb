@@ -82,10 +82,18 @@ Public Class secondSecret
 
             End If
 
-            If Lisk.RadioButton8.Checked = True Then
+            If Lisk.RadioButton9.Checked = True Then
                 url = "https://login.liskwallet.net/api/signatures"
 
             End If
+
+
+            If Lisk.RadioButton10.Checked = True Then
+                url = "http://127.0.0.1:8000/api/signatures"
+
+            End If
+
+
 
         Else
             url = "https://testnet.lisk.io/api/signatures"

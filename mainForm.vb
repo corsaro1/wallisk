@@ -89,6 +89,7 @@ Public Class Lisk
         BackgroundWorker7.RunWorkerAsync()
         BackgroundWorker8.RunWorkerAsync()
         BackgroundWorker9.RunWorkerAsync()
+        BackgroundWorker11.RunWorkerAsync()
 
 
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
@@ -130,6 +131,11 @@ Public Class Lisk
 
         If RadioButton9.Checked = True Then
             url1 = "https://login.liskwallet.net"
+
+        End If
+
+        If RadioButton10.Checked = True Then
+            url1 = "http://127.0.0.1:8000"
 
         End If
 
@@ -306,6 +312,11 @@ Public Class Lisk
 
         If RadioButton9.Checked = True Then
             url = "https://login.liskwallet.net/api/transactions"
+
+        End If
+
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/transactions"
 
         End If
 
@@ -696,7 +707,10 @@ fooerror:
 
         End If
 
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/transactions"
 
+        End If
 
 
         'http://stackoverflow.com/questions/812711/how-do-you-do-an-http-put
@@ -1133,7 +1147,10 @@ fooerror:
 
         End If
 
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/accounts/delegates"
 
+        End If
 
 
         'http://stackoverflow.com/questions/812711/how-do-you-do-an-http-put
@@ -1479,6 +1496,10 @@ Fooerror2:
 
         End If
 
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/accounts/delegates"
+
+        End If
 
 
 
@@ -2331,6 +2352,11 @@ fooerror:
 
         End If
 
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/multisignatures/sign"
+
+        End If
+
 
 
 
@@ -2511,7 +2537,7 @@ Fooerror2:
         If result = DialogResult.Cancel Then
             GoTo fooerror
         ElseIf result = DialogResult.No Then
-            url = "testnet-wallet.lisknode.io"
+            url = "https://testnet-wallet.lisknode.io"
             ' request = DirectCast(WebRequest.Create("https://testnet-wallet.lisknode.io/api/accounts?address=" & senderid2), HttpWebRequest)
         ElseIf result = DialogResult.Yes Then
             '   url = "login.lisk.io"
@@ -2519,44 +2545,47 @@ Fooerror2:
 
 
             If RadioButton1.Checked = True Then
-                url = "login.lisk.io"
+                url = "https://login.lisk.io"
 
             End If
             If RadioButton2.Checked = True Then
-                url = "liskworld.info"
+                url = "https://liskworld.info"
 
             End If
             If RadioButton3.Checked = True Then
-                url = "lisk.liskwallet.tech"
+                url = "https://lisk.liskwallet.tech"
 
             End If
             If RadioButton4.Checked = True Then
-                url = "liskwallet.punkrock.me"
+                url = "https://liskwallet.punkrock.me"
 
             End If
             If RadioButton5.Checked = True Then
-                url = "lisk-login.vipertkd.com"
+                url = "https://lisk-login.vipertkd.com"
 
             End If
             If RadioButton6.Checked = True Then
-                url = "lisk.delegates.site"
+                url = "https://lisk.delegates.site"
 
             End If
             If RadioButton7.Checked = True Then
-                url = "wallet.lisknode.io"
+                url = "https://wallet.lisknode.io"
 
             End If
             If RadioButton8.Checked = True Then
-                url = "wallet.mylisk.com"
+                url = "https://wallet.mylisk.com"
 
             End If
 
             If RadioButton9.Checked = True Then
-                url = "login.liskwallet.net"
+                url = "https://login.liskwallet.net"
 
             End If
 
+            If RadioButton10.Checked = True Then
+                url = "http://127.0.0.1:8000"
 
+            End If
 
 
 
@@ -2565,10 +2594,11 @@ Fooerror2:
         End If
 
 
+        ' MsgBox(url & senderid2)
 
 
-
-        request = DirectCast(WebRequest.Create("https://" & url & "/api/accounts?address=" & senderid2), HttpWebRequest)
+        '    request = DirectCast(WebRequest.Create("https://" & url & "/api/accounts?address=" & senderid2), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url & "/api/accounts?address=" & senderid2), HttpWebRequest)
 
 
 
@@ -2613,7 +2643,7 @@ Fooerror2:
 
         Dim jResultsb As Object = JObject.Parse(rawresp)
         Dim testob As String = If(jResultsb("account")("publicKey") Is Nothing, "", jResultsb("account")("publicKey").ToString())
-        'MsgBox(testob)
+        ' MsgBox(testob)
 
 
 
@@ -2643,8 +2673,8 @@ Fooerror2:
         ' ServicePointManager.SecurityProtocol = SecurityProtocolType.
         ' request = DirectCast(WebRequest.Create("https://testnet.lisk.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
         ' request = DirectCast(WebRequest.Create("https://wallet.lisknode.io/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
-        request = DirectCast(WebRequest.Create("https://" & url & "/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
-
+        '   request = DirectCast(WebRequest.Create("https://" & url & "/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
+        request = DirectCast(WebRequest.Create(url & "/api/multisignatures/pending?publicKey=" & pubkey2), HttpWebRequest)
 
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
@@ -3231,6 +3261,11 @@ fooerror:
 
         End If
 
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/accounts/open"
+
+        End If
+
 
 
         '/api/accounts/open
@@ -3540,6 +3575,13 @@ fooerror:
             url = "https://login.liskwallet.net/api/delegates"
 
         End If
+
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/delegates"
+
+        End If
+
+
         ' MsgBox(url)
 
         Dim title As String = String.Empty
@@ -3700,6 +3742,13 @@ fooerror:
             url = "https://login.liskwallet.net/api/delegates"
 
         End If
+
+        If RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/delegates"
+
+        End If
+
+
         '/api/accounts/open
 
         ' MsgBox(url)
@@ -3802,5 +3851,34 @@ fooerror:
 
     Private Sub Button30_Click(sender As Object, e As EventArgs) Handles Button30.Click
         secondSecret.ShowDialog()
+    End Sub
+
+    Private Sub BackgroundWorker11_DoWork(sender As Object, e As DoWorkEventArgs) Handles BackgroundWorker11.DoWork
+        Dim request11 As HttpWebRequest
+
+        Dim response11 As HttpWebResponse = Nothing
+
+        Dim reader11 As StreamReader
+        On Error Resume Next
+
+        request11 = DirectCast(WebRequest.Create("http://127.0.0.1:8000/api/loader/status/sync"), HttpWebRequest)
+
+        response11 = DirectCast(request11.GetResponse(), HttpWebResponse)
+        reader11 = New StreamReader(response11.GetResponseStream())
+
+        Dim rawresp11 As String
+        rawresp11 = reader11.ReadToEnd()
+
+        Dim jResults As Object = JObject.Parse(rawresp11)
+        TextBox14.Text = If(jResults("height") Is Nothing, "", jResults("height").ToString())
+        BackgroundWorker11.CancelAsync()
+        BackgroundWorker11.Dispose()
+    End Sub
+
+    Private Sub Timer10_Tick(sender As Object, e As EventArgs) Handles Timer10.Tick
+        If Not (BackgroundWorker11.IsBusy) Then
+            BackgroundWorker11.RunWorkerAsync()
+        End If
+        Timer10.Start()
     End Sub
 End Class

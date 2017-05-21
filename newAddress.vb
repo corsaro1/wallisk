@@ -63,8 +63,13 @@ Public Class newAddress
 
         End If
 
-        If Lisk.RadioButton8.Checked = True Then
+        If Lisk.RadioButton9.Checked = True Then
             url = "https://login.liskwallet.net/api/accounts/open"
+
+        End If
+
+        If Lisk.RadioButton10.Checked = True Then
+            url = "http://127.0.0.1:8000/api/accounts/open"
 
         End If
 
