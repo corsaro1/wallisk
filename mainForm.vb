@@ -130,12 +130,12 @@ Public Class Lisk
         End If
 
         If RadioButton9.Checked = True Then
-            url1 = "https://login.liskwallet.net"
+            url1 = "https://login.liskwallet.net/"
 
         End If
 
         If RadioButton10.Checked = True Then
-            url1 = "http://127.0.0.1:8000"
+            url1 = "http://127.0.0.1:8000/"
 
         End If
 

@@ -50,6 +50,17 @@ Public Class vote
 
         End If
 
+        If Lisk.RadioButton9.Checked = True Then
+            url1 = "https://login.liskwallet.net/"
+
+        End If
+
+        If Lisk.RadioButton10.Checked = True Then
+            url1 = "http://127.0.0.1:8000/"
+
+        End If
+
+
 
 
         Label1.Text = "Insert delegate list, one per line"

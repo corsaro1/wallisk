@@ -57,6 +57,16 @@ Public Class cosignForm
 
             End If
 
+            If Lisk.RadioButton9.Checked = True Then
+                url = "https://login.liskwallet.net/api/multisignatures/sign"
+
+            End If
+
+            If Lisk.RadioButton10.Checked = True Then
+                url = "http://127.0.0.1:8000/api/multisignatures/sign"
+
+            End If
+
 
 
 
