@@ -15,17 +15,17 @@ Public Class cosignForm
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
-        ' Dim url As String = "https://login.lisk.io/api/multisignatures/sign"
+        ' Dim url As String = "https://node01.lisk.io/api/multisignatures/sign"
 
         Dim url As String
 
         If RadioButton1.Checked = True Then
-            '    url = "https://login.lisk.io/api/multisignatures/sign"
+            '    url = "https://node01.lisk.io/api/multisignatures/sign"
 
 
 
             If Lisk.RadioButton1.Checked = True Then
-                url = "https://login.lisk.io/api/multisignatures/sign"
+                url = "https://node01.lisk.io/api/multisignatures/sign"
 
             End If
             If Lisk.RadioButton2.Checked = True Then
@@ -91,7 +91,7 @@ Public Class cosignForm
 
         Dim reader As StreamReader
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -116,7 +116,7 @@ Public Class cosignForm
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror2
 
-        '    request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        '    request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         '  response = DirectCast(request.GetResponse(), HttpWebResponse)
         '  reader = New StreamReader(response.GetResponseStream())
 

@@ -68,11 +68,11 @@ Public Class pubkeyForm
         Dim url As String
 
         If RadioButton1.Checked = True Then
-            ' url = "https://login.lisk.io/api/multisignatures/"
+            ' url = "https://node01.lisk.io/api/multisignatures/"
 
 
             If Lisk.RadioButton1.Checked = True Then
-                url = "https://login.lisk.io/api/multisignatures/"
+                url = "https://node01.lisk.io/api/multisignatures/"
 
             End If
             If Lisk.RadioButton2.Checked = True Then
@@ -143,7 +143,7 @@ Public Class pubkeyForm
 
         Dim reader As StreamReader
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -167,7 +167,7 @@ Public Class pubkeyForm
         seed = InputBox(prompt, title, defaultResponse)
         If seed Is "" Then GoTo fooerror2
 
-        '    request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        '    request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         '  response = DirectCast(request.GetResponse(), HttpWebResponse)
         '  reader = New StreamReader(response.GetResponseStream())
 

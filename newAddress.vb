@@ -22,15 +22,15 @@ Public Class newAddress
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
 
-        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
-        '  Dim url As String = "https://login.lisk.io/api/accounts/open"
+        '  Dim url As String = "https://node01.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://node01.lisk.io/api/accounts/open"
         '  Dim url As String = url1 + "api/accounts/open"
 
 
-        Dim url As String = "https://login.lisk.io/api/delegates"
+        Dim url As String = "https://node01.lisk.io/api/delegates"
 
         If Lisk.RadioButton1.Checked = True Then
-            url = "https://login.lisk.io/api/accounts/open"
+            url = "https://node01.lisk.io/api/accounts/open"
 
 
         End If
@@ -84,7 +84,7 @@ Public Class newAddress
 
         '    Dim readerx As StreamReader
 
-        '  request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '  request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
         '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
         '  readerx = New StreamReader(responsex.GetResponseStream())
         '  Try

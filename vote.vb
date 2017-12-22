@@ -18,7 +18,7 @@ Public Class vote
 
 
         If Lisk.RadioButton1.Checked = True Then
-            url1 = "https://login.lisk.io/"
+            url1 = "https://node01.lisk.io/"
 
         End If
         If Lisk.RadioButton2.Checked = True Then
@@ -87,7 +87,7 @@ Public Class vote
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -439,11 +439,11 @@ fooerror:
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 Or SecurityProtocolType.Tls12
 
-        '  Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        '  Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -525,11 +525,11 @@ fooerror:
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -781,11 +781,11 @@ fooerror:
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -968,7 +968,7 @@ fooerror:
         Dim defaultResponse As String = String.Empty
         Dim prompt As String = String.Empty
 
-        '  Dim url As String = "https://login.lisk.io/api/accounts/generatePublicKey"
+        '  Dim url As String = "https://node01.lisk.io/api/accounts/generatePublicKey"
         Dim url As String = url1 + "api/accounts/generatePublicKey"
 
 
@@ -978,7 +978,7 @@ fooerror:
 
         '    Dim readerx As StreamReader
 
-        '  request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
+        '  request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts?address=" & senderId), HttpWebRequest)
         '   responsex = DirectCast(request.GetResponse(), HttpWebResponse)
         '  readerx = New StreamReader(responsex.GetResponseStream())
         '  Try
@@ -1113,11 +1113,11 @@ fooerror:
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
-        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -1131,7 +1131,7 @@ fooerror:
         Dim rawresp As String
 
 
-        request = DirectCast(WebRequest.Create("https://login.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
+        request = DirectCast(WebRequest.Create("https://node01.lisk.io/api/accounts/delegates/?address=" & senderId), HttpWebRequest)
         response = DirectCast(request.GetResponse(), HttpWebResponse)
         reader = New StreamReader(response.GetResponseStream())
 
@@ -1319,11 +1319,11 @@ fooerror:
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
-        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
         ' MsgBox(senderId)
@@ -1459,11 +1459,11 @@ fooerror:
     Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
         Dim senderId As String = Lisk.senderId
-        '  Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        '  Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -1589,11 +1589,11 @@ fooerror:
     Private Sub Button13_Click(sender As Object, e As EventArgs) Handles Button13.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        '   Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        '   Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 
@@ -1772,11 +1772,11 @@ fooerror:
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12
 
-        ' Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        ' Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
 
         Dim posturl As String = "api/accounts/delegates"
 
-        'Dim url As String = "https://login.lisk.io/api/accounts/delegates"
+        'Dim url As String = "https://node01.lisk.io/api/accounts/delegates"
         Dim url As String = url1 + posturl
 
 

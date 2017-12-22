@@ -178,6 +178,7 @@ Partial Class Lisk
         '
         'TextBox3
         '
+        Me.TextBox3.Enabled = False
         Me.TextBox3.Location = New System.Drawing.Point(203, 218)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(100, 20)
@@ -192,6 +193,7 @@ Partial Class Lisk
         '
         'TextBox6
         '
+        Me.TextBox6.Enabled = False
         Me.TextBox6.Location = New System.Drawing.Point(203, 300)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(100, 20)
@@ -258,6 +260,7 @@ Partial Class Lisk
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Enabled = False
         Me.RadioButton3.Location = New System.Drawing.Point(15, 221)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(14, 13)
@@ -288,6 +291,7 @@ Partial Class Lisk
         'RadioButton6
         '
         Me.RadioButton6.AutoSize = True
+        Me.RadioButton6.Enabled = False
         Me.RadioButton6.Location = New System.Drawing.Point(15, 299)
         Me.RadioButton6.Name = "RadioButton6"
         Me.RadioButton6.Size = New System.Drawing.Size(14, 13)
@@ -327,11 +331,11 @@ Partial Class Lisk
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Location = New System.Drawing.Point(35, 171)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(94, 13)
+        Me.LinkLabel1.Size = New System.Drawing.Size(108, 13)
         Me.LinkLabel1.TabIndex = 40
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Tag = ""
-        Me.LinkLabel1.Text = "https://login.lisk.io"
+        Me.LinkLabel1.Text = "https://node01.lisk.io"
         '
         'LinkLabel2
         '
@@ -347,6 +351,7 @@ Partial Class Lisk
         'LinkLabel3
         '
         Me.LinkLabel3.AutoSize = True
+        Me.LinkLabel3.Enabled = False
         Me.LinkLabel3.Location = New System.Drawing.Point(35, 225)
         Me.LinkLabel3.Name = "LinkLabel3"
         Me.LinkLabel3.Size = New System.Drawing.Size(132, 13)
@@ -380,6 +385,7 @@ Partial Class Lisk
         'LinkLabel6
         '
         Me.LinkLabel6.AutoSize = True
+        Me.LinkLabel6.Enabled = False
         Me.LinkLabel6.Location = New System.Drawing.Point(35, 302)
         Me.LinkLabel6.Name = "LinkLabel6"
         Me.LinkLabel6.Size = New System.Drawing.Size(126, 13)
@@ -489,6 +495,7 @@ Partial Class Lisk
         'LinkLabel9
         '
         Me.LinkLabel9.AutoSize = True
+        Me.LinkLabel9.Enabled = False
         Me.LinkLabel9.Location = New System.Drawing.Point(35, 385)
         Me.LinkLabel9.Name = "LinkLabel9"
         Me.LinkLabel9.Size = New System.Drawing.Size(128, 13)
@@ -499,6 +506,7 @@ Partial Class Lisk
         'RadioButton9
         '
         Me.RadioButton9.AutoSize = True
+        Me.RadioButton9.Enabled = False
         Me.RadioButton9.Location = New System.Drawing.Point(15, 385)
         Me.RadioButton9.Name = "RadioButton9"
         Me.RadioButton9.Size = New System.Drawing.Size(14, 13)
@@ -508,6 +516,7 @@ Partial Class Lisk
         '
         'TextBox9
         '
+        Me.TextBox9.Enabled = False
         Me.TextBox9.Location = New System.Drawing.Point(203, 382)
         Me.TextBox9.Name = "TextBox9"
         Me.TextBox9.Size = New System.Drawing.Size(100, 20)
@@ -557,6 +566,7 @@ Partial Class Lisk
         'Label8
         '
         Me.Label8.AutoSize = True
+        Me.Label8.Enabled = False
         Me.Label8.Location = New System.Drawing.Point(347, 224)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(68, 13)
@@ -584,6 +594,7 @@ Partial Class Lisk
         'Label11
         '
         Me.Label11.AutoSize = True
+        Me.Label11.Enabled = False
         Me.Label11.Location = New System.Drawing.Point(347, 307)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(33, 13)
@@ -611,6 +622,7 @@ Partial Class Lisk
         'Label14
         '
         Me.Label14.AutoSize = True
+        Me.Label14.Enabled = False
         Me.Label14.Location = New System.Drawing.Point(347, 390)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(42, 13)
